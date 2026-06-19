@@ -29,6 +29,18 @@ lib/
   highlightMark, borderSection...); esos viajan por `AxThemeScope` y se leen con
   `AxTheme.of(context)`.
 
+## Instalacion
+
+Repositorio privado. Anade la dependencia git en el `pubspec.yaml` de tu app:
+
+```yaml
+dependencies:
+  atomic_ui:
+    git:
+      url: https://github.com/UScoreNow/atomic_ui.git
+      ref: main
+```
+
 ## Uso
 
 ```dart
@@ -87,14 +99,10 @@ AxApp(
   Carousel, DataTable, Drawer (propios).
 - **Templates:** PageScaffold, DashboardLayout, AuthLayout.
 
-## Galeria
+## Demo
 
-`example/` es una app con toggle light/dark que muestra componentes
-representativos. Ejecuta:
-
-```bash
-cd example && flutter run -d chrome
-```
+La app de demostracion (todos los componentes en vivo, con toggle light/dark)
+vive en su propio repositorio: **UScoreNow/atomic_ui_demo**.
 
 ## Notas
 
