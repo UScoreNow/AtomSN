@@ -1,0 +1,34 @@
+name: atomic_ui
+description: >-
+  Biblioteca de componentes Flutter brand-neutral y themeable, organizada por
+  atomic design + clean architecture. Envuelve el catalogo de shadcn_ui e incluye
+  el tema editorial 'newsprint' como preset por defecto.
+version: 0.0.1
+publish_to: none
+homepage:
+
+environment:
+  sdk: ^3.12.2
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shadcn_ui: ^0.54.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  alchemist: ^0.14.0
+
+flutter:
+  fonts:
+    - family: ElmsSans
+      fonts:
+        - asset: assets/fonts/elms_sans/ElmsSans-VariableFont.ttf
+        - asset: assets/fonts/elms_sans/ElmsSans-Italic-VariableFont.ttf
+          style: italic
+    - family: LibreCaslonDisplay
+      fonts:
+        - asset: assets/fonts/libre_caslon_display/LibreCaslonDisplay-Regular.ttf
