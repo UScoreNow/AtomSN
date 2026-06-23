@@ -11,10 +11,12 @@ import '../ax_theme.dart';
 /// legal mas oscuro y `paper50` (#FBF8F0) el papel mas claro.
 abstract final class AxNewsprintPalette {
   // paper
-  static const Color paper50 = Color(0xFFFBF8F0);
-  static const Color paper100 = Color(0xFFF5F0E3);
-  static const Color paper200 = Color(0xFFECE4D2);
-  static const Color paper300 = Color(0xFFDCD2BC);
+  // Tramo claro: gris calido tipo newsprint (mas gris, con tinte amarillento)
+  // en lugar del crema original.
+  static const Color paper50 = Color(0xFFECEAE0);
+  static const Color paper100 = Color(0xFFE5E2D6);
+  static const Color paper200 = Color(0xFFDBD7C8);
+  static const Color paper300 = Color(0xFFCDC8B6);
   static const Color paper400 = Color(0xFFC2B69D);
   static const Color paper500 = Color(0xFFA6987C);
   static const Color paper600 = Color(0xFF857862);
