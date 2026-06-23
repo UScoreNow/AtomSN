@@ -10,10 +10,28 @@ HOST_REPO="https://github.com/UScoreNow/atomic_ui_demo_web.git"
 BASE_HREF="/atomic_ui_demo_web/"
 
 flutter pub get
-flutter build web --release --base-href "$BASE_HREF" --no-tree-shake-icons
+# Sin service worker: GitHub Pages + PWA cachea de forma agresiva y, tras un
+# redeploy, deja la pantalla en blanco al servir un index/main desfasados.
+flutter build web --release --base-href "$BASE_HREF" --no-tree-shake-icons \
+  --pwa-strategy=none
 
 cd build/web
 touch .nojekyll
+
+# Sirve un service worker autodestructivo en la URL donde se registraron los SW
+# de despliegues anteriores, para que se desregistren y dejen de cachear.
+cat > flutter_service_worker.js <<'SW'
+self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('activate', (event) => {
+  event.waitUntil((async () => {
+    await self.registration.unregister();
+    const clients = await self.clients.matchAll({ type: 'window' });
+    for (const client of clients) {
+      client.navigate(client.url);
+    }
+  })());
+});
+SW
 rm -rf .git
 git init -q
 git checkout -q -b main
