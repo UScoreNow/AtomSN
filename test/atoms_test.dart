@@ -49,4 +49,39 @@ void main() {
     await tester.tap(find.byType(HugeIcon).at(2));
     expect(rated, 3);
   });
+
+  testWidgets('AxText aplica rol, color y mayusculas de overline', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        const Column(
+          children: [
+            AxText.h1('Titular'),
+            AxText.body('Cuerpo'),
+            AxText.overline('grupo a'),
+          ],
+        ),
+      ),
+    );
+    expect(find.text('Titular'), findsOneWidget);
+    expect(find.text('Cuerpo'), findsOneWidget);
+    // overline transforma a mayusculas.
+    expect(find.text('GRUPO A'), findsOneWidget);
+
+    final h1 = tester.widget<Text>(find.text('Titular'));
+    final body = tester.widget<Text>(find.text('Cuerpo'));
+    // El titular es mayor que el cuerpo y ambos llevan color del tema.
+    expect(h1.style!.fontSize! > body.style!.fontSize!, isTrue);
+    expect(h1.style!.color, AxNewsprint.light.textPrimary);
+  });
+
+  testWidgets('AxText.link invoca onTap', (tester) async {
+    var taps = 0;
+    await tester.pumpWidget(
+      _host(AxText.link('Abrir', onTap: () => taps++)),
+    );
+    await tester.tap(find.text('Abrir'));
+    expect(taps, 1);
+  });
 }

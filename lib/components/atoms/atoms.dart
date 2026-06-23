@@ -13,6 +13,7 @@ export 'ax_skeleton.dart';
 export 'ax_slider.dart';
 export 'ax_star_rating.dart';
 export 'ax_switch.dart';
+export 'ax_text.dart';
 export 'ax_textarea.dart';
 export 'ax_toggle.dart';
 export 'ax_tooltip.dart';
