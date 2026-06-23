@@ -12,7 +12,9 @@ BASE_HREF="/atomic_ui_demo_web/"
 flutter pub get
 # Sin service worker: GitHub Pages + PWA cachea de forma agresiva y, tras un
 # redeploy, deja la pantalla en blanco al servir un index/main desfasados.
-flutter build web --release --base-href "$BASE_HREF" --pwa-strategy=none
+# --wasm: dart2wasm + skwasm (mas ligero y rapido que CanvasKit), con fallback
+# automatico a JS/CanvasKit en navegadores sin WasmGC.
+flutter build web --release --base-href "$BASE_HREF" --pwa-strategy=none --wasm
 
 cd build/web
 touch .nojekyll
