@@ -1,5 +1,4 @@
 import 'package:atomic_ui/atomic_ui.dart';
-import 'package:flutter/material.dart' show Icon, Icons;
 import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
@@ -21,13 +20,19 @@ class TemplatesScreen extends StatelessWidget {
                 AxButton(
                   variant: AxButtonVariant.outline,
                   size: AxButtonSize.sm,
-                  leading: const Icon(Icons.refresh, size: 16),
+                  leading: const HugeIcon(
+                    icon: HugeIcons.strokeRoundedRefresh,
+                    size: 16,
+                  ),
                   onPressed: () {},
                   child: const Text('Refrescar'),
                 ),
                 AxButton(
                   size: AxButtonSize.sm,
-                  leading: const Icon(Icons.add, size: 16),
+                  leading: const HugeIcon(
+                    icon: HugeIcons.strokeRoundedAdd01,
+                    size: 16,
+                  ),
                   onPressed: () {},
                   child: const Text('Nuevo'),
                 ),
@@ -66,7 +71,10 @@ class TemplatesScreen extends StatelessWidget {
                     AxButton(
                       variant: AxButtonVariant.ghost,
                       size: AxButtonSize.sm,
-                      leading: const Icon(Icons.dashboard, size: 16),
+                      leading: const HugeIcon(
+                        icon: HugeIcons.strokeRoundedDashboardSquare01,
+                        size: 16,
+                      ),
                       onPressed: () {},
                       child: const Text('Inicio'),
                     ),
@@ -74,7 +82,10 @@ class TemplatesScreen extends StatelessWidget {
                     AxButton(
                       variant: AxButtonVariant.ghost,
                       size: AxButtonSize.sm,
-                      leading: const Icon(Icons.bar_chart, size: 16),
+                      leading: const HugeIcon(
+                        icon: HugeIcons.strokeRoundedChartLineData02,
+                        size: 16,
+                      ),
                       onPressed: () {},
                       child: const Text('Informes'),
                     ),
@@ -82,7 +93,10 @@ class TemplatesScreen extends StatelessWidget {
                     AxButton(
                       variant: AxButtonVariant.ghost,
                       size: AxButtonSize.sm,
-                      leading: const Icon(Icons.settings, size: 16),
+                      leading: const HugeIcon(
+                        icon: HugeIcons.strokeRoundedSettings01,
+                        size: 16,
+                      ),
                       onPressed: () {},
                       child: const Text('Ajustes'),
                     ),

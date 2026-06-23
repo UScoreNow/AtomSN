@@ -1,5 +1,4 @@
 import 'package:atomic_ui/atomic_ui.dart';
-import 'package:flutter/material.dart' show Icons, Icon;
 import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
@@ -71,13 +70,19 @@ class _AtomsScreenState extends State<AtomsScreen> {
               AxButton(
                 onPressed: () {},
                 size: AxButtonSize.sm,
-                leading: const Icon(Icons.add, size: 16),
+                leading: const HugeIcon(
+                  icon: HugeIcons.strokeRoundedAdd01,
+                  size: 16,
+                ),
                 child: const Text('Small'),
               ),
               AxButton(
                 onPressed: () {},
                 size: AxButtonSize.lg,
-                trailing: const Icon(Icons.arrow_forward, size: 16),
+                trailing: const HugeIcon(
+                  icon: HugeIcons.strokeRoundedArrowRight01,
+                  size: 16,
+                ),
                 child: const Text('Large'),
               ),
               const AxButton(enabled: false, child: Text('Disabled')),
@@ -90,26 +95,31 @@ class _AtomsScreenState extends State<AtomsScreen> {
             spacing: AxSpacing.x2,
             runSpacing: AxSpacing.x2,
             children: [
-              AxIconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
+              AxIconButton(
+                onPressed: () {},
+                icon: const HugeIcon(icon: HugeIcons.strokeRoundedFavourite),
+              ),
               AxIconButton(
                 onPressed: () {},
                 variant: AxIconButtonVariant.secondary,
-                icon: const Icon(Icons.share),
+                icon: const HugeIcon(icon: HugeIcons.strokeRoundedShare08),
               ),
               AxIconButton(
                 onPressed: () {},
                 variant: AxIconButtonVariant.destructive,
-                icon: const Icon(Icons.delete),
+                icon: const HugeIcon(icon: HugeIcons.strokeRoundedDelete02),
               ),
               AxIconButton(
                 onPressed: () {},
                 variant: AxIconButtonVariant.outline,
-                icon: const Icon(Icons.edit),
+                icon: const HugeIcon(icon: HugeIcons.strokeRoundedEdit02),
               ),
               AxIconButton(
                 onPressed: () {},
                 variant: AxIconButtonVariant.ghost,
-                icon: const Icon(Icons.more_horiz),
+                icon: const HugeIcon(
+                  icon: HugeIcons.strokeRoundedMoreHorizontal,
+                ),
               ),
             ],
           ),
@@ -156,7 +166,10 @@ class _AtomsScreenState extends State<AtomsScreen> {
           child: AxInput(
             controller: _inputController,
             placeholder: 'Escribe tu nombre',
-            leading: const Icon(Icons.person, size: 16),
+            leading: const HugeIcon(
+              icon: HugeIcons.strokeRoundedUser,
+              size: 16,
+            ),
             onChanged: (_) => setState(() {}),
           ),
         ),
@@ -214,37 +227,12 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxSeparator',
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text('Arriba'),
-              const AxSeparator(margin: EdgeInsets.symmetric(vertical: 8)),
-              const Text('Abajo'),
-              const SizedBox(height: AxSpacing.x3),
-              SizedBox(
-                height: 32,
-                child: Row(
-                  children: const [
-                    Text('Izquierda'),
-                    AxSeparator(
-                      axis: AxSeparatorAxis.vertical,
-                      margin: EdgeInsets.symmetric(horizontal: 8),
-                    ),
-                    Text('Derecha'),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        DemoBlock(
           title: 'AxRoundedDivider',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text('Arriba'),
-              const AxRoundedDivider(space: AxSpacing.x6, thickness: 3),
+              const AxRoundedDivider(space: AxSpacing.x6),
               const Text('Abajo'),
               const SizedBox(height: AxSpacing.x3),
               SizedBox(
@@ -252,7 +240,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
                 child: Row(
                   children: const [
                     Text('Izquierda'),
-                    AxRoundedVerticalDivider(space: AxSpacing.x6, thickness: 3),
+                    AxRoundedVerticalDivider(space: AxSpacing.x6),
                     Text('Derecha'),
                   ],
                 ),

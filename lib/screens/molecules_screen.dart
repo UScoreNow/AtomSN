@@ -1,5 +1,4 @@
 import 'package:atomic_ui/atomic_ui.dart';
-import 'package:flutter/material.dart' show Icons, Icon;
 import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
@@ -58,14 +57,14 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: const [
               AxAlert(
-                icon: Icon(Icons.info_outline),
+                icon: HugeIcon(icon: HugeIcons.strokeRoundedInformationCircle),
                 title: Text('Informacion'),
                 description: Text('Tu sesion se cerrara en 5 minutos.'),
               ),
               SizedBox(height: AxSpacing.x3),
               AxAlert(
                 variant: AxAlertVariant.destructive,
-                icon: Icon(Icons.error_outline),
+                icon: HugeIcon(icon: HugeIcons.strokeRoundedAlertCircle),
                 title: Text('Error'),
                 description: Text('No se pudo guardar el documento.'),
               ),

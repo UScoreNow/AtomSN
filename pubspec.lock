@@ -22,7 +22,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "0953c8fed73f38d29571945613bf8043fcb1ef19"
+      resolved-ref: be887fc21d60f2327ed5164fe1bb08e72bd37804
       url: "https://github.com/UScoreNow/atomic_ui.git"
     source: git
     version: "0.0.1"
