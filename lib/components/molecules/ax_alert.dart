@@ -26,11 +26,13 @@ class AxAlert extends StatelessWidget {
         icon: icon,
         title: title,
         description: description,
+        crossAxisAlignment: CrossAxisAlignment.center,
       ),
       AxAlertVariant.destructive => ShadAlert.destructive(
         icon: icon,
         title: title,
         description: description,
+        crossAxisAlignment: CrossAxisAlignment.center,
       ),
     };
   }

@@ -26,6 +26,8 @@ class AxCheckbox extends StatelessWidget {
       enabled: enabled,
       label: label,
       sublabel: sublabel,
+      // El texto principal queda centrado verticalmente con la casilla.
+      crossAxisAlignment: CrossAxisAlignment.center,
     );
   }
 }

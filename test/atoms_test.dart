@@ -1,6 +1,7 @@
 import 'package:atomic_ui/atomic_ui.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 Widget _host(Widget child) => AxApp(home: Center(child: child));
 
@@ -44,8 +45,8 @@ void main() {
     await tester.pumpWidget(
       _host(AxStarRating(value: 0, onChanged: (v) => rated = v)),
     );
-    // Pulsa la tercera estrella (glifo).
-    await tester.tap(find.text('☆').at(2));
+    // Pulsa la tercera estrella (icono Hugeicons).
+    await tester.tap(find.byType(HugeIcon).at(2));
     expect(rated, 3);
   });
 }

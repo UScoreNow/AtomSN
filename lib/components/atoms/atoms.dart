@@ -9,7 +9,6 @@ export 'ax_input_otp.dart';
 export 'ax_number_ticker.dart';
 export 'ax_progress.dart';
 export 'ax_rounded_divider.dart';
-export 'ax_separator.dart';
 export 'ax_skeleton.dart';
 export 'ax_slider.dart';
 export 'ax_star_rating.dart';

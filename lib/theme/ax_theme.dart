@@ -41,19 +41,21 @@ abstract final class AxTheme {
       decoration: ShadDecoration(
         secondaryFocusedBorder: focusRing(AxRadius.md),
       ),
-      // Cada pestana usa radio xs (4); su anillo debe ser 4 + offset, no el
-      // global (que descuadraba las esquinas).
+      // La pestana activa usa radio sm (8) para quedar concentrica dentro del
+      // track (radio md); el anillo de foco va a 8 + offset.
       tabsTheme: ShadTabsTheme(
         tabDecoration: ShadDecoration(
-          secondaryFocusedBorder: focusRing(AxRadius.xs),
+          border: ShadBorder.all(radius: AxRadius.brSm, width: 0),
+          secondaryFocusedBorder: focusRing(AxRadius.sm),
         ),
       ),
-      // El menubar desactiva el anillo secundario por defecto; lo habilitamos
-      // con radio concentrico para que el foco siga la esquina del boton.
+      // El boton de menu activo usa radio sm (8) para sus esquinas; ademas
+      // habilitamos el anillo de foco concentrico (shadcn lo desactiva).
       menubarTheme: ShadMenubarTheme(
         buttonDecoration: ShadDecoration(
           disableSecondaryBorder: false,
-          secondaryFocusedBorder: focusRing(AxRadius.md),
+          border: ShadBorder.all(radius: AxRadius.brSm, width: 0),
+          secondaryFocusedBorder: focusRing(AxRadius.sm),
         ),
       ),
     );
