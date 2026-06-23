@@ -2,6 +2,11 @@
 /// architecture) sobre shadcn_ui, con el tema editorial "newsprint" por defecto.
 library;
 
+// Iconografia: Hugeicons es la libreria unica de iconos del sistema (estilo
+// strokeRounded). Se reexporta para que las apps usen `HugeIcon`/`HugeIcons`
+// sin depender de Material Icons.
+export 'package:hugeicons/hugeicons.dart';
+
 // Foundations (capa 0).
 export 'foundations/border/ax_borders.dart';
 export 'foundations/color/ax_semantic_colors.dart';
