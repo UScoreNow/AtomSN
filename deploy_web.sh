@@ -12,8 +12,7 @@ BASE_HREF="/atomic_ui_demo_web/"
 flutter pub get
 # Sin service worker: GitHub Pages + PWA cachea de forma agresiva y, tras un
 # redeploy, deja la pantalla en blanco al servir un index/main desfasados.
-flutter build web --release --base-href "$BASE_HREF" --no-tree-shake-icons \
-  --pwa-strategy=none
+flutter build web --release --base-href "$BASE_HREF" --pwa-strategy=none
 
 cd build/web
 touch .nojekyll
