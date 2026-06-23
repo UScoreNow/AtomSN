@@ -74,6 +74,37 @@ class AxButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Boton de ancho completo: el contenido (icono + texto) se agrupa en un Row
+    // centrado y se expande (`expands`) para quedar centrado horizontalmente.
+    if (expanded) {
+      final items = <Widget>[
+        if (leading != null) _sizedIcon(leading)!,
+        child,
+        if (trailing != null) _sizedIcon(trailing)!,
+      ];
+      return ShadButton.raw(
+        variant: _variant,
+        size: _size,
+        onPressed: onPressed,
+        enabled: enabled,
+        width: double.infinity,
+        expands: true,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            for (var i = 0; i < items.length; i++) ...[
+              if (i > 0) const SizedBox(width: 8),
+              items[i],
+            ],
+          ],
+        ),
+      );
+    }
+
+    // Boton ajustado al contenido: ShadButton ya centra leading/child/trailing.
     return ShadButton.raw(
       variant: _variant,
       size: _size,
@@ -81,7 +112,6 @@ class AxButton extends StatelessWidget {
       enabled: enabled,
       leading: _sizedIcon(leading),
       trailing: _sizedIcon(trailing),
-      width: expanded ? double.infinity : null,
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       child: child,
