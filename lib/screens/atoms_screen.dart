@@ -35,6 +35,62 @@ class _AtomsScreenState extends State<AtomsScreen> {
   Widget build(BuildContext context) {
     return DemoScreen(
       blocks: [
+        const DemoBlock(
+          title: 'AxText — tipografía',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AxText.masthead('Masthead'),
+              SizedBox(height: AxSpacing.x2),
+              AxText.h1('Titular H1'),
+              AxText.h2('Titular H2'),
+              AxText.h3('Título H3'),
+              AxText.h4('Título H4'),
+              SizedBox(height: AxSpacing.x2),
+              AxText.lead('Entradilla (lead): resumen introductorio del bloque.'),
+              SizedBox(height: AxSpacing.x2),
+              AxText.bodyLarge('Cuerpo grande para destacar un párrafo.'),
+              AxText.body('Cuerpo estándar, el texto más frecuente del sistema.'),
+              AxText.bodySmall('Cuerpo pequeño para notas secundarias.'),
+              SizedBox(height: AxSpacing.x2),
+              AxText.label('Label de formulario'),
+              AxText.caption('Caption / pie de apoyo'),
+              AxText.overline('grupo a'),
+              SizedBox(height: AxSpacing.x2),
+              AxText.blockquote('"Una cita editorial en cursiva."'),
+              AxText.listItem('Elemento de lista'),
+              SizedBox(height: AxSpacing.x3),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  AxText.display('3'),
+                  AxText.h2('  -  '),
+                  AxText.display('1'),
+                  SizedBox(width: AxSpacing.x4),
+                  AxText.stat('+12'),
+                ],
+              ),
+              SizedBox(height: AxSpacing.x3),
+              AxText.link('Enlace de ejemplo'),
+            ],
+          ),
+        ),
+        DemoBlock(
+          title: 'AxText — color semántico',
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AxText.body('primary', color: AxTextColor.primary),
+              AxText.body('secondary', color: AxTextColor.secondary),
+              AxText.body('muted', color: AxTextColor.muted),
+              AxText.body('link', color: AxTextColor.link),
+              AxText.body('success', color: AxTextColor.success),
+              AxText.body('error', color: AxTextColor.error),
+              AxText.body('warning', color: AxTextColor.warning),
+            ],
+          ),
+        ),
         DemoBlock(
           title: 'AxButton — variantes',
           child: Wrap(

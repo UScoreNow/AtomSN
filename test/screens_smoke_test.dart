@@ -22,7 +22,8 @@ void main() {
   testWidgets('AtomsScreen renderiza', (tester) async {
     await tester.pumpWidget(_host(const AtomsScreen()));
     await tester.pump(const Duration(milliseconds: 300));
-    expect(find.textContaining('AxButton'), findsWidgets);
+    expect(find.textContaining('AxText'), findsWidgets);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('MoleculesScreen renderiza', (tester) async {
