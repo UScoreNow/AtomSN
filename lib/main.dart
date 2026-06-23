@@ -75,8 +75,9 @@ class _DemoHomeState extends State<_DemoHome> {
                   Text(
                     'atomic_ui',
                     style: TextStyle(
-                      fontFamily: AxTextTheme.serifFamily,
+                      fontFamily: AxTextTheme.fontFamily,
                       fontSize: AxFontSize.xl4,
+                      fontWeight: AxFontWeight.bold,
                       color: colors.textPrimary,
                     ),
                   ),

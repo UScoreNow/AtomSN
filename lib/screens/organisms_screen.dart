@@ -467,8 +467,9 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
       child: Text(
         label,
         style: TextStyle(
-          fontFamily: AxTextTheme.serifFamily,
+          fontFamily: AxTextTheme.fontFamily,
           fontSize: AxFontSize.xl2,
+          fontWeight: AxFontWeight.semibold,
           color: colors.textPrimary,
         ),
       ),
