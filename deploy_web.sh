@@ -10,6 +10,9 @@ HOST_REPO="https://github.com/UScoreNow/atomic_ui_demo_web.git"
 BASE_HREF="/atomic_ui_demo_web/"
 
 flutter pub get
+# Limpia el build anterior para no arrastrar assets huerfanos (fuentes
+# eliminadas, etc.) al publicado.
+rm -rf build/web
 # Sin service worker: GitHub Pages + PWA cachea de forma agresiva y, tras un
 # redeploy, deja la pantalla en blanco al servir un index/main desfasados.
 # --wasm: dart2wasm + skwasm (mas ligero y rapido que CanvasKit), con fallback
