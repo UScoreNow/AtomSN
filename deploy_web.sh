@@ -17,6 +17,8 @@ touch .nojekyll
 rm -rf .git
 git init -q
 git checkout -q -b main
+git config user.name "${GIT_AUTHOR_NAME:-atomic_ui deploy}"
+git config user.email "${GIT_AUTHOR_EMAIL:-deploy@uscorenow.local}"
 git add -A
 git commit -q -m "deploy: atomic_ui demo web ($(git rev-parse --short HEAD 2>/dev/null || date +%F))"
 git push -f "$HOST_REPO" main
