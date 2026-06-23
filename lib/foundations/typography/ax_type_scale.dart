@@ -3,7 +3,7 @@ import 'package:flutter/painting.dart';
 /// Escala tipografica base (tamanos, pesos, interlineado, tracking).
 ///
 /// Capa fundacional brand-agnostic. Las familias concretas y la construccion
-/// de `TextStyle` (familias serif/sans empaquetadas) viven en
+/// de `TextStyle` (familia unica ElmsSans, empaquetada) viven en
 /// `theme/ax_text_theme.dart`.
 abstract final class AxFontSize {
   static const double sm = 12;

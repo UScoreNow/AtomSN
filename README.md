@@ -106,6 +106,6 @@ vive en su propio repositorio: **UScoreNow/atomic_ui_demo**.
 
 ## Notas
 
-- Ambas familias van empaquetadas como assets bajo licencia OFL, sin descargas
-  en runtime ni dependencia de google_fonts: `ElmsSans` (sans, variable) y
-  `Libre Caslon Display` (serif, peso 400, solo titulares/display).
+- Tipografia de **una sola familia**: `ElmsSans` (variable, minimalista),
+  empaquetada como asset bajo licencia OFL. La jerarquia de titulares se logra
+  con tamano y peso, sin segunda familia ni descargas en runtime.

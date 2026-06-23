@@ -30,6 +30,3 @@ flutter:
         - asset: assets/fonts/elms_sans/ElmsSans-VariableFont.ttf
         - asset: assets/fonts/elms_sans/ElmsSans-Italic-VariableFont.ttf
           style: italic
-    - family: LibreCaslonDisplay
-      fonts:
-        - asset: assets/fonts/libre_caslon_display/LibreCaslonDisplay-Regular.ttf

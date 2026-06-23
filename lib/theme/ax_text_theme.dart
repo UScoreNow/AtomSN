@@ -3,25 +3,22 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../foundations/typography/ax_type_scale.dart';
 
-/// Construye el [ShadTextTheme] duotono de `atomic_ui`.
+/// Construye el [ShadTextTheme] de `atomic_ui`.
 ///
-/// - Serif `Libre Caslon Display` (fuente empaquetada, peso 400, solo >=20px):
-///   titulares y display.
-/// - Sans `ElmsSans` (fuente empaquetada): cuerpo, UI, labels, captions, stats.
+/// Sistema de **una sola familia**: `ElmsSans` (minimalista, empaquetada como
+/// asset). La jerarquia de titulares se logra con tamano y peso, no con una
+/// segunda familia. No hay descargas en runtime ni dependencia de google_fonts.
 ///
-/// Ambas familias se cargan desde los assets del paquete; no hay descargas en
-/// runtime ni dependencia de google_fonts.
-///
-/// Las composiciones editoriales que no encajan en los slots estandar de
-/// `ShadTextTheme` (masthead, overline, caption, label, stats) se publican en
-/// el mapa `custom` y se exponen tipadas en [AxTextStyles].
+/// Las composiciones que no encajan en los slots estandar de `ShadTextTheme`
+/// (masthead, overline, caption, label, stats) se publican en el mapa `custom`
+/// y se exponen tipadas en [AxTextStyles].
 abstract final class AxTextTheme {
-  /// Familia sans empaquetada. El prefijo `packages/` la hace resoluble tanto
-  /// dentro del paquete como en las apps consumidoras.
-  static const String sansFamily = 'packages/atomic_ui/ElmsSans';
+  /// Unica familia del sistema (empaquetada). El prefijo `packages/` la hace
+  /// resoluble dentro del paquete y en las apps consumidoras.
+  static const String fontFamily = 'packages/atomic_ui/ElmsSans';
 
-  /// Familia serif empaquetada (solo titulares/display).
-  static const String serifFamily = 'packages/atomic_ui/LibreCaslonDisplay';
+  /// Alias historico de [fontFamily].
+  static const String sansFamily = fontFamily;
 
   static TextStyle _sans(
     double size,
@@ -31,7 +28,7 @@ abstract final class AxTextTheme {
     bool tabular = false,
   }) {
     return TextStyle(
-      fontFamily: sansFamily,
+      fontFamily: fontFamily,
       fontSize: size,
       fontWeight: weight,
       height: height,
@@ -40,24 +37,11 @@ abstract final class AxTextTheme {
     );
   }
 
-  static TextStyle _serif(
-    double size, {
-    double height = AxLineHeight.snug,
-    double trackingEm = AxTracking.normalEm,
-  }) {
-    return TextStyle(
-      fontFamily: serifFamily,
-      fontSize: size,
-      fontWeight: AxFontWeight.regular,
-      height: height,
-      letterSpacing: AxTracking.toLetterSpacing(trackingEm, size),
-    );
-  }
-
-  /// Estilos editoriales extra publicados en `ShadTextTheme.custom`.
+  /// Estilos extra publicados en `ShadTextTheme.custom`.
   static Map<String, TextStyle> customStyles() => {
-    AxTextStyles.masthead: _serif(
+    AxTextStyles.masthead: _sans(
       AxFontSize.xl6,
+      AxFontWeight.extrabold,
       height: AxLineHeight.tight,
       trackingEm: AxTracking.tightEm,
     ),
@@ -98,21 +82,22 @@ abstract final class AxTextTheme {
   /// Construye el [ShadTextTheme] completo.
   static ShadTextTheme build() {
     return ShadTextTheme.custom(
-      family: sansFamily,
-      // Titulares serif (>=20px).
-      h1Large: _serif(
+      family: fontFamily,
+      // Titulares: misma familia, jerarquia por tamano + peso.
+      h1Large: _sans(
         AxFontSize.xl6,
+        AxFontWeight.extrabold,
         height: AxLineHeight.tight,
         trackingEm: AxTracking.tightEm,
       ),
-      h1: _serif(AxFontSize.xl4),
-      h2: _serif(AxFontSize.xl3),
-      // Titulos de UI: sans.
-      h3: _sans(
-        AxFontSize.xl2,
-        AxFontWeight.semibold,
+      h1: _sans(
+        AxFontSize.xl4,
+        AxFontWeight.bold,
         height: AxLineHeight.snug,
+        trackingEm: AxTracking.tightEm,
       ),
+      h2: _sans(AxFontSize.xl3, AxFontWeight.semibold, height: AxLineHeight.snug),
+      h3: _sans(AxFontSize.xl2, AxFontWeight.semibold, height: AxLineHeight.snug),
       h4: _sans(AxFontSize.xl, AxFontWeight.medium),
       lead: _sans(AxFontSize.lg, AxFontWeight.regular),
       // Cuerpo y UI.
@@ -135,7 +120,7 @@ abstract final class AxTextTheme {
   }
 }
 
-/// Claves de los estilos editoriales extra en `ShadTextTheme.custom`.
+/// Claves de los estilos extra en `ShadTextTheme.custom`.
 abstract final class AxTextStyles {
   static const String masthead = 'masthead';
   static const String displayScore = 'displayScore';

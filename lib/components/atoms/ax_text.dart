@@ -43,8 +43,8 @@ enum _AxTextRole {
 /// `TextStyle` a mano.
 ///
 /// Usa los constructores nombrados para cada rol editorial:
-/// - Titulares serif: [AxText.masthead], [AxText.h1], [AxText.h2].
-/// - Titulos de UI (sans): [AxText.h3], [AxText.h4].
+/// - Titulares: [AxText.masthead], [AxText.h1], [AxText.h2].
+/// - Titulos de UI: [AxText.h3], [AxText.h4].
 /// - Subtitulo/entradilla: [AxText.lead].
 /// - Cuerpo: [AxText.body] (md), [AxText.bodyLarge], [AxText.bodySmall].
 /// - Apoyos: [AxText.label], [AxText.caption], [AxText.overline] (mayusculas),
