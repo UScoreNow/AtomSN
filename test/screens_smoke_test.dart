@@ -22,7 +22,7 @@ void main() {
   testWidgets('AtomsScreen renderiza', (tester) async {
     await tester.pumpWidget(_host(const AtomsScreen()));
     await tester.pump(const Duration(milliseconds: 300));
-    expect(find.text('AxButton'), findsOneWidget);
+    expect(find.textContaining('AxButton'), findsWidgets);
   });
 
   testWidgets('MoleculesScreen renderiza', (tester) async {

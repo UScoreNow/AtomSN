@@ -36,90 +36,96 @@ class _AtomsScreenState extends State<AtomsScreen> {
     return DemoScreen(
       blocks: [
         DemoBlock(
-          title: 'AxButton',
+          title: 'AxButton — variantes',
           child: Wrap(
             spacing: AxSpacing.x2,
             runSpacing: AxSpacing.x2,
             children: [
-              AxButton(onPressed: () {}, child: const Text('Primary')),
-              AxButton(
-                onPressed: () {},
-                variant: AxButtonVariant.secondary,
-                child: const Text('Secondary'),
-              ),
-              AxButton(
-                onPressed: () {},
-                variant: AxButtonVariant.destructive,
-                child: const Text('Destructive'),
-              ),
-              AxButton(
-                onPressed: () {},
-                variant: AxButtonVariant.outline,
-                child: const Text('Outline'),
-              ),
-              AxButton(
-                onPressed: () {},
-                variant: AxButtonVariant.ghost,
-                child: const Text('Ghost'),
-              ),
-              AxButton(
-                onPressed: () {},
-                variant: AxButtonVariant.link,
-                child: const Text('Link'),
-              ),
-              AxButton(
-                onPressed: () {},
-                size: AxButtonSize.sm,
-                leading: const HugeIcon(
-                  icon: HugeIcons.strokeRoundedAdd01,
-                  size: 16,
+              for (final v in AxButtonVariant.values)
+                AxButton(
+                  variant: v,
+                  onPressed: () {},
+                  child: Text(_buttonVariantLabel(v)),
                 ),
-                child: const Text('Small'),
-              ),
-              AxButton(
-                onPressed: () {},
-                size: AxButtonSize.lg,
-                trailing: const HugeIcon(
-                  icon: HugeIcons.strokeRoundedArrowRight01,
-                  size: 16,
-                ),
-                child: const Text('Large'),
-              ),
               const AxButton(enabled: false, child: Text('Disabled')),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AxIconButton',
+          title: 'AxButton — tamaños',
           child: Wrap(
             spacing: AxSpacing.x2,
             runSpacing: AxSpacing.x2,
+            crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              AxIconButton(
+              AxButton(
+                size: AxButtonSize.sm,
                 onPressed: () {},
-                icon: const HugeIcon(icon: HugeIcons.strokeRoundedFavourite),
+                child: const Text('Small'),
               ),
-              AxIconButton(
+              AxButton(onPressed: () {}, child: const Text('Regular')),
+              AxButton(
+                size: AxButtonSize.lg,
                 onPressed: () {},
-                variant: AxIconButtonVariant.secondary,
-                icon: const HugeIcon(icon: HugeIcons.strokeRoundedShare08),
+                child: const Text('Large'),
               ),
-              AxIconButton(
+            ],
+          ),
+        ),
+        DemoBlock(
+          title: 'AxButton — icono izquierda / derecha (contenido centrado)',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              AxButton(
+                expanded: true,
+                leading: const HugeIcon(icon: HugeIcons.strokeRoundedAdd01),
                 onPressed: () {},
-                variant: AxIconButtonVariant.destructive,
-                icon: const HugeIcon(icon: HugeIcons.strokeRoundedDelete02),
+                child: const Text('Icono a la izquierda'),
               ),
-              AxIconButton(
-                onPressed: () {},
-                variant: AxIconButtonVariant.outline,
-                icon: const HugeIcon(icon: HugeIcons.strokeRoundedEdit02),
-              ),
-              AxIconButton(
-                onPressed: () {},
-                variant: AxIconButtonVariant.ghost,
-                icon: const HugeIcon(
-                  icon: HugeIcons.strokeRoundedMoreHorizontal,
+              const SizedBox(height: AxSpacing.x2),
+              AxButton(
+                expanded: true,
+                variant: AxButtonVariant.outline,
+                trailing: const HugeIcon(
+                  icon: HugeIcons.strokeRoundedArrowRight01,
                 ),
+                onPressed: () {},
+                child: const Text('Icono a la derecha'),
+              ),
+            ],
+          ),
+        ),
+        DemoBlock(
+          title: 'AxIconButton — variantes',
+          child: Wrap(
+            spacing: AxSpacing.x5,
+            runSpacing: AxSpacing.x3,
+            children: [
+              _iconButtonDemo(
+                AxIconButtonVariant.primary,
+                HugeIcons.strokeRoundedFavourite,
+                'primary',
+              ),
+              _iconButtonDemo(
+                AxIconButtonVariant.secondary,
+                HugeIcons.strokeRoundedShare08,
+                'secondary',
+              ),
+              _iconButtonDemo(
+                AxIconButtonVariant.destructive,
+                HugeIcons.strokeRoundedDelete02,
+                'destructive',
+              ),
+              _iconButtonDemo(
+                AxIconButtonVariant.outline,
+                HugeIcons.strokeRoundedEdit02,
+                'outline',
+              ),
+              _iconButtonDemo(
+                AxIconButtonVariant.ghost,
+                HugeIcons.strokeRoundedMoreHorizontal,
+                'ghost',
               ),
             ],
           ),
@@ -332,4 +338,33 @@ class _AtomsScreenState extends State<AtomsScreen> {
       ],
     );
   }
+}
+
+String _buttonVariantLabel(AxButtonVariant v) => switch (v) {
+  AxButtonVariant.primary => 'Primary',
+  AxButtonVariant.secondary => 'Secondary',
+  AxButtonVariant.destructive => 'Destructive',
+  AxButtonVariant.outline => 'Outline',
+  AxButtonVariant.ghost => 'Ghost',
+  AxButtonVariant.link => 'Link',
+};
+
+/// Boton de icono con su etiqueta de variante debajo.
+Widget _iconButtonDemo(
+  AxIconButtonVariant variant,
+  List<List<dynamic>> icon,
+  String label,
+) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      AxIconButton(
+        variant: variant,
+        icon: HugeIcon(icon: icon),
+        onPressed: () {},
+      ),
+      const SizedBox(height: AxSpacing.x1),
+      Text(label, style: const TextStyle(fontSize: 11)),
+    ],
+  );
 }
