@@ -92,25 +92,32 @@ class _DemoHomeState extends State<_DemoHome> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: AxSpacing.x4),
-              child: Row(
+              child: Wrap(
+                spacing: AxSpacing.x2,
+                runSpacing: AxSpacing.x2,
                 children: [
                   for (var i = 0; i < _sections.length; i++)
-                    Padding(
-                      padding: const EdgeInsets.only(right: AxSpacing.x2),
-                      child: AxButton(
-                        size: AxButtonSize.sm,
-                        variant: i == _index
-                            ? AxButtonVariant.primary
-                            : AxButtonVariant.ghost,
-                        onPressed: () => setState(() => _index = i),
-                        child: Text(_sections[i]),
-                      ),
+                    AxButton(
+                      size: AxButtonSize.sm,
+                      variant: i == _index
+                          ? AxButtonVariant.primary
+                          : AxButtonVariant.ghost,
+                      onPressed: () => setState(() => _index = i),
+                      child: Text(_sections[i]),
                     ),
                 ],
               ),
             ),
             const SizedBox(height: AxSpacing.x2),
-            Expanded(child: IndexedStack(index: _index, children: _screens)),
+            Expanded(
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 760),
+                  child: IndexedStack(index: _index, children: _screens),
+                ),
+              ),
+            ),
           ],
         ),
       ),

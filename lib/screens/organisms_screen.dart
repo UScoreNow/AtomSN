@@ -183,17 +183,22 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
         ),
         DemoBlock(
           title: 'AxTable',
-          child: AxTable(
-            columns: const [
-              AxTableColumn(header: Text('Seccion')),
-              AxTableColumn(header: Text('Editor')),
-              AxTableColumn(header: Text('Notas')),
-            ],
-            rows: const [
-              [Text('Portada'), Text('A. Soler'), Text('12')],
-              [Text('Cultura'), Text('M. Rivas'), Text('8')],
-              [Text('Deportes'), Text('J. Pena'), Text('15')],
-            ],
+          // ShadTable usa un viewport 2D: necesita altura acotada dentro de un
+          // ListView. Se limita con un SizedBox.
+          child: SizedBox(
+            height: 160,
+            child: AxTable(
+              columns: const [
+                AxTableColumn(header: Text('Seccion')),
+                AxTableColumn(header: Text('Editor')),
+                AxTableColumn(header: Text('Notas')),
+              ],
+              rows: const [
+                [Text('Portada'), Text('A. Soler'), Text('12')],
+                [Text('Cultura'), Text('M. Rivas'), Text('8')],
+                [Text('Deportes'), Text('J. Pena'), Text('15')],
+              ],
+            ),
           ),
         ),
         DemoBlock(
