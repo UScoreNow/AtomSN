@@ -11,14 +11,16 @@ class AxIconButton extends StatelessWidget {
     required this.icon,
     this.onPressed,
     this.variant = AxIconButtonVariant.primary,
-    this.iconSize,
+    this.iconSize = 18,
     this.enabled = true,
   });
 
   final Widget icon;
   final VoidCallback? onPressed;
   final AxIconButtonVariant variant;
-  final double? iconSize;
+
+  /// Tamano del icono. `ShadIconButton` lo aplica via `IconTheme`.
+  final double iconSize;
   final bool enabled;
 
   @override

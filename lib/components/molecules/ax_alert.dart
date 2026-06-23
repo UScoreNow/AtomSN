@@ -11,12 +11,16 @@ class AxAlert extends StatelessWidget {
     this.title,
     this.description,
     this.icon,
+    this.iconSize = 18,
     this.variant = AxAlertVariant.info,
   });
 
   final Widget? title;
   final Widget? description;
   final Widget? icon;
+
+  /// Tamano del icono. `ShadAlert` lo aplica via `IconTheme`.
+  final double iconSize;
   final AxAlertVariant variant;
 
   @override
@@ -24,12 +28,14 @@ class AxAlert extends StatelessWidget {
     return switch (variant) {
       AxAlertVariant.info => ShadAlert(
         icon: icon,
+        iconSize: iconSize,
         title: title,
         description: description,
         crossAxisAlignment: CrossAxisAlignment.center,
       ),
       AxAlertVariant.destructive => ShadAlert.destructive(
         icon: icon,
+        iconSize: iconSize,
         title: title,
         description: description,
         crossAxisAlignment: CrossAxisAlignment.center,
