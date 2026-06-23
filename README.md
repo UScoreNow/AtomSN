@@ -4,6 +4,12 @@ App de demostracion de [`atomic_ui`](https://github.com/UScoreNow/atomic_ui): mu
 todos los componentes (atoms, molecules, organisms, templates) en vivo, con toggle
 de tema light ("Paper") / dark ("Night Press").
 
+**Demo en vivo:** https://uscorenow.github.io/atomic_ui_demo_web/
+
+> Este repo es privado. El sitio publicado en GitHub Pages vive en un repo publico
+> aparte que solo contiene el build compilado: `UScoreNow/atomic_ui_demo_web`.
+> Para redesplegar tras cambios: `bash deploy_web.sh`.
+
 ## Ejecutar
 
 ```bash
