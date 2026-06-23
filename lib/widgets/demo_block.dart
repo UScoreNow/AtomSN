@@ -16,7 +16,9 @@ class DemoBlock extends StatelessWidget {
       padding: const EdgeInsets.all(AxSpacing.x4),
       decoration: BoxDecoration(
         color: colors.bgSurface,
-        borderRadius: AxRadius.brMd,
+        // Esquinas concentricas: el hijo estandar (radio md) inset por el
+        // padding x4 -> el contenedor usa md + x4 para que las curvas casen.
+        borderRadius: AxRadius.brConcentric(AxRadius.md, AxSpacing.x4),
         border: Border.all(color: colors.borderDefault),
       ),
       child: Column(
@@ -32,7 +34,7 @@ class DemoBlock extends StatelessWidget {
               color: colors.textMuted,
             ),
           ),
-          const SizedBox(height: AxSpacing.x3),
+          const AxRoundedDivider(space: AxSpacing.x5),
           DefaultTextStyle.merge(
             style: TextStyle(color: colors.textPrimary),
             child: child,

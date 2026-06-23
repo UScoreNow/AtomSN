@@ -239,6 +239,28 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
+          title: 'AxRoundedDivider',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Arriba'),
+              const AxRoundedDivider(space: AxSpacing.x6, thickness: 3),
+              const Text('Abajo'),
+              const SizedBox(height: AxSpacing.x3),
+              SizedBox(
+                height: 32,
+                child: Row(
+                  children: const [
+                    Text('Izquierda'),
+                    AxRoundedVerticalDivider(space: AxSpacing.x6, thickness: 3),
+                    Text('Derecha'),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        DemoBlock(
           title: 'AxAvatar',
           child: Wrap(
             spacing: AxSpacing.x3,
