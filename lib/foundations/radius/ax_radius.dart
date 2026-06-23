@@ -23,4 +23,17 @@ abstract final class AxRadius {
   static const BorderRadius brXl = BorderRadius.all(Radius.circular(xl));
   static const BorderRadius brXl2 = BorderRadius.all(Radius.circular(xl2));
   static const BorderRadius brFull = BorderRadius.all(Radius.circular(full));
+
+  /// Radio concentrico para esquinas anidadas pixel-perfect.
+  ///
+  /// Cuando un contenedor con esquinas redondeadas envuelve a un hijo tambien
+  /// redondeado separado por un [gap] (el padding entre ambos), el radio del
+  /// padre debe ser el del hijo mas ese hueco para que las curvas sean
+  /// concentricas: `R_padre = R_hijo + gap`.
+  static double concentric(double childRadius, double gap) => childRadius + gap;
+
+  /// Igual que [concentric] pero devuelve un [BorderRadius] listo para usar en
+  /// el contenedor padre.
+  static BorderRadius brConcentric(double childRadius, double gap) =>
+      BorderRadius.all(Radius.circular(childRadius + gap));
 }

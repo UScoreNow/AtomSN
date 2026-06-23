@@ -64,6 +64,7 @@ class _AxCommandState extends State<AxCommand> {
     final colors = AxTheme.of(context);
     final results = _filtered;
     return Container(
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: colors.bgSurface,
         borderRadius: AxRadius.brMd,
