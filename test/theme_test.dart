@@ -42,4 +42,23 @@ void main() {
     expect(seen.brightness, Brightness.light);
     expect(seen.bgBase, AxNewsprint.light.bgBase);
   });
+
+  testWidgets('El texto plano hereda la familia ElmsSans del tema', (
+    tester,
+  ) async {
+    late TextStyle defaultStyle;
+    await tester.pumpWidget(
+      AxApp(
+        home: Builder(
+          builder: (context) {
+            defaultStyle = DefaultTextStyle.of(context).style;
+            return const Text('x');
+          },
+        ),
+      ),
+    );
+    // Sin la familia en el textStyle raiz del app, un Text plano caia en la
+    // fuente del sistema (Roboto) en vez de ElmsSans.
+    expect(defaultStyle.fontFamily, AxTextTheme.fontFamily);
+  });
 }
