@@ -2,10 +2,10 @@ import 'package:flutter/widgets.dart';
 
 import '../../theme/asn_theme.dart';
 
-/// Disposicion de panel con barra lateral. Plantilla propia y responsive.
+/// Panel layout with sidebar. Own, responsive template.
 ///
-/// En anchos >= [breakpoint] muestra [sidebar] y [content] en fila; por debajo
-/// colapsa la barra lateral y solo se ve el contenido.
+/// At widths >= [breakpoint] it shows [sidebar] and [content] in a row; below
+/// that it collapses the sidebar and only the content is visible.
 class AsnDashboardLayout extends StatelessWidget {
   const AsnDashboardLayout({
     super.key,

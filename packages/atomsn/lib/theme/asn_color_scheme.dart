@@ -2,12 +2,12 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../foundations/color/asn_semantic_colors.dart';
 
-/// Deriva un [ShadColorScheme] desde los [AsnSemanticColors] de un tema.
+/// Derives a [ShadColorScheme] from a theme's [AsnSemanticColors].
 ///
-/// Solo mapea los roles que `ShadColorScheme` conoce. Los roles editoriales
-/// adicionales (warning, link, success, highlightMark, borderSection...) viajan
-/// por `AsnThemeScope` y, ademas, se copian al mapa `custom` del esquema para
-/// que esten disponibles via `ShadTheme.of(context).colorScheme.custom`.
+/// Only maps the roles that `ShadColorScheme` knows about. The additional
+/// editorial roles (warning, link, success, highlightMark, borderSection...) travel
+/// through `AsnThemeScope` and are also copied into the scheme's `custom` map so
+/// they are available via `ShadTheme.of(context).colorScheme.custom`.
 abstract final class AsnColorScheme {
   static ShadColorScheme fromSemantic(AsnSemanticColors c) {
     return ShadColorScheme(

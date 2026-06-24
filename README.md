@@ -1,45 +1,49 @@
 # AtomSN
 
-Design system de Flutter brand-neutral y themeable, organizado por **atomic
-design** + **clean architecture** sobre [`shadcn_ui`](https://pub.dev/packages/shadcn_ui),
-con el tema editorial **newsprint** por defecto.
+A brand-neutral, themeable Flutter design system, organized by **atomic
+design** + **clean architecture** on top of [`shadcn_ui`](https://pub.dev/packages/shadcn_ui),
+with the **newsprint** editorial theme by default.
 
-**Demo en vivo:** https://uscorenow.github.io/atom-sn/
+**Live demo:** https://uscorenow.github.io/atom-sn/
 
-## Estructura (monorepo)
+## Structure (monorepo)
 
 ```
-packages/atomsn/   # la libreria (import 'package:atomsn/atomsn.dart')
-apps/demo/         # app showcase de todos los componentes, se publica en Pages
-.github/workflows/ # ci.yml (analyzer) + pages.yml (deploy a Pages) + release.yml
+packages/atomsn/   # the library (import 'package:atomsn/atomsn.dart')
+apps/demo/         # showcase app for every component, published to Pages
+.github/workflows/ # ci.yml (analyzer) + pages.yml (deploy to Pages) + release.yml
 ```
 
-La demo consume la libreria por `path`, asi que cualquier cambio en
-`packages/atomsn` se refleja al instante: no hay bumps de version ni repos de
-salida aparte.
+The demo consumes the library by `path`, so any change in
+`packages/atomsn` is reflected instantly: there are no version bumps or separate
+output repos.
 
-## Desarrollo
+## Development
 
 ```bash
-# Libreria
+# Library
 cd packages/atomsn && flutter pub get && flutter test
 
 # Demo
 cd apps/demo && flutter pub get && flutter run -d chrome
 ```
 
-## Flujo de trabajo
+## Workflow
 
-`main` y `dev` son ramas permanentes y protegidas; todo entra por PR con CI en
-verde. El detalle del modelo de ramas esta en [CONTRIBUTING.md](CONTRIBUTING.md):
+`main` and `dev` are permanent, protected branches; everything lands via PR with CI
+green. The branch model is detailed in [CONTRIBUTING.md](CONTRIBUTING.md):
 
-- `main`: estable / produccion. Fuente de las Releases.
-- `dev`: integracion. **Despliega a GitHub Pages.**
-- Trabajo: `feature/…`, `fix/…`, `refactor/…`, `update/…` -> PR a `dev`.
-- Promocion: PR `dev -> main`; al mergear se publica una Release.
+- `main`: stable / production. Source of Releases.
+- `dev`: integration. **Deploys to GitHub Pages.**
+- Work: `feature/…`, `fix/…`, `refactor/…`, `update/…` -> PR to `dev`.
+- Promotion: PR `dev -> main`; merging publishes a Release.
 
-## Despliegue
+## Deployment
 
-Cada push a `dev` dispara `.github/workflows/pages.yml`, que compila `apps/demo`
-a web y la publica en GitHub Pages. Cada merge a `main` dispara `release.yml`,
-que crea la Release a partir de la version en `packages/atomsn/pubspec.yaml`.
+Each push to `dev` triggers `.github/workflows/pages.yml`, which builds `apps/demo`
+to web and publishes it to GitHub Pages. Each merge to `main` triggers `release.yml`,
+which creates the Release from the version in `packages/atomsn/pubspec.yaml`.
+
+## Contributing
+
+This repository follows the [UScoreNow contribution guidelines](https://github.com/UScoreNow/.github/blob/main/CONTRIBUTING.md): branching model, Conventional Commits, pull requests and releases.

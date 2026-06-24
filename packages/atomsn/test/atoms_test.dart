@@ -1,14 +1,14 @@
 import 'package:atomsn/atomsn.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-// Prefijo para no chocar con la reexportacion de HugeIcon de AtomSN.
+// Prefix to avoid clashing with AtomSN's re-export of HugeIcon.
 import 'package:shadcn_ui/shadcn_ui.dart' as shad;
 
 Widget _host(Widget child) => AsnApp(home: Center(child: child));
 
 void main() {
 
-  testWidgets('AsnButton invoca onPressed', (tester) async {
+  testWidgets('AsnButton invokes onPressed', (tester) async {
     var taps = 0;
     await tester.pumpWidget(
       _host(AsnButton(onPressed: () => taps++, child: const Text('Go'))),
@@ -17,7 +17,7 @@ void main() {
     expect(taps, 1);
   });
 
-  testWidgets('AsnButton deshabilitado no invoca onPressed', (tester) async {
+  testWidgets('AsnButton disabled does not invoke onPressed', (tester) async {
     var taps = 0;
     await tester.pumpWidget(
       _host(
@@ -32,7 +32,7 @@ void main() {
     expect(taps, 0);
   });
 
-  testWidgets('AsnCheckbox reporta el nuevo valor', (tester) async {
+  testWidgets('AsnCheckbox reports the new value', (tester) async {
     bool? next;
     await tester.pumpWidget(
       _host(AsnCheckbox(value: false, onChanged: (v) => next = v)),
@@ -41,17 +41,17 @@ void main() {
     expect(next, true);
   });
 
-  testWidgets('AsnStarRating reporta la estrella pulsada', (tester) async {
+  testWidgets('AsnStarRating reports the tapped star', (tester) async {
     int? rated;
     await tester.pumpWidget(
       _host(AsnStarRating(value: 0, onChanged: (v) => rated = v)),
     );
-    // Pulsa la tercera estrella (icono Hugeicons).
+    // Tap the third star (Hugeicons icon).
     await tester.tap(find.byType(HugeIcon).at(2));
     expect(rated, 3);
   });
 
-  testWidgets('AsnInputOtp da estilo ElmsSans tabular a cada slot', (
+  testWidgets('AsnInputOtp gives each slot tabular ElmsSans styling', (
     tester,
   ) async {
     await tester.pumpWidget(_host(const AsnInputOtp(length: 4)));
@@ -62,45 +62,45 @@ void main() {
     for (final slot in slots) {
       final style = slot.style;
       expect(style, isNotNull);
-      // ElmsSans (familia unica), no el GeistMono por defecto de shadcn.
+      // ElmsSans (single family), not shadcn's default GeistMono.
       expect(style!.fontFamily, AsnTextTheme.fontFamily);
-      // Cifras tabulares para alinear los digitos.
+      // Tabular figures to align the digits.
       expect(style.fontFeatures, contains(const FontFeature.tabularFigures()));
     }
   });
 
-  testWidgets('AsnText aplica rol, color y mayusculas de overline', (
+  testWidgets('AsnText applies role, color and overline uppercase', (
     tester,
   ) async {
     await tester.pumpWidget(
       _host(
         const Column(
           children: [
-            AsnText.h1('Titular'),
-            AsnText.body('Cuerpo'),
-            AsnText.overline('grupo a'),
+            AsnText.h1('Headline'),
+            AsnText.body('Body'),
+            AsnText.overline('group a'),
           ],
         ),
       ),
     );
-    expect(find.text('Titular'), findsOneWidget);
-    expect(find.text('Cuerpo'), findsOneWidget);
-    // overline transforma a mayusculas.
-    expect(find.text('GRUPO A'), findsOneWidget);
+    expect(find.text('Headline'), findsOneWidget);
+    expect(find.text('Body'), findsOneWidget);
+    // overline transforms to uppercase.
+    expect(find.text('GROUP A'), findsOneWidget);
 
-    final h1 = tester.widget<Text>(find.text('Titular'));
-    final body = tester.widget<Text>(find.text('Cuerpo'));
-    // El titular es mayor que el cuerpo y ambos llevan color del tema.
+    final h1 = tester.widget<Text>(find.text('Headline'));
+    final body = tester.widget<Text>(find.text('Body'));
+    // The headline is larger than the body and both carry the theme color.
     expect(h1.style!.fontSize! > body.style!.fontSize!, isTrue);
     expect(h1.style!.color, AsnNewsprint.light.textPrimary);
   });
 
-  testWidgets('AsnText.link invoca onTap', (tester) async {
+  testWidgets('AsnText.link invokes onTap', (tester) async {
     var taps = 0;
     await tester.pumpWidget(
-      _host(AsnText.link('Abrir', onTap: () => taps++)),
+      _host(AsnText.link('Open', onTap: () => taps++)),
     );
-    await tester.tap(find.text('Abrir'));
+    await tester.tap(find.text('Open'));
     expect(taps, 1);
   });
 }

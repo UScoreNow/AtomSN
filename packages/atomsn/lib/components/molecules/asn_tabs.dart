@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Pestana de un [AsnTabs]. Modelo propio (no filtra tipos `Shad*`).
+/// Tab of an [AsnTabs]. Own model (does not leak `Shad*` types).
 @immutable
 class AsnTabItem<T> {
   const AsnTabItem({
@@ -15,7 +15,7 @@ class AsnTabItem<T> {
   final Widget content;
 }
 
-/// Conjunto de pestanas controlado. Envuelve `ShadTabs`.
+/// Controlled set of tabs. Wraps `ShadTabs`.
 class AsnTabs<T> extends StatelessWidget {
   const AsnTabs({
     super.key,

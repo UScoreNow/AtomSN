@@ -4,10 +4,10 @@ import '../../foundations/spacing/asn_spacing.dart';
 import '../../foundations/typography/asn_type_scale.dart';
 import '../../theme/asn_theme.dart';
 
-/// Campo de formulario presentacional: etiqueta + control + texto auxiliar.
+/// Presentational form field: label + control + helper text.
 ///
-/// Wrapper propio (no usa el form de shadcn). Compone [label], [child] y, de
-/// forma opcional, [description] o [error] usando los colores del tema.
+/// Own wrapper (does not use shadcn's form). Composes [label], [child] and,
+/// optionally, [description] or [error] using the theme colors.
 class AsnFormField extends StatelessWidget {
   const AsnFormField({
     super.key,

@@ -5,11 +5,11 @@ import '../../foundations/status/asn_status_variant.dart';
 import '../../theme/asn_theme.dart';
 import '../shared/asn_status_style.dart';
 
-/// Mensaje destacado con icono, titulo y descripcion. Envuelve `ShadAlert`.
+/// Prominent message with icon, title and description. Wraps `ShadAlert`.
 ///
-/// El aspecto lo resuelve [AsnStatusStyle] segun la [variant] contra los
-/// `AsnSemanticColors` activos, de modo que [AsnToast] pueda reusar este mismo
-/// surface y verse identico.
+/// The appearance is resolved by [AsnStatusStyle] according to the [variant]
+/// against the active `AsnSemanticColors`, so that [AsnToast] can reuse this
+/// same surface and look identical.
 class AsnAlert extends StatelessWidget {
   const AsnAlert({
     super.key,
@@ -25,19 +25,19 @@ class AsnAlert extends StatelessWidget {
   final Widget? title;
   final Widget? description;
 
-  /// Icono personalizado. Si es null, se usa el icono por defecto de la
-  /// variante (ninguno para [AsnStatusVariant.normal]).
+  /// Custom icon. If null, the variant's default icon is used
+  /// (none for [AsnStatusVariant.normal]).
   final Widget? icon;
 
-  /// Tamano del icono. `ShadAlert` lo aplica via `IconTheme`.
+  /// Icon size. `ShadAlert` applies it via `IconTheme`.
   final double iconSize;
 
   final AsnStatusVariant variant;
 
-  /// Widget al final de la fila (p. ej. el boton de cerrar del toast).
+  /// Widget at the end of the row (e.g. the toast's close button).
   final Widget? trailing;
 
-  /// Widget bajo el contenido principal (p. ej. la accion del toast).
+  /// Widget below the main content (e.g. the toast's action).
   final Widget? bottom;
 
   @override
@@ -66,8 +66,8 @@ class AsnAlert extends StatelessWidget {
       trailing: trailing,
       bottom: bottom,
       crossAxisAlignment: CrossAxisAlignment.center,
-      // El merge de `ShadBorder` no preserva radius/padding del default cuando
-      // el borde entrante los trae en null, asi que se re-especifican.
+      // The `ShadBorder` merge does not preserve the default's radius/padding
+      // when the incoming border brings them as null, so they are re-specified.
       decoration: ShadDecoration(
         color: style.backgroundColor,
         border: ShadBorder.all(
@@ -77,8 +77,8 @@ class AsnAlert extends StatelessWidget {
         ),
       ),
       titleStyle: TextStyle(color: style.contentColor),
-      // `descriptionStyle` reemplaza (no mergea) en `ShadAlert`: pasar el
-      // estilo completo para conservar el tamano `muted`.
+      // `descriptionStyle` replaces (does not merge) in `ShadAlert`: pass the
+      // full style to preserve the `muted` size.
       descriptionStyle: theme.textTheme.muted.copyWith(
         color: style.descriptionColor,
       ),

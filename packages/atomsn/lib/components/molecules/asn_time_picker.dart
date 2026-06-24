@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Hora simple expuesta por [AsnTimePicker]. Modelo propio que adapta
-/// `ShadTimeOfDay` sin filtrarlo en la API publica.
+/// Simple time exposed by [AsnTimePicker]. Own model that adapts
+/// `ShadTimeOfDay` without leaking it in the public API.
 @immutable
 class AsnTime {
   const AsnTime({required this.hour, required this.minute, this.second = 0});
@@ -12,7 +12,7 @@ class AsnTime {
   final int second;
 }
 
-/// Selector de hora controlado. Envuelve `ShadTimePicker`.
+/// Controlled time picker. Wraps `ShadTimePicker`.
 class AsnTimePicker extends StatelessWidget {
   const AsnTimePicker({super.key, this.value, this.onChanged});
 

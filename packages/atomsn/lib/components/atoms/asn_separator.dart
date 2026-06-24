@@ -6,14 +6,14 @@ import '../../foundations/radius/asn_radius.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Regla horizontal con extremos redondeados. Envuelve `ShadSeparator`.
+/// Horizontal rule with rounded ends. Wraps `ShadSeparator`.
 ///
-/// Reserva un alto total [space] con la linea de grosor [thickness] centrada y
-/// sangrias [indent]/[endIndent]. Los extremos se redondean con [radius] (por
-/// defecto stadium, `AsnRadius.full`).
+/// Reserves a total height [space] with the line of [thickness] centered and
+/// indents [indent]/[endIndent]. The ends are rounded with [radius] (stadium by
+/// default, `AsnRadius.full`).
 ///
-/// Por defecto el color sale de `borderHairline` del tema y el grosor de
-/// `AsnBorders.hairline`.
+/// By default the color comes from the theme's `borderHairline` and the
+/// thickness from `AsnBorders.hairline`.
 class AsnSeparator extends StatelessWidget {
   const AsnSeparator({
     super.key,
@@ -25,22 +25,22 @@ class AsnSeparator extends StatelessWidget {
     this.radius = AsnRadius.full,
   });
 
-  /// Alto total reservado; la linea queda centrada.
+  /// Total reserved height; the line stays centered.
   final double space;
 
-  /// Grosor de la linea.
+  /// Line thickness.
   final double thickness;
 
-  /// Sangria al inicio (izquierda en LTR).
+  /// Indent at the start (left in LTR).
   final double indent;
 
-  /// Sangria al final (derecha en LTR).
+  /// Indent at the end (right in LTR).
   final double endIndent;
 
-  /// Color de la linea. Por defecto, `borderHairline` del tema.
+  /// Line color. By default, the theme's `borderHairline`.
   final Color? color;
 
-  /// Radio de los extremos.
+  /// Radius of the ends.
   final double radius;
 
   @override
@@ -60,11 +60,11 @@ class AsnSeparator extends StatelessWidget {
   }
 }
 
-/// Regla vertical con extremos redondeados. Envuelve `ShadSeparator`.
+/// Vertical rule with rounded ends. Wraps `ShadSeparator`.
 ///
-/// Variante vertical de [AsnSeparator]: reserva un ancho total [space] con la
-/// linea de grosor [thickness] centrada y sangrias [indent]/[endIndent]
-/// (arriba/abajo).
+/// Vertical variant of [AsnSeparator]: reserves a total width [space] with the
+/// line of [thickness] centered and indents [indent]/[endIndent]
+/// (top/bottom).
 class AsnVerticalSeparator extends StatelessWidget {
   const AsnVerticalSeparator({
     super.key,
@@ -76,22 +76,22 @@ class AsnVerticalSeparator extends StatelessWidget {
     this.radius = AsnRadius.full,
   });
 
-  /// Ancho total reservado; la linea queda centrada.
+  /// Total reserved width; the line stays centered.
   final double space;
 
-  /// Grosor de la linea.
+  /// Line thickness.
   final double thickness;
 
-  /// Sangria superior.
+  /// Top indent.
   final double indent;
 
-  /// Sangria inferior.
+  /// Bottom indent.
   final double endIndent;
 
-  /// Color de la linea. Por defecto, `borderHairline` del tema.
+  /// Line color. By default, the theme's `borderHairline`.
   final Color? color;
 
-  /// Radio de los extremos.
+  /// Radius of the ends.
   final double radius;
 
   @override

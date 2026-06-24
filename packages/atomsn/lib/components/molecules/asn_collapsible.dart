@@ -2,10 +2,10 @@ import 'package:flutter/widgets.dart';
 
 import '../../foundations/spacing/asn_spacing.dart';
 
-/// Seccion expandible/colapsable controlada. Widget propio.
+/// Controlled expandable/collapsible section. Custom widget.
 ///
-/// El estado lo dicta [expanded]; al pulsar la cabecera se reporta el nuevo
-/// valor via [onChanged]. La transicion de altura usa [AnimatedSize].
+/// The state is dictated by [expanded]; tapping the header reports the new
+/// value via [onChanged]. The height transition uses [AnimatedSize].
 class AsnCollapsible extends StatelessWidget {
   const AsnCollapsible({
     super.key,

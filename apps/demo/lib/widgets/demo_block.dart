@@ -1,7 +1,7 @@
 import 'package:atomsn/atomsn.dart';
 import 'package:flutter/widgets.dart';
 
-/// Bloque etiquetado que envuelve la demostracion de un componente.
+/// Labeled block that wraps the demonstration of a component.
 class DemoBlock extends StatelessWidget {
   const DemoBlock({super.key, required this.title, required this.child});
 
@@ -16,8 +16,8 @@ class DemoBlock extends StatelessWidget {
       padding: const EdgeInsets.all(AsnSpacing.x4),
       decoration: BoxDecoration(
         color: colors.bgSurface,
-        // Esquinas concentricas: el hijo estandar (radio md) inset por el
-        // padding x4 -> el contenedor usa md + x4 para que las curvas casen.
+        // Concentric corners: the standard child (md radius) is inset by the
+        // x4 padding -> the container uses md + x4 so the curves match up.
         borderRadius: AsnRadius.brConcentric(AsnRadius.md, AsnSpacing.x4),
         border: Border.all(color: colors.borderDefault),
       ),
@@ -45,7 +45,7 @@ class DemoBlock extends StatelessWidget {
   }
 }
 
-/// Lista vertical de bloques con padding consistente para una pantalla.
+/// Vertical list of blocks with consistent padding for a screen.
 class DemoScreen extends StatelessWidget {
   const DemoScreen({super.key, required this.blocks});
 

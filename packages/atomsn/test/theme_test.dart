@@ -4,28 +4,28 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
 
-  test('newsprint preset respeta las reglas duras del sistema', () {
-    // Sin negro ni blanco puros.
+  test('newsprint preset respects the system hard rules', () {
+    // No pure black or white.
     const forbidden = [Color(0xFF000000), Color(0xFFFFFFFF)];
     for (final c in [AsnNewsprint.light, AsnNewsprint.dark]) {
       expect(forbidden.contains(c.bgBase), isFalse);
       expect(forbidden.contains(c.textPrimary), isFalse);
     }
-    // Brillos correctos.
+    // Correct brightnesses.
     expect(AsnNewsprint.light.brightness, Brightness.light);
     expect(AsnNewsprint.dark.brightness, Brightness.dark);
   });
 
-  test('AsnColorScheme deriva ShadColorScheme desde los roles semanticos', () {
+  test('AsnColorScheme derives ShadColorScheme from the semantic roles', () {
     final scheme = AsnColorScheme.fromSemantic(AsnNewsprint.light);
     expect(scheme.background, AsnNewsprint.light.bgBase);
     expect(scheme.primary, AsnNewsprint.light.actionPrimary);
-    // Roles editoriales extra viajan en el mapa custom.
+    // Extra editorial roles travel in the custom map.
     expect(scheme.custom['link'], AsnNewsprint.light.link);
     expect(scheme.custom['warning'], AsnNewsprint.light.statusWarning);
   });
 
-  testWidgets('AsnTheme.of devuelve los colores del modo activo bajo AsnApp', (
+  testWidgets('AsnTheme.of returns the active mode colors under AsnApp', (
     tester,
   ) async {
     late AsnSemanticColors seen;
@@ -43,7 +43,7 @@ void main() {
     expect(seen.bgBase, AsnNewsprint.light.bgBase);
   });
 
-  testWidgets('El texto plano hereda la familia ElmsSans del tema', (
+  testWidgets('Plain text inherits the ElmsSans family from the theme', (
     tester,
   ) async {
     late TextStyle defaultStyle;
@@ -57,8 +57,8 @@ void main() {
         ),
       ),
     );
-    // Sin la familia en el textStyle raiz del app, un Text plano caia en la
-    // fuente del sistema (Roboto) en vez de ElmsSans.
+    // Without the family in the app root textStyle, a plain Text fell back to
+    // the system font (Roboto) instead of ElmsSans.
     expect(defaultStyle.fontFamily, AsnTextTheme.fontFamily);
   });
 }

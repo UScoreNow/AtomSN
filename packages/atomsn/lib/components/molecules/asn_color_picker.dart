@@ -5,9 +5,9 @@ import '../../foundations/radius/asn_radius.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Selector de color por rejilla de muestras. Widget propio controlado.
+/// Color selector via a grid of swatches. Controlled custom widget.
 ///
-/// Resalta la muestra igual a [value] con el borde activo del tema.
+/// Highlights the swatch equal to [value] with the theme's active border.
 class AsnColorPicker extends StatelessWidget {
   const AsnColorPicker({
     super.key,

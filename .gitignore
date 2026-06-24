@@ -1,11 +1,11 @@
-# Build / generados
+# Build / generated
 **/build/
 **/.dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
 **/.flutter-plugins-dependencies
 
-# La libreria es un paquete: su lockfile no se versiona.
+# The library is a package: its lockfile is not versioned.
 packages/atomsn/pubspec.lock
 
 # IDE

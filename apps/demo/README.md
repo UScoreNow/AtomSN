@@ -1,28 +1,28 @@
 # AtomSN — demo
 
-App de demostracion de [`atomsn`](../../packages/atomsn): muestra todos los
-componentes (atoms, molecules, organisms, templates) en vivo, con toggle de tema
+Demo app for [`atomsn`](../../packages/atomsn): shows all
+components (atoms, molecules, organisms, templates) live, with a theme toggle
 light ("Paper") / dark ("Night Press").
 
-**Demo en vivo:** https://uscorenow.github.io/atom-sn/
+**Live demo:** https://uscorenow.github.io/atom-sn/
 
-> El sitio se compila y publica automaticamente en GitHub Pages mediante el
-> workflow `.github/workflows/pages.yml` en cada push a `main`. No hay despliegue
-> manual ni repo de salida aparte.
+> The site is built and published automatically to GitHub Pages via the
+> `.github/workflows/pages.yml` workflow on every push to `main`. There is no manual
+> deployment or separate output repo.
 
-## Ejecutar
+## Run
 
 ```bash
 flutter pub get
 flutter run -d chrome   # o -d linux
 ```
 
-La dependencia `atomsn` se resuelve por `path` desde `packages/atomsn` dentro del
-mismo monorepo: no hay bumps de version git, los cambios en la libreria se ven al
-instante.
+The `atomsn` dependency is resolved by `path` from `packages/atomsn` within the
+same monorepo: there are no git version bumps, and library changes are visible
+instantly.
 
-## Estructura
+## Structure
 
-- `lib/main.dart`: `AsnApp` + navegacion por secciones + toggle de tema.
-- `lib/screens/`: una pantalla por capa de atomic design.
-- `lib/widgets/demo_block.dart`: helpers de presentacion (`DemoBlock`, `DemoScreen`).
+- `lib/main.dart`: `AsnApp` + section navigation + theme toggle.
+- `lib/screens/`: one screen per atomic design layer.
+- `lib/widgets/demo_block.dart`: presentation helpers (`DemoBlock`, `DemoScreen`).

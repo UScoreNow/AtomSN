@@ -7,23 +7,23 @@ import 'asn_color_scheme.dart';
 import 'asn_text_theme.dart';
 import 'asn_theme_extension.dart';
 
-/// Punto de acceso al tema de `AtomSN`.
+/// Access point to the `AtomSN` theme.
 ///
-/// - [buildTheme] construye el `ShadThemeData` que consume `ShadApp`.
-/// - [of] devuelve los [AsnSemanticColors] activos (roles editoriales completos),
-///   util para componentes propios que necesitan colores fuera de
+/// - [buildTheme] builds the `ShadThemeData` that `ShadApp` consumes.
+/// - [of] returns the active [AsnSemanticColors] (full editorial roles),
+///   useful for custom components that need colors outside of
 ///   `ShadColorScheme`.
 abstract final class AsnTheme {
-  /// Offset (hueco) entre el borde del elemento y su anillo de foco.
+  /// Offset (gap) between the element's border and its focus ring.
   static const double _focusOffset = 4;
 
-  /// Construye el `ShadThemeData` de shadcn_ui a partir de [colors].
+  /// Builds the shadcn_ui `ShadThemeData` from [colors].
   static ShadThemeData buildTheme(AsnSemanticColors colors) {
     final ring = colors.actionPrimary;
 
-    // Anillo de foco concentrico con la esquina del elemento:
-    // R_anillo = R_elemento + offset. shadcn usa por defecto radio*1.5, lo que
-    // descuadra las esquinas (sobre todo cuando el elemento tiene radio pequeno).
+    // Focus ring concentric with the element's corner:
+    // R_ring = R_element + offset. shadcn uses radius*1.5 by default, which
+    // misaligns the corners (especially when the element has a small radius).
     ShadBorder focusRing(double childRadius) => ShadBorder.all(
       width: 2,
       color: ring,
@@ -36,21 +36,21 @@ abstract final class AsnTheme {
       brightness: colors.brightness,
       radius: AsnRadius.brMd,
       textTheme: AsnTextTheme.build(),
-      // Anillo global para elementos de radio md (inputs, select, textarea,
-      // botones).
+      // Global ring for md-radius elements (inputs, select, textarea,
+      // buttons).
       decoration: ShadDecoration(
         secondaryFocusedBorder: focusRing(AsnRadius.md),
       ),
-      // La pestana activa usa radio sm (8) para quedar concentrica dentro del
-      // track (radio md); el anillo de foco va a 8 + offset.
+      // The active tab uses sm radius (8) to stay concentric within the
+      // track (md radius); the focus ring goes to 8 + offset.
       tabsTheme: ShadTabsTheme(
         tabDecoration: ShadDecoration(
           border: ShadBorder.all(radius: AsnRadius.brSm, width: 0),
           secondaryFocusedBorder: focusRing(AsnRadius.sm),
         ),
       ),
-      // El boton de menu activo usa radio sm (8) para sus esquinas; ademas
-      // habilitamos el anillo de foco concentrico (shadcn lo desactiva).
+      // The active menu button uses sm radius (8) for its corners; we also
+      // enable the concentric focus ring (shadcn disables it).
       menubarTheme: ShadMenubarTheme(
         buttonDecoration: ShadDecoration(
           disableSecondaryBorder: false,
@@ -61,19 +61,19 @@ abstract final class AsnTheme {
     );
   }
 
-  /// Colores semanticos activos. Requiere un [AsnThemeScope] ancestro
-  /// (lo inyecta `AsnApp`).
+  /// Active semantic colors. Requires an ancestor [AsnThemeScope]
+  /// (injected by `AsnApp`).
   static AsnSemanticColors of(BuildContext context) {
     final colors = AsnThemeScope.maybeOf(context);
     assert(
       colors != null,
-      'No se encontro un AsnThemeScope. Envuelve la app en AsnApp o coloca un '
-      'AsnThemeScope bajo tu ShadApp.',
+      'No AsnThemeScope found. Wrap the app in AsnApp or place an '
+      'AsnThemeScope under your ShadApp.',
     );
     return colors!;
   }
 
-  /// Igual que [of] pero devuelve null si no hay scope.
+  /// Same as [of] but returns null if there is no scope.
   static AsnSemanticColors? maybeOf(BuildContext context) =>
       AsnThemeScope.maybeOf(context);
 }

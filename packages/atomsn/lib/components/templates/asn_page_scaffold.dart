@@ -3,9 +3,9 @@ import 'package:flutter/widgets.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Andamiaje de pagina simple. Plantilla propia (sin `Scaffold` de Material).
+/// Simple page scaffold. Own template (without Material's `Scaffold`).
 ///
-/// Cabecera con [title] y [actions] sobre `bgBase`, seguida del [body].
+/// Header with [title] and [actions] over `bgBase`, followed by the [body].
 class AsnPageScaffold extends StatelessWidget {
   const AsnPageScaffold({
     super.key,
@@ -14,7 +14,7 @@ class AsnPageScaffold extends StatelessWidget {
     this.actions,
   });
 
-  /// Titulo de la cabecera (texto o widget).
+  /// Header title (text or widget).
   final Widget title;
   final Widget body;
   final List<Widget>? actions;

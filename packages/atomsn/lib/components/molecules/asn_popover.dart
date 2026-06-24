@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Panel flotante anclado a un [child]. Envuelve `ShadPopover`.
+/// Floating panel anchored to a [child]. Wraps `ShadPopover`.
 ///
-/// Controlado: la visibilidad la dicta [visible] y los cambios (incluido el
-/// cierre por tap fuera) se reportan via [onVisibleChanged]. Se gestiona un
-/// `ShadPopoverController` interno para mantener la API controlada.
+/// Controlled: visibility is dictated by [visible] and changes (including
+/// closing by tapping outside) are reported via [onVisibleChanged]. An internal
+/// `ShadPopoverController` is managed to keep the API controlled.
 class AsnPopover extends StatefulWidget {
   const AsnPopover({
     super.key,

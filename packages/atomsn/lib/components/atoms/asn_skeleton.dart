@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import '../../foundations/radius/asn_radius.dart';
 import '../../theme/asn_theme.dart';
 
-/// Placeholder de carga con pulso. Widget propio (gap de shadcn_ui), inspirado
-/// en el Skeleton de shadcn_flutter.
+/// Loading placeholder with a pulse. Own widget (shadcn_ui gap), inspired by
+/// the Skeleton from shadcn_flutter.
 class AsnSkeleton extends StatefulWidget {
   const AsnSkeleton({
     super.key,

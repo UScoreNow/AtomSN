@@ -1,15 +1,15 @@
 import 'package:flutter/widgets.dart';
 
-/// Roles semanticos de color resueltos por modo (light / dark).
+/// Semantic color roles resolved per mode (light / dark).
 ///
-/// Capa fundacional brand-agnostic: define la *forma* del sistema de color,
-/// no valores concretos. Cada tema/preset (p. ej. `newsprint`) provee una
-/// instancia para light y otra para dark.
+/// Brand-agnostic foundational layer: defines the *shape* of the color system,
+/// not concrete values. Each theme/preset (e.g. `newsprint`) provides an
+/// instance for light and another for dark.
 ///
-/// Los componentes consumen estos roles via `AsnTheme.of(context)`, nunca una
-/// rampa de color cruda. El tema de shadcn_ui (`ShadColorScheme`) se deriva de
-/// aqui; los roles que `ShadColorScheme` no cubre (warning, link, highlightMark,
-/// borderSection...) viven aqui y se exponen mediante el scope de `AtomSN`.
+/// Components consume these roles via `AsnTheme.of(context)`, never a raw
+/// color ramp. The shadcn_ui theme (`ShadColorScheme`) is derived from
+/// here; the roles that `ShadColorScheme` does not cover (warning, link, highlightMark,
+/// borderSection...) live here and are exposed through the `AtomSN` scope.
 @immutable
 class AsnSemanticColors {
   const AsnSemanticColors({
@@ -57,16 +57,16 @@ class AsnSemanticColors {
     required this.highlightMark,
   });
 
-  /// Brillo asociado a este conjunto de roles.
+  /// Brightness associated with this set of roles.
   final Brightness brightness;
 
-  // --- bg: fondos y superficies ---
+  // --- bg: backgrounds and surfaces ---
   final Color bgBase;
   final Color bgSurface;
   final Color bgRaised;
   final Color bgSubtle;
 
-  /// Velo de overlay; aplicar con opacidad (p. ej. 0.5 light / 0.7 dark).
+  /// Overlay veil; apply with opacity (e.g. 0.5 light / 0.7 dark).
   final Color bgOverlay;
   final Color bgInverse;
 
@@ -78,10 +78,10 @@ class AsnSemanticColors {
   final Color textDisabled;
   final Color textInverse;
 
-  /// Texto sobre relleno de accion primaria.
+  /// Text over primary action fill.
   final Color textOnPrimary;
 
-  /// Color de enlace.
+  /// Link color.
   final Color link;
 
   // --- action ---
@@ -92,7 +92,7 @@ class AsnSemanticColors {
   final Color actionSubtle;
 
   // --- accent ---
-  /// Destacados / sellos de alto contraste.
+  /// High-contrast highlights / stamps.
   final Color accentInk;
 
   // --- border ---
@@ -101,10 +101,10 @@ class AsnSemanticColors {
   final Color borderStrong;
   final Color borderActive;
 
-  /// Regla fina (1px).
+  /// Thin rule (1px).
   final Color borderHairline;
 
-  /// Regla de seccion (2px).
+  /// Section rule (2px).
   final Color borderSection;
 
   // --- status (fill vs text) ---
@@ -113,26 +113,26 @@ class AsnSemanticColors {
   final Color statusError;
   final Color statusErrorText;
 
-  /// Relleno de fondo plano y claro para error.
+  /// Flat, light background fill for error.
   final Color statusErrorBg;
   final Color statusSuccess;
   final Color statusSuccessText;
 
-  /// Relleno de fondo plano y claro para success.
+  /// Flat, light background fill for success.
   final Color statusSuccessBg;
   final Color statusWarning;
   final Color statusWarningText;
 
-  /// Relleno de fondo plano y claro para warning.
+  /// Flat, light background fill for warning.
   final Color statusWarningBg;
   final Color statusInfo;
   final Color statusInfoText;
 
-  /// Relleno de fondo plano y claro para info.
+  /// Flat, light background fill for info.
   final Color statusInfoBg;
 
   // --- highlight ---
-  /// Wash de marcador tras datos clave.
+  /// Marker wash behind key data.
   final Color highlightMark;
 
   AsnSemanticColors copyWith({

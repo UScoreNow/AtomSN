@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
 
-/// Pantalla que muestra todos los organismos del paquete AtomSN.
+/// Screen that shows all of the AtomSN package's organisms.
 class OrganismsScreen extends StatefulWidget {
   const OrganismsScreen({super.key});
 
@@ -18,7 +18,7 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
   DateTime? _selectedDate;
   Set<String> _expandedIds = {'src'};
 
-  static const _navLabels = ['Inicio', 'Articulos', 'Archivo', 'Sobre'];
+  static const _navLabels = ['Home', 'Articles', 'Archive', 'About'];
 
   static const _tree = [
     AsnTreeNode(
@@ -59,45 +59,45 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
               AsnButton(
                 onPressed: () => AsnDialog.show<void>(
                   context,
-                  title: const Text('Publicar edicion'),
+                  title: const Text('Publish edition'),
                   description: const Text(
-                    'La edicion se enviara a impresion de inmediato.',
+                    'The edition will be sent to print immediately.',
                   ),
                   actions: [
                     AsnButton(
                       variant: AsnButtonVariant.ghost,
                       onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('Cancelar'),
+                      child: const Text('Cancel'),
                     ),
                     AsnButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('Publicar'),
+                      child: const Text('Publish'),
                     ),
                   ],
                 ),
-                child: const Text('Abrir dialogo'),
+                child: const Text('Open dialog'),
               ),
               const SizedBox(width: AsnSpacing.x3),
               AsnButton(
                 variant: AsnButtonVariant.destructive,
                 onPressed: () => AsnDialog.showAlert<void>(
                   context,
-                  title: const Text('Borrar borrador'),
-                  description: const Text('Esta accion no se puede deshacer.'),
+                  title: const Text('Delete draft'),
+                  description: const Text('This action cannot be undone.'),
                   actions: [
                     AsnButton(
                       variant: AsnButtonVariant.ghost,
                       onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('Cancelar'),
+                      child: const Text('Cancel'),
                     ),
                     AsnButton(
                       variant: AsnButtonVariant.destructive,
                       onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('Borrar'),
+                      child: const Text('Delete'),
                     ),
                   ],
                 ),
-                child: const Text('Abrir alerta'),
+                child: const Text('Open alert'),
               ),
             ],
           ),
@@ -111,11 +111,11 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                 onPressed: () => AsnSheet.show<void>(
                   context,
                   side: AsnSheetSide.right,
-                  title: const Text('Filtros'),
-                  description: const Text('Ajusta la lista de articulos.'),
-                  child: const Text('Contenido del panel lateral.'),
+                  title: const Text('Filters'),
+                  description: const Text('Adjust the list of articles.'),
+                  child: const Text('Side panel content.'),
                 ),
-                child: const Text('Sheet derecha'),
+                child: const Text('Sheet right'),
               ),
               const SizedBox(width: AsnSpacing.x3),
               AsnButton(
@@ -123,10 +123,10 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                 onPressed: () => AsnSheet.show<void>(
                   context,
                   side: AsnSheetSide.bottom,
-                  title: const Text('Acciones'),
-                  child: const Text('Panel anclado abajo.'),
+                  title: const Text('Actions'),
+                  child: const Text('Panel anchored at the bottom.'),
                 ),
-                child: const Text('Sheet abajo'),
+                child: const Text('Sheet bottom'),
               ),
             ],
           ),
@@ -135,9 +135,9 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
           title: 'AsnContextMenu',
           child: AsnContextMenu(
             items: [
-              AsnMenuItem(label: 'Copiar', onTap: () {}),
-              AsnMenuItem(label: 'Pegar', onTap: () {}),
-              const AsnMenuItem(label: 'Eliminar', enabled: false),
+              AsnMenuItem(label: 'Copy', onTap: () {}),
+              AsnMenuItem(label: 'Paste', onTap: () {}),
+              const AsnMenuItem(label: 'Delete', enabled: false),
             ],
             child: Container(
               padding: const EdgeInsets.all(AsnSpacing.x4),
@@ -147,7 +147,7 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                 border: Border.all(color: colors.borderDefault),
               ),
               child: const Text(
-                'Click derecho o pulsacion larga aqui',
+                'Right-click or long-press here',
               ),
             ),
           ),
@@ -157,22 +157,22 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
           child: AsnMenubar(
             menus: [
               AsnMenu(
-                label: 'Archivo',
+                label: 'File',
                 items: [
-                  AsnMenuItem(label: 'Nuevo', onTap: () {}),
-                  AsnMenuItem(label: 'Abrir', onTap: () {}),
-                  AsnMenuItem(label: 'Guardar', onTap: () {}),
+                  AsnMenuItem(label: 'New', onTap: () {}),
+                  AsnMenuItem(label: 'Open', onTap: () {}),
+                  AsnMenuItem(label: 'Save', onTap: () {}),
                 ],
               ),
               AsnMenu(
-                label: 'Editar',
+                label: 'Edit',
                 items: [
-                  AsnMenuItem(label: 'Deshacer', onTap: () {}),
-                  AsnMenuItem(label: 'Rehacer', onTap: () {}),
+                  AsnMenuItem(label: 'Undo', onTap: () {}),
+                  AsnMenuItem(label: 'Redo', onTap: () {}),
                 ],
               ),
               AsnMenu(
-                label: 'Ver',
+                label: 'View',
                 items: [
                   AsnMenuItem(label: 'Zoom +', onTap: () {}),
                   AsnMenuItem(label: 'Zoom -', onTap: () {}),
@@ -183,20 +183,20 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
         ),
         DemoBlock(
           title: 'AsnTable',
-          // ShadTable usa un viewport 2D: necesita altura acotada dentro de un
-          // ListView. Se limita con un SizedBox.
+          // ShadTable uses a 2D viewport: it needs a bounded height inside a
+          // ListView. It is constrained with a SizedBox.
           child: SizedBox(
             height: 160,
             child: AsnTable(
               columns: const [
-                AsnTableColumn(header: Text('Seccion')),
+                AsnTableColumn(header: Text('Section')),
                 AsnTableColumn(header: Text('Editor')),
-                AsnTableColumn(header: Text('Notas')),
+                AsnTableColumn(header: Text('Notes')),
               ],
               rows: const [
-                [Text('Portada'), Text('A. Soler'), Text('12')],
-                [Text('Cultura'), Text('M. Rivas'), Text('8')],
-                [Text('Deportes'), Text('J. Pena'), Text('15')],
+                [Text('Front Page'), Text('A. Soler'), Text('12')],
+                [Text('Culture'), Text('M. Rivas'), Text('8')],
+                [Text('Sports'), Text('J. Pena'), Text('15')],
               ],
             ),
           ),
@@ -215,8 +215,8 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
             child: AsnResizable(
               axis: AsnResizableAxis.horizontal,
               panels: [
-                _panel(colors, 'Indice'),
-                _panel(colors, 'Documento'),
+                _panel(colors, 'Index'),
+                _panel(colors, 'Document'),
               ],
             ),
           ),
@@ -230,16 +230,16 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
               AsnButton(
                 onPressed: () => AsnToast.show(
                   context,
-                  title: const Text('Guardado'),
-                  description: const Text('El borrador se guardo.'),
+                  title: const Text('Saved'),
+                  description: const Text('The draft was saved.'),
                 ),
                 child: const Text('Normal'),
               ),
               AsnButton(
                 onPressed: () => AsnToast.show(
                   context,
-                  title: const Text('Informacion'),
-                  description: const Text('Hay una actualizacion disponible.'),
+                  title: const Text('Information'),
+                  description: const Text('An update is available.'),
                   variant: AsnStatusVariant.info,
                 ),
                 child: const Text('Info'),
@@ -247,8 +247,8 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
               AsnButton(
                 onPressed: () => AsnToast.show(
                   context,
-                  title: const Text('Advertencia'),
-                  description: const Text('Tu sesion caduca pronto.'),
+                  title: const Text('Warning'),
+                  description: const Text('Your session expires soon.'),
                   variant: AsnStatusVariant.warning,
                 ),
                 child: const Text('Warning'),
@@ -258,7 +258,7 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                 onPressed: () => AsnToast.show(
                   context,
                   title: const Text('Error'),
-                  description: const Text('No se pudo conectar.'),
+                  description: const Text('Could not connect.'),
                   variant: AsnStatusVariant.error,
                 ),
                 child: const Text('Error'),
@@ -266,8 +266,8 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
               AsnButton(
                 onPressed: () => AsnToast.show(
                   context,
-                  title: const Text('Hecho'),
-                  description: const Text('Los cambios se publicaron.'),
+                  title: const Text('Done'),
+                  description: const Text('The changes were published.'),
                   variant: AsnStatusVariant.success,
                 ),
                 child: const Text('Success'),
@@ -283,9 +283,9 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
               AsnStepper(
                 currentIndex: _stepperIndex,
                 steps: const [
-                  AsnStep(title: 'Redactar', subtitle: 'Texto'),
-                  AsnStep(title: 'Revisar', subtitle: 'Edicion'),
-                  AsnStep(title: 'Publicar', subtitle: 'Salida'),
+                  AsnStep(title: 'Draft', subtitle: 'Text'),
+                  AsnStep(title: 'Review', subtitle: 'Editing'),
+                  AsnStep(title: 'Publish', subtitle: 'Output'),
                 ],
               ),
               const SizedBox(height: AsnSpacing.x4),
@@ -297,7 +297,7 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                     onPressed: _stepperIndex > 0
                         ? () => setState(() => _stepperIndex--)
                         : null,
-                    child: const Text('Atras'),
+                    child: const Text('Back'),
                   ),
                   const SizedBox(width: AsnSpacing.x2),
                   AsnButton(
@@ -305,7 +305,7 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                     onPressed: _stepperIndex < 2
                         ? () => setState(() => _stepperIndex++)
                         : null,
-                    child: const Text('Siguiente'),
+                    child: const Text('Next'),
                   ),
                 ],
               ),
@@ -320,9 +320,9 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
               AsnSteps(
                 currentIndex: _stepsIndex,
                 steps: const [
-                  AsnStep(title: 'Crear cuenta', subtitle: 'Datos basicos'),
-                  AsnStep(title: 'Confirmar email', subtitle: 'Verificacion'),
-                  AsnStep(title: 'Listo', subtitle: 'Acceso completo'),
+                  AsnStep(title: 'Create account', subtitle: 'Basic details'),
+                  AsnStep(title: 'Confirm email', subtitle: 'Verification'),
+                  AsnStep(title: 'Done', subtitle: 'Full access'),
                 ],
               ),
               Row(
@@ -333,7 +333,7 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                     onPressed: _stepsIndex > 0
                         ? () => setState(() => _stepsIndex--)
                         : null,
-                    child: const Text('Atras'),
+                    child: const Text('Back'),
                   ),
                   const SizedBox(width: AsnSpacing.x2),
                   AsnButton(
@@ -341,7 +341,7 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                     onPressed: _stepsIndex < 2
                         ? () => setState(() => _stepsIndex++)
                         : null,
-                    child: const Text('Siguiente'),
+                    child: const Text('Next'),
                   ),
                 ],
               ),
@@ -353,18 +353,18 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
           child: AsnTimeline(
             entries: [
               AsnTimelineEntry(
-                title: 'Borrador creado',
+                title: 'Draft created',
                 time: '09:14',
-                child: Text('Primer esbozo del articulo.'),
+                child: Text('First outline of the article.'),
               ),
               AsnTimelineEntry(
-                title: 'Enviado a revision',
+                title: 'Sent for review',
                 time: '11:30',
               ),
               AsnTimelineEntry(
-                title: 'Aprobado',
+                title: 'Approved',
                 time: '15:02',
-                child: Text('Listo para maquetacion.'),
+                child: Text('Ready for layout.'),
               ),
             ],
           ),
@@ -395,21 +395,21 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
           child: SizedBox(
             height: 240,
             child: AsnCommand(
-              placeholder: 'Buscar comando...',
+              placeholder: 'Search command...',
               items: [
                 AsnCommandItem(
-                  label: 'Nuevo articulo',
-                  keywords: const ['crear', 'post'],
+                  label: 'New article',
+                  keywords: const ['create', 'post'],
                   onSelected: () {},
                 ),
                 AsnCommandItem(
-                  label: 'Buscar archivo',
-                  keywords: const ['abrir', 'file'],
+                  label: 'Search file',
+                  keywords: const ['open', 'file'],
                   onSelected: () {},
                 ),
                 AsnCommandItem(
-                  label: 'Ajustes',
-                  keywords: const ['config', 'preferencias'],
+                  label: 'Settings',
+                  keywords: const ['config', 'preferences'],
                   onSelected: () {},
                 ),
               ],
@@ -421,9 +421,9 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
           child: AsnCarousel(
             height: 160,
             items: [
-              _card(colors, 'Edicion 1'),
-              _card(colors, 'Edicion 2'),
-              _card(colors, 'Edicion 3'),
+              _card(colors, 'Edition 1'),
+              _card(colors, 'Edition 2'),
+              _card(colors, 'Edition 3'),
             ],
           ),
         ),
@@ -431,14 +431,14 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
           title: 'AsnDataTable',
           child: AsnDataTable(
             columns: [
-              AsnDataColumn(label: 'Titulo', onSort: () {}),
-              AsnDataColumn(label: 'Autor', onSort: () {}),
-              const AsnDataColumn(label: 'Estado'),
+              AsnDataColumn(label: 'Title', onSort: () {}),
+              AsnDataColumn(label: 'Author', onSort: () {}),
+              const AsnDataColumn(label: 'Status'),
             ],
             rows: const [
-              [Text('El paro silencioso'), Text('A. Soler'), Text('Publicado')],
-              [Text('Cronica de barrio'), Text('M. Rivas'), Text('Borrador')],
-              [Text('Final de copa'), Text('J. Pena'), Text('Revision')],
+              [Text('The Silent Strike'), Text('A. Soler'), Text('Published')],
+              [Text('Neighborhood Chronicle'), Text('M. Rivas'), Text('Draft')],
+              [Text('Cup Final'), Text('J. Pena'), Text('Review')],
             ],
           ),
         ),
@@ -451,9 +451,9 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                 onPressed: () => AsnDrawer.show<void>(
                   context,
                   side: AsnDrawerSide.left,
-                  child: const Text('Navegacion del cajon izquierdo.'),
+                  child: const Text('Navigation in the left drawer.'),
                 ),
-                child: const Text('Drawer izquierda'),
+                child: const Text('Drawer left'),
               ),
               const SizedBox(width: AsnSpacing.x3),
               AsnButton(
@@ -461,9 +461,9 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                 onPressed: () => AsnDrawer.show<void>(
                   context,
                   side: AsnDrawerSide.right,
-                  child: const Text('Detalles en el cajon derecho.'),
+                  child: const Text('Details in the right drawer.'),
                 ),
-                child: const Text('Drawer derecha'),
+                child: const Text('Drawer right'),
               ),
             ],
           ),

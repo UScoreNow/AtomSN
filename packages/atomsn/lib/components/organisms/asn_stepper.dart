@@ -4,7 +4,7 @@ import '../../foundations/color/asn_semantic_colors.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Paso de un [AsnStepper] o [AsnSteps].
+/// Step of an [AsnStepper] or [AsnSteps].
 @immutable
 class AsnStep {
   const AsnStep({required this.title, this.subtitle});
@@ -13,10 +13,10 @@ class AsnStep {
   final String? subtitle;
 }
 
-/// Indicador de pasos horizontal. Widget propio (inspirado en shadcn_flutter).
+/// Horizontal step indicator. Custom widget (inspired by shadcn_flutter).
 ///
-/// Pinta circulos numerados unidos por conectores: `actionPrimary` para pasos
-/// completados o el actual, `border` para los pendientes.
+/// Paints numbered circles joined by connectors: `actionPrimary` for completed
+/// steps or the current one, `border` for the pending ones.
 class AsnStepper extends StatelessWidget {
   const AsnStepper({super.key, required this.steps, required this.currentIndex});
 

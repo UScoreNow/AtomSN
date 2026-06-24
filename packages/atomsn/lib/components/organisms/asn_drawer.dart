@@ -2,13 +2,13 @@ import 'package:flutter/widgets.dart';
 
 import 'asn_sheet.dart';
 
-/// Lado desde el que aparece un [AsnDrawer].
+/// Side from which an [AsnDrawer] appears.
 enum AsnDrawerSide { left, right }
 
-/// Cajon lateral (drawer) modal. Reutiliza [AsnSheet] por debajo para evitar
-/// el `Drawer` de Material.
+/// Modal side drawer. Reuses [AsnSheet] underneath to avoid
+/// Material's `Drawer`.
 abstract final class AsnDrawer {
-  /// Muestra el drawer anclado a [side] y resuelve con su valor al cerrarse.
+  /// Shows the drawer anchored to [side] and resolves with its value on close.
   static Future<T?> show<T>(
     BuildContext context, {
     required Widget child,

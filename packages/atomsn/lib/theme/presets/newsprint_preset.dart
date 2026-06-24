@@ -4,15 +4,15 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 import '../../foundations/color/asn_semantic_colors.dart';
 import '../asn_theme.dart';
 
-/// Rampa de color cruda del tema editorial "newsprint".
+/// Raw color ramp of the "newsprint" editorial theme.
 ///
-/// Base apapelada crema + tinta calida; acentos verde cesped y negro tinta.
-/// `#FFFFFF` y `#000000` puros estan prohibidos: `ink900` (#0E0D0A) es el negro
-/// legal mas oscuro y `paper50` (#FBF8F0) el papel mas claro.
+/// Cream paper-like base + warm ink; lawn green and ink black accents.
+/// Pure `#FFFFFF` and `#000000` are forbidden: `ink900` (#0E0D0A) is the darkest
+/// legal black and `paper50` (#FBF8F0) the lightest paper.
 abstract final class AsnNewsprintPalette {
   // paper
-  // Tramo claro: gris calido tipo newsprint (mas gris, con tinte amarillento)
-  // en lugar del crema original.
+  // Light range: warm newsprint-like gray (grayer, with a yellowish tint)
+  // instead of the original cream.
   static const Color paper50 = Color(0xFFECEAE0);
   static const Color paper100 = Color(0xFFE5E2D6);
   static const Color paper200 = Color(0xFFDBD7C8);
@@ -77,10 +77,10 @@ abstract final class AsnNewsprintPalette {
   static const Color indigo900 = Color(0xFF1E1B4B);
 }
 
-/// Preset por defecto: tema editorial "newsprint" (light "Paper" / dark
+/// Default preset: "newsprint" editorial theme (light "Paper" / dark
 /// "Night Press").
 abstract final class AsnNewsprint {
-  /// Roles semanticos del modo claro ("Paper").
+  /// Semantic roles of the light mode ("Paper").
   static const AsnSemanticColors light = AsnSemanticColors(
     brightness: Brightness.light,
     bgBase: AsnNewsprintPalette.paper50,
@@ -126,7 +126,7 @@ abstract final class AsnNewsprint {
     highlightMark: AsnNewsprintPalette.yellow100,
   );
 
-  /// Roles semanticos del modo oscuro ("Night Press").
+  /// Semantic roles of the dark mode ("Night Press").
   static const AsnSemanticColors dark = AsnSemanticColors(
     brightness: Brightness.dark,
     bgBase: AsnNewsprintPalette.inkBg,
@@ -172,9 +172,9 @@ abstract final class AsnNewsprint {
     highlightMark: AsnNewsprintPalette.yellow700,
   );
 
-  /// `ShadThemeData` del modo claro.
+  /// `ShadThemeData` of the light mode.
   static ShadThemeData get lightTheme => AsnTheme.buildTheme(light);
 
-  /// `ShadThemeData` del modo oscuro.
+  /// `ShadThemeData` of the dark mode.
   static ShadThemeData get darkTheme => AsnTheme.buildTheme(dark);
 }

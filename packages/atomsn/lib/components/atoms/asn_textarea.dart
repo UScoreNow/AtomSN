@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Campo de texto multilinea. Envuelve `ShadTextarea`.
+/// Multiline text field. Wraps `ShadTextarea`.
 class AsnTextarea extends StatelessWidget {
   const AsnTextarea({
     super.key,

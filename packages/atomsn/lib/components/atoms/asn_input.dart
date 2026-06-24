@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Campo de texto de una linea. Envuelve `ShadInput`.
+/// Single-line text field. Wraps `ShadInput`.
 class AsnInput extends StatelessWidget {
   const AsnInput({
     super.key,

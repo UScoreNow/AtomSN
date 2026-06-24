@@ -5,10 +5,10 @@ import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 import 'asn_stepper.dart';
 
-/// Lista vertical de pasos numerados. Widget propio.
+/// Vertical list of numbered steps. Own widget.
 ///
-/// Reutiliza el modelo [AsnStep]. Marca como activos los pasos hasta
-/// [currentIndex] con `actionPrimary`; los pendientes usan `border`.
+/// Reuses the [AsnStep] model. Marks the steps up to [currentIndex] as active
+/// with `actionPrimary`; the pending ones use `border`.
 class AsnSteps extends StatelessWidget {
   const AsnSteps({super.key, required this.steps, required this.currentIndex});
 
