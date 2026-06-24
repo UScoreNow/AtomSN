@@ -4,7 +4,7 @@ App de demostracion de [`atomsn`](../../packages/atomsn): muestra todos los
 componentes (atoms, molecules, organisms, templates) en vivo, con toggle de tema
 light ("Paper") / dark ("Night Press").
 
-**Demo en vivo:** https://uscorenow.github.io/AtomSN/
+**Demo en vivo:** https://uscorenow.github.io/atom-sn/
 
 > El sitio se compila y publica automaticamente en GitHub Pages mediante el
 > workflow `.github/workflows/pages.yml` en cada push a `main`. No hay despliegue

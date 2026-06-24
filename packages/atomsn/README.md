@@ -31,7 +31,7 @@ lib/
 
 ## Instalacion
 
-Forma parte del monorepo [`UScoreNow/AtomSN`](https://github.com/UScoreNow/AtomSN).
+Forma parte del monorepo [`UScoreNow/atom-sn`](https://github.com/UScoreNow/atom-sn).
 Dentro del monorepo, las apps la consumen por `path`:
 
 ```yaml
@@ -46,7 +46,7 @@ Desde un repo externo, anade la dependencia git apuntando al monorepo:
 dependencies:
   atomsn:
     git:
-      url: https://github.com/UScoreNow/AtomSN.git
+      url: https://github.com/UScoreNow/atom-sn.git
       path: packages/atomsn
       ref: main
 ```
@@ -113,7 +113,7 @@ AsnApp(
 
 La app de demostracion (todos los componentes en vivo, con toggle light/dark)
 vive en este mismo monorepo, en `apps/demo`, y se publica en
-https://uscorenow.github.io/AtomSN/.
+https://uscorenow.github.io/atom-sn/.
 
 ## Notas
 
