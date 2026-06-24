@@ -1,0 +1,39 @@
+name: Release
+
+# Cada merge a main (promocion desde dev) publica una Release.
+# La version sale de packages/atomsn/pubspec.yaml: hay que bumpearla en la PR
+# dev -> main. Si el tag v<version> ya existe, la Release se omite sin fallar.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read version from pubspec
+        id: ver
+        run: echo "version=$(grep '^version:' packages/atomsn/pubspec.yaml | cut -d' ' -f2 | tr -d '\r')" >> "$GITHUB_OUTPUT"
+
+      - name: Check if tag already exists
+        id: check
+        run: |
+          if git rev-parse "v${{ steps.ver.outputs.version }}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::El tag v${{ steps.ver.outputs.version }} ya existe; se omite la Release. Bumpea version en packages/atomsn/pubspec.yaml en la proxima PR."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create release
+        if: steps.check.outputs.exists == 'false'
+        run: gh release create "v${{ steps.ver.outputs.version }}" --target "$GITHUB_SHA" --title "v${{ steps.ver.outputs.version }}" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
