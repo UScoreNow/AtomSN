@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 /// Opcion de un [AxSelect]. Modelo propio (no filtra tipos `Shad*`).
@@ -34,6 +35,14 @@ class AxSelect<T> extends StatelessWidget {
       initialValue: value,
       placeholder: placeholder == null ? null : Text(placeholder!),
       onChanged: onChanged,
+      // Chevron de Hugeicons (libreria unica del sistema) en vez del chevronDown
+      // Lucide por defecto de shadcn. Tinte atenuado como el trailing por defecto.
+      trailing: HugeIcon(
+        icon: HugeIcons.strokeRoundedArrowDown01,
+        size: 16,
+        strokeWidth: 1.5,
+        color: ShadTheme.of(context).colorScheme.foreground.withValues(alpha: .5),
+      ),
       options: options
           .map(
             (option) =>

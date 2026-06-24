@@ -1,9 +1,19 @@
 import 'package:flutter/widgets.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 /// Dialogos modales. Envuelve `showShadDialog` + `ShadDialog` exponiendo
 /// helpers estaticos con firma simple y nuestra (sin filtrar tipos `Shad*`).
 abstract final class AxDialog {
+  /// Boton de cierre con icono de Hugeicons (libreria unica del sistema) en vez
+  /// de la X Lucide por defecto de shadcn.
+  static Widget _closeIcon(BuildContext context) => HugeIcon(
+    icon: HugeIcons.strokeRoundedCancel01,
+    size: 16,
+    strokeWidth: 1.5,
+    color: ShadTheme.of(context).colorScheme.foreground,
+  );
+
   /// Muestra un dialogo estandar y resuelve con el valor devuelto al cerrarlo.
   static Future<T?> show<T>(
     BuildContext context, {
@@ -18,6 +28,7 @@ abstract final class AxDialog {
         title: title,
         description: description,
         actions: actions ?? const [],
+        closeIcon: _closeIcon(context),
         child: content,
       ),
     );
@@ -38,6 +49,7 @@ abstract final class AxDialog {
         title: title,
         description: description,
         actions: actions ?? const [],
+        closeIcon: _closeIcon(context),
         child: content,
       ),
     );

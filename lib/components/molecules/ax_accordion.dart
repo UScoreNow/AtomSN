@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 /// Modo de expansion de [AxAccordion].
@@ -26,7 +27,10 @@ class AxAccordion extends StatelessWidget {
   final List<AxAccordionItem> items;
   final AxAccordionType type;
 
-  List<Widget> _buildItems() {
+  List<Widget> _buildItems(BuildContext context) {
+    // Chevron de Hugeicons (libreria unica del sistema) en vez del chevronDown
+    // Lucide por defecto de shadcn. shadcn rota el icono al expandir.
+    final iconColor = ShadTheme.of(context).colorScheme.foreground;
     final children = <Widget>[];
     for (var i = 0; i < items.length; i++) {
       final item = items[i];
@@ -34,6 +38,12 @@ class AxAccordion extends StatelessWidget {
         ShadAccordionItem<int>(
           value: i,
           title: item.title,
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedArrowDown01,
+            size: 16,
+            strokeWidth: 1.5,
+            color: iconColor,
+          ),
           child: item.content,
         ),
       );
@@ -44,9 +54,10 @@ class AxAccordion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return switch (type) {
-      AxAccordionType.single => ShadAccordion<int>(children: _buildItems()),
+      AxAccordionType.single =>
+        ShadAccordion<int>(children: _buildItems(context)),
       AxAccordionType.multiple => ShadAccordion<int>.multiple(
-        children: _buildItems(),
+        children: _buildItems(context),
       ),
     };
   }

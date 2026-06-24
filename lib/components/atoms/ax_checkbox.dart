@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 /// Casilla de verificacion controlada. Envuelve `ShadCheckbox`.
@@ -26,6 +27,14 @@ class AxCheckbox extends StatelessWidget {
       enabled: enabled,
       label: label,
       sublabel: sublabel,
+      // Tick de Hugeicons (libreria unica del sistema) en vez del check Lucide
+      // por defecto de shadcn. Color = primaryForeground (tinta sobre relleno).
+      icon: HugeIcon(
+        icon: HugeIcons.strokeRoundedTick02,
+        size: 14,
+        strokeWidth: 2,
+        color: ShadTheme.of(context).colorScheme.primaryForeground,
+      ),
       // El texto principal queda centrado verticalmente con la casilla.
       crossAxisAlignment: CrossAxisAlignment.center,
     );
