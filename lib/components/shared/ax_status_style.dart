@@ -19,10 +19,6 @@ class AxStatusStyle {
     required this.defaultIcon,
   });
 
-  /// Opacidad del relleno: un tinte muy claro del color de la variante sobre
-  /// la superficie.
-  static const double _backgroundAlpha = 0.08;
-
   /// Color del borde (trazo de senal cromatica).
   final Color borderColor;
 
@@ -42,51 +38,55 @@ class AxStatusStyle {
   /// Resuelve el estilo de [variant] usando los roles semanticos en [colors].
   ///
   /// Borde = color saturado (`statusX`); contenido = variante legible
-  /// (`statusXText`); descripcion = `textSecondary`; fondo = el color saturado
-  /// con baja opacidad (tinte muy claro de la misma gama).
+  /// (`statusXText`); descripcion = `textSecondary`; fondo = color plano y claro
+  /// de la gama (`statusXBg`).
   static AxStatusStyle resolve(
     AxStatusVariant variant,
     AxSemanticColors colors,
   ) {
-    final (Color border, Color content, List<List<dynamic>>? icon) =
-        switch (variant) {
-          AxStatusVariant.normal => (
-            colors.borderDefault,
-            colors.textPrimary,
-            null,
-          ),
-          AxStatusVariant.info => (
-            colors.statusInfo,
-            colors.statusInfoText,
-            HugeIcons.strokeRoundedInformationCircle,
-          ),
-          AxStatusVariant.warning => (
-            colors.statusWarning,
-            colors.statusWarningText,
-            HugeIcons.strokeRoundedAlert02,
-          ),
-          AxStatusVariant.error => (
-            colors.statusError,
-            colors.statusErrorText,
-            HugeIcons.strokeRoundedAlertCircle,
-          ),
-          AxStatusVariant.success => (
-            colors.statusSuccess,
-            colors.statusSuccessText,
-            HugeIcons.strokeRoundedCheckmarkCircle02,
-          ),
-        };
+    final (
+      Color border,
+      Color content,
+      Color background,
+      List<List<dynamic>>? icon,
+    ) = switch (variant) {
+      AxStatusVariant.normal => (
+        colors.borderDefault,
+        colors.textPrimary,
+        colors.bgSubtle,
+        null,
+      ),
+      AxStatusVariant.info => (
+        colors.statusInfo,
+        colors.statusInfoText,
+        colors.statusInfoBg,
+        HugeIcons.strokeRoundedInformationCircle,
+      ),
+      AxStatusVariant.warning => (
+        colors.statusWarning,
+        colors.statusWarningText,
+        colors.statusWarningBg,
+        HugeIcons.strokeRoundedAlert02,
+      ),
+      AxStatusVariant.error => (
+        colors.statusError,
+        colors.statusErrorText,
+        colors.statusErrorBg,
+        HugeIcons.strokeRoundedAlertCircle,
+      ),
+      AxStatusVariant.success => (
+        colors.statusSuccess,
+        colors.statusSuccessText,
+        colors.statusSuccessBg,
+        HugeIcons.strokeRoundedCheckmarkCircle02,
+      ),
+    };
 
     return AxStatusStyle(
       borderColor: border,
       contentColor: content,
       descriptionColor: colors.textSecondary,
-      // Opaco (compuesto sobre la superficie) para que el toast flotante no
-      // deje translucir el contenido de detras.
-      backgroundColor: Color.alphaBlend(
-        border.withValues(alpha: _backgroundAlpha),
-        colors.bgSurface,
-      ),
+      backgroundColor: background,
       defaultIcon: icon,
     );
   }

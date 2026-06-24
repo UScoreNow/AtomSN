@@ -44,12 +44,16 @@ class AxSemanticColors {
     required this.statusLiveText,
     required this.statusError,
     required this.statusErrorText,
+    required this.statusErrorBg,
     required this.statusSuccess,
     required this.statusSuccessText,
+    required this.statusSuccessBg,
     required this.statusWarning,
     required this.statusWarningText,
+    required this.statusWarningBg,
     required this.statusInfo,
     required this.statusInfoText,
+    required this.statusInfoBg,
     required this.highlightMark,
   });
 
@@ -108,12 +112,24 @@ class AxSemanticColors {
   final Color statusLiveText;
   final Color statusError;
   final Color statusErrorText;
+
+  /// Relleno de fondo plano y claro para error.
+  final Color statusErrorBg;
   final Color statusSuccess;
   final Color statusSuccessText;
+
+  /// Relleno de fondo plano y claro para success.
+  final Color statusSuccessBg;
   final Color statusWarning;
   final Color statusWarningText;
+
+  /// Relleno de fondo plano y claro para warning.
+  final Color statusWarningBg;
   final Color statusInfo;
   final Color statusInfoText;
+
+  /// Relleno de fondo plano y claro para info.
+  final Color statusInfoBg;
 
   // --- highlight ---
   /// Wash de marcador tras datos clave.
@@ -151,12 +167,16 @@ class AxSemanticColors {
     Color? statusLiveText,
     Color? statusError,
     Color? statusErrorText,
+    Color? statusErrorBg,
     Color? statusSuccess,
     Color? statusSuccessText,
+    Color? statusSuccessBg,
     Color? statusWarning,
     Color? statusWarningText,
+    Color? statusWarningBg,
     Color? statusInfo,
     Color? statusInfoText,
+    Color? statusInfoBg,
     Color? highlightMark,
   }) {
     return AxSemanticColors(
@@ -191,12 +211,16 @@ class AxSemanticColors {
       statusLiveText: statusLiveText ?? this.statusLiveText,
       statusError: statusError ?? this.statusError,
       statusErrorText: statusErrorText ?? this.statusErrorText,
+      statusErrorBg: statusErrorBg ?? this.statusErrorBg,
       statusSuccess: statusSuccess ?? this.statusSuccess,
       statusSuccessText: statusSuccessText ?? this.statusSuccessText,
+      statusSuccessBg: statusSuccessBg ?? this.statusSuccessBg,
       statusWarning: statusWarning ?? this.statusWarning,
       statusWarningText: statusWarningText ?? this.statusWarningText,
+      statusWarningBg: statusWarningBg ?? this.statusWarningBg,
       statusInfo: statusInfo ?? this.statusInfo,
       statusInfoText: statusInfoText ?? this.statusInfoText,
+      statusInfoBg: statusInfoBg ?? this.statusInfoBg,
       highlightMark: highlightMark ?? this.highlightMark,
     );
   }

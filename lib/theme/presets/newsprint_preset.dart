@@ -70,9 +70,11 @@ abstract final class AxNewsprintPalette {
   static const Color red900 = Color(0xFF511817);
 
   // indigo
+  static const Color indigo50 = Color(0xFFE8EAFD);
   static const Color indigo400 = Color(0xFF818CF8);
   static const Color indigo500 = Color(0xFF6366F1);
   static const Color indigo700 = Color(0xFF4338CA);
+  static const Color indigo900 = Color(0xFF1E1B4B);
 }
 
 /// Preset por defecto: tema editorial "newsprint" (light "Paper" / dark
@@ -111,12 +113,16 @@ abstract final class AxNewsprint {
     statusLiveText: AxNewsprintPalette.red700,
     statusError: AxNewsprintPalette.red500,
     statusErrorText: AxNewsprintPalette.red700,
+    statusErrorBg: AxNewsprintPalette.red50,
     statusSuccess: AxNewsprintPalette.green500,
     statusSuccessText: AxNewsprintPalette.green700,
+    statusSuccessBg: AxNewsprintPalette.green50,
     statusWarning: AxNewsprintPalette.yellow500,
     statusWarningText: AxNewsprintPalette.yellow800,
+    statusWarningBg: AxNewsprintPalette.yellow50,
     statusInfo: AxNewsprintPalette.indigo500,
     statusInfoText: AxNewsprintPalette.indigo700,
+    statusInfoBg: AxNewsprintPalette.indigo50,
     highlightMark: AxNewsprintPalette.yellow100,
   );
 
@@ -153,12 +159,16 @@ abstract final class AxNewsprint {
     statusLiveText: AxNewsprintPalette.red300,
     statusError: AxNewsprintPalette.red400,
     statusErrorText: AxNewsprintPalette.red300,
+    statusErrorBg: AxNewsprintPalette.red900,
     statusSuccess: AxNewsprintPalette.green300,
     statusSuccessText: AxNewsprintPalette.green300,
+    statusSuccessBg: AxNewsprintPalette.green900,
     statusWarning: AxNewsprintPalette.yellow300,
     statusWarningText: AxNewsprintPalette.yellow300,
+    statusWarningBg: AxNewsprintPalette.yellow900,
     statusInfo: AxNewsprintPalette.indigo400,
     statusInfoText: AxNewsprintPalette.indigo400,
+    statusInfoBg: AxNewsprintPalette.indigo900,
     highlightMark: AxNewsprintPalette.yellow700,
   );
 
