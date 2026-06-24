@@ -1,7 +1,24 @@
+import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/widgets.dart';
 
 import '../../foundations/spacing/ax_spacing.dart';
 import '../../theme/ax_theme.dart';
+
+/// `ScrollBehavior` que habilita el arrastre con raton y trackpad ademas del
+/// tactil. Por defecto Flutter excluye el raton en web/escritorio, lo que dejaba
+/// el [AxCarousel] sin poder deslizarse fuera de movil.
+class _AxDragScrollBehavior extends ScrollBehavior {
+  const _AxDragScrollBehavior();
+
+  @override
+  Set<PointerDeviceKind> get dragDevices => const {
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.trackpad,
+    PointerDeviceKind.stylus,
+    PointerDeviceKind.invertedStylus,
+  };
+}
 
 /// Carrusel paginado horizontal. Widget propio sobre `PageView`.
 ///
@@ -48,10 +65,13 @@ class _AxCarouselState extends State<AxCarousel> {
       children: [
         SizedBox(
           height: widget.height,
-          child: PageView(
-            controller: _controller,
-            onPageChanged: _onChanged,
-            children: widget.items,
+          child: ScrollConfiguration(
+            behavior: const _AxDragScrollBehavior(),
+            child: PageView(
+              controller: _controller,
+              onPageChanged: _onChanged,
+              children: widget.items,
+            ),
           ),
         ),
         if (widget.showIndicators && widget.items.length > 1) ...[
