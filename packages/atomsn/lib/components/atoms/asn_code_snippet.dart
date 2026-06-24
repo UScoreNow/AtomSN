@@ -5,14 +5,14 @@ import '../../foundations/radius/asn_radius.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Bloque de codigo monoespaciado con boton de copiar. Widget propio (gap de
-/// shadcn_ui), inspirado en el Code Snippet de shadcn_flutter.
+/// Monospaced code block with a copy button. Own widget (shadcn_ui gap),
+/// inspired by the Code Snippet from shadcn_flutter.
 class AsnCodeSnippet extends StatelessWidget {
   const AsnCodeSnippet({super.key, required this.code, this.onCopied});
 
   final String code;
 
-  /// Se invoca tras copiar al portapapeles.
+  /// Invoked after copying to the clipboard.
   final VoidCallback? onCopied;
 
   @override

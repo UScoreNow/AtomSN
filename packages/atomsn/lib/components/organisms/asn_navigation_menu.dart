@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Item de un [AsnNavigationMenu].
+/// Item of an [AsnNavigationMenu].
 @immutable
 class AsnNavItem {
   const AsnNavItem({required this.label, this.onTap, this.selected = false});
@@ -13,9 +13,9 @@ class AsnNavItem {
   final bool selected;
 }
 
-/// Navegacion horizontal con item activo subrayado. Widget propio.
+/// Horizontal navigation with the active item underlined. Custom widget.
 ///
-/// El item activo usa `actionPrimary`; el resto `textSecondary`.
+/// The active item uses `actionPrimary`; the rest `textSecondary`.
 class AsnNavigationMenu extends StatelessWidget {
   const AsnNavigationMenu({super.key, required this.items});
 

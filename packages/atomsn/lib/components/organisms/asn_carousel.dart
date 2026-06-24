@@ -4,9 +4,9 @@ import 'package:flutter/widgets.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// `ScrollBehavior` que habilita el arrastre con raton y trackpad ademas del
-/// tactil. Por defecto Flutter excluye el raton en web/escritorio, lo que dejaba
-/// el [AsnCarousel] sin poder deslizarse fuera de movil.
+/// `ScrollBehavior` that enables dragging with mouse and trackpad in addition
+/// to touch. By default Flutter excludes the mouse on web/desktop, which left
+/// the [AsnCarousel] unable to be swiped outside of mobile.
 class _AsnDragScrollBehavior extends ScrollBehavior {
   const _AsnDragScrollBehavior();
 
@@ -20,10 +20,10 @@ class _AsnDragScrollBehavior extends ScrollBehavior {
   };
 }
 
-/// Carrusel paginado horizontal. Widget propio sobre `PageView`.
+/// Horizontal paginated carousel. Own widget on top of `PageView`.
 ///
-/// Muestra indicadores de pagina con `actionPrimary` (activo) y `border`
-/// (inactivo).
+/// Shows page indicators with `actionPrimary` (active) and `border`
+/// (inactive).
 class AsnCarousel extends StatefulWidget {
   const AsnCarousel({
     super.key,

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Calendario de seleccion de fecha unica. Envuelve `ShadCalendar`.
+/// Single-date selection calendar. Wraps `ShadCalendar`.
 class AsnCalendar extends StatelessWidget {
   const AsnCalendar({
     super.key,

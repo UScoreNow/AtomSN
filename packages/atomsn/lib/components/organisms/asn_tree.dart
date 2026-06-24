@@ -4,7 +4,7 @@ import '../../foundations/color/asn_semantic_colors.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Nodo de un [AsnTree].
+/// Node of an [AsnTree].
 @immutable
 class AsnTreeNode {
   const AsnTreeNode({
@@ -18,10 +18,10 @@ class AsnTreeNode {
   final List<AsnTreeNode> children;
 }
 
-/// Arbol expandible controlado. Widget propio.
+/// Controlled expandable tree. Own widget.
 ///
-/// El estado de expansion vive fuera ([expandedIds]); cada toggle se notifica
-/// via [onToggle]. Indenta los hijos y muestra un glifo de expansion.
+/// The expansion state lives outside ([expandedIds]); each toggle is notified
+/// via [onToggle]. Indents the children and shows an expansion glyph.
 class AsnTree extends StatelessWidget {
   const AsnTree({
     super.key,

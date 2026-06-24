@@ -4,10 +4,10 @@ import '../../foundations/radius/asn_radius.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Tarjeta que aparece al pasar el cursor sobre [child]. Widget propio.
+/// Card that appears when hovering over [child]. Own widget.
 ///
-/// Usa [MouseRegion] + [OverlayEntry]. El estado de visibilidad es solo de UI
-/// (hover), no logica de negocio.
+/// Uses [MouseRegion] + [OverlayEntry]. The visibility state is UI-only
+/// (hover), not business logic.
 class AsnHoverCard extends StatefulWidget {
   const AsnHoverCard({
     super.key,

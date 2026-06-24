@@ -4,7 +4,7 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 import '../../foundations/color/asn_semantic_colors.dart';
 import '../../theme/asn_theme.dart';
 
-/// Color semantico de un [AsnText], resuelto desde el tema activo.
+/// Semantic color of an [AsnText], resolved from the active theme.
 enum AsnTextColor {
   primary,
   secondary,
@@ -38,22 +38,22 @@ enum _AsnTextRole {
   link,
 }
 
-/// Componente de texto del sistema. Aplica los estilos del tema (`AsnTextTheme`)
-/// segun el rol elegido y un color semantico, sin que el consumidor toque
-/// `TextStyle` a mano.
+/// System text component. Applies the theme styles (`AsnTextTheme`)
+/// according to the chosen role and a semantic color, without the consumer
+/// touching `TextStyle` by hand.
 ///
-/// Usa los constructores nombrados para cada rol editorial:
-/// - Titulares: [AsnText.masthead], [AsnText.h1], [AsnText.h2].
-/// - Titulos de UI: [AsnText.h3], [AsnText.h4].
-/// - Subtitulo/entradilla: [AsnText.lead].
-/// - Cuerpo: [AsnText.body] (md), [AsnText.bodyLarge], [AsnText.bodySmall].
-/// - Apoyos: [AsnText.label], [AsnText.caption], [AsnText.overline] (mayusculas),
+/// Use the named constructors for each editorial role:
+/// - Headlines: [AsnText.masthead], [AsnText.h1], [AsnText.h2].
+/// - UI titles: [AsnText.h3], [AsnText.h4].
+/// - Subtitle/lead-in: [AsnText.lead].
+/// - Body: [AsnText.body] (md), [AsnText.bodyLarge], [AsnText.bodySmall].
+/// - Supporting: [AsnText.label], [AsnText.caption], [AsnText.overline] (uppercase),
 ///   [AsnText.blockquote], [AsnText.listItem].
-/// - Datos: [AsnText.display] (marcador), [AsnText.stat] (cifras tabulares).
-/// - [AsnText.link] (con [onTap] opcional).
+/// - Data: [AsnText.display] (marker), [AsnText.stat] (tabular figures).
+/// - [AsnText.link] (with optional [onTap]).
 ///
-/// Todos aceptan [color] (semantico), [textAlign], [maxLines], [overflow] y
-/// [style] (override que se fusiona encima).
+/// All accept [color] (semantic), [textAlign], [maxLines], [overflow] and
+/// [style] (override merged on top).
 class AsnText extends StatelessWidget {
   const AsnText.masthead(
     this.data, {
@@ -187,7 +187,7 @@ class AsnText extends StatelessWidget {
        _uppercase = false,
        onTap = null;
 
-  /// Kicker/overline en mayusculas (transforma el texto a mayusculas).
+  /// Kicker/overline in uppercase (transforms the text to uppercase).
   const AsnText.overline(
     this.data, {
     super.key,
@@ -224,7 +224,7 @@ class AsnText extends StatelessWidget {
        _uppercase = false,
        onTap = null;
 
-  /// Marcador/numero grande con cifras tabulares.
+  /// Marker/large number with tabular figures.
   const AsnText.display(
     this.data, {
     super.key,
@@ -237,7 +237,7 @@ class AsnText extends StatelessWidget {
        _uppercase = false,
        onTap = null;
 
-  /// Estadistica con cifras tabulares.
+  /// Statistic with tabular figures.
   const AsnText.stat(
     this.data, {
     super.key,
@@ -250,7 +250,7 @@ class AsnText extends StatelessWidget {
        _uppercase = false,
        onTap = null;
 
-  /// Enlace: color de enlace y subrayado; [onTap] opcional.
+  /// Link: link color and underline; optional [onTap].
   const AsnText.link(
     this.data, {
     super.key,
@@ -266,16 +266,16 @@ class AsnText extends StatelessWidget {
   final String data;
   final _AsnTextRole _role;
 
-  /// Color semantico. Si es null se usa el color por defecto del rol.
+  /// Semantic color. If null, the role's default color is used.
   final AsnTextColor? color;
   final TextAlign? textAlign;
   final int? maxLines;
   final TextOverflow? overflow;
 
-  /// Override que se fusiona sobre el estilo del rol.
+  /// Override merged on top of the role's style.
   final TextStyle? style;
 
-  /// Solo para [AsnText.link].
+  /// Only for [AsnText.link].
   final VoidCallback? onTap;
   final bool _uppercase;
 

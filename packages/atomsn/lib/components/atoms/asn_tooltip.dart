@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Tooltip de texto sobre [child]. Envuelve `ShadTooltip`.
+/// Text tooltip over [child]. Wraps `ShadTooltip`.
 class AsnTooltip extends StatelessWidget {
   const AsnTooltip({super.key, required this.message, required this.child});
 

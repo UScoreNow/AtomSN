@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
 
-/// Pantalla que muestra todos los componentes atomicos de AtomSN.
+/// Screen that shows all of AtomSN's atomic components.
 class AtomsScreen extends StatefulWidget {
   const AtomsScreen({super.key});
 
@@ -36,29 +36,29 @@ class _AtomsScreenState extends State<AtomsScreen> {
     return DemoScreen(
       blocks: [
         const DemoBlock(
-          title: 'AsnText — tipografía',
+          title: 'AsnText — typography',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AsnText.masthead('Masthead'),
               SizedBox(height: AsnSpacing.x2),
-              AsnText.h1('Titular H1'),
-              AsnText.h2('Titular H2'),
-              AsnText.h3('Título H3'),
-              AsnText.h4('Título H4'),
+              AsnText.h1('Headline H1'),
+              AsnText.h2('Headline H2'),
+              AsnText.h3('Heading H3'),
+              AsnText.h4('Heading H4'),
               SizedBox(height: AsnSpacing.x2),
-              AsnText.lead('Entradilla (lead): resumen introductorio del bloque.'),
+              AsnText.lead('Lead: introductory summary of the block.'),
               SizedBox(height: AsnSpacing.x2),
-              AsnText.bodyLarge('Cuerpo grande para destacar un párrafo.'),
-              AsnText.body('Cuerpo estándar, el texto más frecuente del sistema.'),
-              AsnText.bodySmall('Cuerpo pequeño para notas secundarias.'),
+              AsnText.bodyLarge('Large body to highlight a paragraph.'),
+              AsnText.body('Standard body, the most common text in the system.'),
+              AsnText.bodySmall('Small body for secondary notes.'),
               SizedBox(height: AsnSpacing.x2),
-              AsnText.label('Label de formulario'),
-              AsnText.caption('Caption / pie de apoyo'),
-              AsnText.overline('grupo a'),
+              AsnText.label('Form label'),
+              AsnText.caption('Caption / supporting footnote'),
+              AsnText.overline('group a'),
               SizedBox(height: AsnSpacing.x2),
-              AsnText.blockquote('"Una cita editorial en cursiva."'),
-              AsnText.listItem('Elemento de lista'),
+              AsnText.blockquote('"An editorial quote in italics."'),
+              AsnText.listItem('List item'),
               SizedBox(height: AsnSpacing.x3),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -72,12 +72,12 @@ class _AtomsScreenState extends State<AtomsScreen> {
                 ],
               ),
               SizedBox(height: AsnSpacing.x3),
-              AsnText.link('Enlace de ejemplo'),
+              AsnText.link('Example link'),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AsnText — color semántico',
+          title: 'AsnText — semantic color',
           child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -92,7 +92,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AsnButton — variantes',
+          title: 'AsnButton — variants',
           child: Wrap(
             spacing: AsnSpacing.x2,
             runSpacing: AsnSpacing.x2,
@@ -108,7 +108,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AsnButton — tamaños',
+          title: 'AsnButton — sizes',
           child: Wrap(
             spacing: AsnSpacing.x2,
             runSpacing: AsnSpacing.x2,
@@ -129,7 +129,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AsnButton — icono izquierda / derecha (contenido centrado)',
+          title: 'AsnButton — icon left / right (centered content)',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -137,7 +137,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
                 expanded: true,
                 leading: const HugeIcon(icon: HugeIcons.strokeRoundedAdd01),
                 onPressed: () {},
-                child: const Text('Icono a la izquierda'),
+                child: const Text('Icon on the left'),
               ),
               const SizedBox(height: AsnSpacing.x2),
               AsnButton(
@@ -147,13 +147,13 @@ class _AtomsScreenState extends State<AtomsScreen> {
                   icon: HugeIcons.strokeRoundedArrowRight01,
                 ),
                 onPressed: () {},
-                child: const Text('Icono a la derecha'),
+                child: const Text('Icon on the right'),
               ),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AsnIconButton — variantes',
+          title: 'AsnIconButton — variants',
           child: Wrap(
             spacing: AsnSpacing.x5,
             runSpacing: AsnSpacing.x3,
@@ -210,8 +210,8 @@ class _AtomsScreenState extends State<AtomsScreen> {
           child: AsnCheckbox(
             value: _checkboxValue,
             onChanged: (v) => setState(() => _checkboxValue = v),
-            label: const Text('Acepto los terminos'),
-            sublabel: const Text('Puedes cambiarlo cuando quieras'),
+            label: const Text('I accept the terms'),
+            sublabel: const Text('You can change this whenever you want'),
           ),
         ),
         DemoBlock(
@@ -219,15 +219,15 @@ class _AtomsScreenState extends State<AtomsScreen> {
           child: AsnSwitch(
             value: _switchValue,
             onChanged: (v) => setState(() => _switchValue = v),
-            label: const Text('Notificaciones'),
-            sublabel: const Text('Recibe avisos por correo'),
+            label: const Text('Notifications'),
+            sublabel: const Text('Receive alerts by email'),
           ),
         ),
         DemoBlock(
           title: 'AsnInput',
           child: AsnInput(
             controller: _inputController,
-            placeholder: 'Escribe tu nombre',
+            placeholder: 'Enter your name',
             leading: const HugeIcon(
               icon: HugeIcons.strokeRoundedUser,
               size: 16,
@@ -239,7 +239,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
           title: 'AsnTextarea',
           child: AsnTextarea(
             controller: _textareaController,
-            placeholder: 'Cuentanos mas...',
+            placeholder: 'Tell us more...',
             onChanged: (_) => setState(() {}),
           ),
         ),
@@ -253,7 +253,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
                 onChanged: (v) => setState(() => _otpValue = v),
               ),
               const SizedBox(height: AsnSpacing.x2),
-              Text('Codigo: $_otpValue'),
+              Text('Code: $_otpValue'),
             ],
           ),
         ),
@@ -267,7 +267,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
                 onChanged: (v) => setState(() => _sliderValue = v),
               ),
               const SizedBox(height: AsnSpacing.x2),
-              Text('Valor: ${_sliderValue.toStringAsFixed(2)}'),
+              Text('Value: ${_sliderValue.toStringAsFixed(2)}'),
             ],
           ),
         ),
@@ -283,7 +283,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
               AsnButton(
                 size: AsnButtonSize.sm,
                 onPressed: () => setState(() => _counter++),
-                child: const Text('Avanzar'),
+                child: const Text('Advance'),
               ),
             ],
           ),
@@ -293,17 +293,17 @@ class _AtomsScreenState extends State<AtomsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Arriba'),
+              const Text('Above'),
               const AsnSeparator(space: AsnSpacing.x6),
-              const Text('Abajo'),
+              const Text('Below'),
               const SizedBox(height: AsnSpacing.x3),
               SizedBox(
                 height: 32,
                 child: Row(
                   children: const [
-                    Text('Izquierda'),
+                    Text('Left'),
                     AsnVerticalSeparator(space: AsnSpacing.x6),
-                    Text('Derecha'),
+                    Text('Right'),
                   ],
                 ),
               ),
@@ -328,8 +328,8 @@ class _AtomsScreenState extends State<AtomsScreen> {
         DemoBlock(
           title: 'AsnTooltip',
           child: const AsnTooltip(
-            message: 'Texto de ayuda',
-            child: AsnBadge(child: Text('Pasa el raton')),
+            message: 'Help text',
+            child: AsnBadge(child: Text('Hover here')),
           ),
         ),
         DemoBlock(
@@ -350,7 +350,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
           child: AsnToggle(
             value: _toggleValue,
             onChanged: (v) => setState(() => _toggleValue = v),
-            child: const Text('Negrita'),
+            child: const Text('Bold'),
           ),
         ),
         DemoBlock(
@@ -363,7 +363,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
                 onChanged: (v) => setState(() => _starValue = v),
               ),
               const SizedBox(height: AsnSpacing.x2),
-              Text('Puntuacion: $_starValue / 5'),
+              Text('Rating: $_starValue / 5'),
             ],
           ),
         ),
@@ -380,7 +380,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
               AsnButton(
                 size: AsnButtonSize.sm,
                 onPressed: () => setState(() => _counter += 7),
-                child: const Text('Sumar 7'),
+                child: const Text('Add 7'),
               ),
             ],
           ),
@@ -405,7 +405,7 @@ String _buttonVariantLabel(AsnButtonVariant v) => switch (v) {
   AsnButtonVariant.link => 'Link',
 };
 
-/// Boton de icono con su etiqueta de variante debajo.
+/// Icon button with its variant label below.
 Widget _iconButtonDemo(
   AsnIconButtonVariant variant,
   List<List<dynamic>> icon,

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Entrada de un menu (contextual, menubar, etc.).
+/// Entry of a menu (context, menubar, etc.).
 @immutable
 class AsnMenuItem {
   const AsnMenuItem({
@@ -17,12 +17,12 @@ class AsnMenuItem {
   final bool enabled;
 }
 
-/// Region con menu contextual (click derecho / pulsacion larga).
-/// Envuelve `ShadContextMenuRegion` con un modelo de items propio.
+/// Region with a context menu (right click / long press).
+/// Wraps `ShadContextMenuRegion` with its own item model.
 class AsnContextMenu extends StatelessWidget {
   const AsnContextMenu({super.key, required this.child, required this.items});
 
-  /// Ancla sobre la que se dispara el menu.
+  /// Anchor on which the menu is triggered.
   final Widget child;
   final List<AsnMenuItem> items;
 

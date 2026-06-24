@@ -4,7 +4,7 @@ import '../../foundations/radius/asn_radius.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Item de un [AsnCommand].
+/// Item of an [AsnCommand].
 @immutable
 class AsnCommandItem {
   const AsnCommandItem({
@@ -16,19 +16,19 @@ class AsnCommandItem {
   final String label;
   final VoidCallback? onSelected;
 
-  /// Terminos extra para el filtrado, ademas de [label].
+  /// Extra terms for filtering, in addition to [label].
   final List<String> keywords;
 }
 
-/// Paleta de comandos con busqueda. Widget propio.
+/// Command palette with search. Own widget.
 ///
-/// Filtra por [AsnCommandItem.label] y [AsnCommandItem.keywords] segun el texto
-/// escrito; la seleccion se notifica via callback del item.
+/// Filters by [AsnCommandItem.label] and [AsnCommandItem.keywords] according to
+/// the typed text; the selection is notified via the item's callback.
 class AsnCommand extends StatefulWidget {
   const AsnCommand({
     super.key,
     required this.items,
-    this.placeholder = 'Buscar...',
+    this.placeholder = 'Search...',
   });
 
   final List<AsnCommandItem> items;
@@ -101,7 +101,7 @@ class _AsnCommandState extends State<AsnCommand> {
                 ? Padding(
                     padding: const EdgeInsets.all(AsnSpacing.x4),
                     child: Text(
-                      'Sin resultados',
+                      'No results',
                       style: TextStyle(color: colors.textMuted),
                     ),
                   )

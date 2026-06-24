@@ -3,10 +3,10 @@ import 'package:flutter/widgets.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../atoms/atoms.dart';
 
-/// Paginador controlado. Widget propio.
+/// Controlled paginator. Own widget.
 ///
-/// [page] es la pagina actual (base 1). [pageCount] es el total de paginas.
-/// [onChanged] reporta la pagina destino al pulsar un control.
+/// [page] is the current page (1-based). [pageCount] is the total number of
+/// pages. [onChanged] reports the target page when a control is pressed.
 class AsnPagination extends StatelessWidget {
   const AsnPagination({
     super.key,
@@ -32,7 +32,7 @@ class AsnPagination extends StatelessWidget {
         size: AsnButtonSize.sm,
         enabled: page > 1,
         onPressed: () => _go(page - 1),
-        child: const Text('Anterior'),
+        child: const Text('Previous'),
       ),
     ];
 
@@ -53,7 +53,7 @@ class AsnPagination extends StatelessWidget {
         size: AsnButtonSize.sm,
         enabled: page < pageCount,
         onPressed: () => _go(page + 1),
-        child: const Text('Siguiente'),
+        child: const Text('Next'),
       ),
     );
 

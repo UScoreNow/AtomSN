@@ -1,8 +1,8 @@
 name: Release
 
-# Cada merge a main (promocion desde dev) publica una Release.
-# La version sale de packages/atomsn/pubspec.yaml: hay que bumpearla en la PR
-# dev -> main. Si el tag v<version> ya existe, la Release se omite sin fallar.
+# Each merge to main (promotion from dev) publishes a Release.
+# The version comes from packages/atomsn/pubspec.yaml: it must be bumped in the
+# dev -> main PR. If the tag v<version> already exists, the Release is skipped without failing.
 on:
   push:
     branches: [main]
@@ -27,7 +27,7 @@ jobs:
         run: |
           if git rev-parse "v${{ steps.ver.outputs.version }}" >/dev/null 2>&1; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
-            echo "::notice::El tag v${{ steps.ver.outputs.version }} ya existe; se omite la Release. Bumpea version en packages/atomsn/pubspec.yaml en la proxima PR."
+            echo "::notice::Tag v${{ steps.ver.outputs.version }} already exists; skipping the Release. Bump version in packages/atomsn/pubspec.yaml in the next PR."
           else
             echo "exists=false" >> "$GITHUB_OUTPUT"
           fi

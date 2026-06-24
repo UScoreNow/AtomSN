@@ -4,8 +4,8 @@ import '../../foundations/radius/asn_radius.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Boton de dos estados (pressed/unpressed) controlado. Widget propio (gap de
-/// shadcn_ui), inspirado en el Toggle de shadcn_flutter.
+/// Controlled two-state button (pressed/unpressed). Custom widget (shadcn_ui
+/// gap), inspired by shadcn_flutter's Toggle.
 class AsnToggle extends StatelessWidget {
   const AsnToggle({
     super.key,

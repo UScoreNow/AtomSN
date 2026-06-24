@@ -1,19 +1,19 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Variantes visuales de [AsnButton].
+/// Visual variants of [AsnButton].
 enum AsnButtonVariant { primary, secondary, destructive, outline, ghost, link }
 
-/// Tamanos de [AsnButton].
+/// Sizes of [AsnButton].
 enum AsnButtonSize { regular, sm, lg }
 
-/// Boton de accion. Envuelve `ShadButton` exponiendo una API estable y
-/// controlada (sin filtrar tipos `Shad*`).
+/// Action button. Wraps `ShadButton` exposing a stable and controlled API
+/// (without leaking `Shad*` types).
 ///
-/// Acepta un icono [leading] (izquierda) y/o [trailing] (derecha) del texto; el
-/// icono se dimensiona segun [size]. El contenido (icono + texto) queda siempre
-/// centrado vertical y horizontalmente, tambien cuando [expanded] es true y el
-/// boton ocupa todo el ancho disponible.
+/// Accepts a [leading] (left) and/or [trailing] (right) icon of the text; the
+/// icon is sized according to [size]. The content (icon + text) is always
+/// centered vertically and horizontally, also when [expanded] is true and the
+/// button takes up the full available width.
 class AsnButton extends StatelessWidget {
   const AsnButton({
     super.key,
@@ -32,13 +32,13 @@ class AsnButton extends StatelessWidget {
   final AsnButtonVariant variant;
   final AsnButtonSize size;
 
-  /// Icono a la izquierda del texto.
+  /// Icon to the left of the text.
   final Widget? leading;
 
-  /// Icono a la derecha del texto.
+  /// Icon to the right of the text.
   final Widget? trailing;
 
-  /// Si es true, el boton ocupa todo el ancho disponible (contenido centrado).
+  /// If true, the button takes up the full available width (content centered).
   final bool expanded;
   final bool enabled;
 
@@ -63,7 +63,7 @@ class AsnButton extends StatelessWidget {
     AsnButtonSize.lg => 20,
   };
 
-  /// Fija el tamano del icono manteniendo el color que aporta el boton.
+  /// Fixes the icon size while keeping the color provided by the button.
   Widget? _sizedIcon(Widget? icon) {
     if (icon == null) return null;
     return IconTheme.merge(
@@ -74,8 +74,8 @@ class AsnButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Boton de ancho completo: el contenido (icono + texto) se agrupa en un Row
-    // centrado y se expande (`expands`) para quedar centrado horizontalmente.
+    // Full-width button: the content (icon + text) is grouped in a centered Row
+    // and expands (`expands`) to stay centered horizontally.
     if (expanded) {
       final items = <Widget>[
         if (leading != null) _sizedIcon(leading)!,
@@ -104,7 +104,7 @@ class AsnButton extends StatelessWidget {
       );
     }
 
-    // Boton ajustado al contenido: ShadButton ya centra leading/child/trailing.
+    // Button fitted to content: ShadButton already centers leading/child/trailing.
     return ShadButton.raw(
       variant: _variant,
       size: _size,

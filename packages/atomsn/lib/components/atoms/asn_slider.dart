@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Control deslizante de valor unico. Envuelve `ShadSlider`.
+/// Single-value slider control. Wraps `ShadSlider`.
 class AsnSlider extends StatelessWidget {
   const AsnSlider({
     super.key,

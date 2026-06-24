@@ -1,23 +1,23 @@
-/// Variante semantica de estado compartida por los componentes de feedback
-/// (p. ej. [AsnAlert] y [AsnToast]).
+/// Semantic status variant shared by the feedback components
+/// (e.g. [AsnAlert] and [AsnToast]).
 ///
-/// Capa fundacional: define los roles de estado, no su estilo concreto. El
-/// mapeo a colores e iconos vive en la capa de componentes
-/// (`AsnStatusStyle.resolve`), que resuelve cada variante contra los
-/// `AsnSemanticColors` activos.
+/// Foundational layer: defines the status roles, not their concrete style. The
+/// mapping to colors and icons lives in the components layer
+/// (`AsnStatusStyle.resolve`), which resolves each variant against the
+/// active `AsnSemanticColors`.
 enum AsnStatusVariant {
-  /// Neutro, sin tinte ni icono por defecto.
+  /// Neutral, with no tint or icon by default.
   normal,
 
-  /// Informativo.
+  /// Informative.
   info,
 
-  /// Advertencia.
+  /// Warning.
   warning,
 
-  /// Error o fallo.
+  /// Error or failure.
   error,
 
-  /// Operacion correcta.
+  /// Successful operation.
   success,
 }

@@ -6,12 +6,12 @@ import '../../theme/asn_theme.dart';
 import '../molecules/asn_alert.dart';
 import '../shared/asn_status_style.dart';
 
-/// Avisos transitorios (toasts). Comparte el estilo de [AsnAlert]: muestra el
-/// mismo surface flotando sobre la UI con autodescarte y boton de cerrar.
+/// Transient notices (toasts). Shares the style of [AsnAlert]: shows the
+/// same surface floating over the UI with auto-dismiss and a close button.
 ///
-/// Requiere un `ShadToaster` ancestro (lo inyecta `ShadApp`).
+/// Requires an ancestor `ShadToaster` (injected by `ShadApp`).
 abstract final class AsnToast {
-  /// Muestra un toast con [title] y [description] opcional.
+  /// Shows a toast with [title] and optional [description].
   static void show(
     BuildContext context, {
     required Widget title,
@@ -44,9 +44,9 @@ abstract final class AsnToast {
       bottom: action,
     );
 
-    // Toast "desnudo": sin fondo, borde, sombra, radio ni padding propios. Todo
-    // el aspecto lo aporta el `AsnAlert` interior; la X nativa del toast se
-    // neutraliza porque la real va como `trailing` del alert.
+    // "Bare" toast: no own background, border, shadow, radius or padding. All
+    // the appearance is provided by the inner `AsnAlert`; the toast's native X
+    // is neutralized because the real one goes as the alert's `trailing`.
     final toast = ShadToast.raw(
       variant: ShadToastVariant.primary,
       title: surface,

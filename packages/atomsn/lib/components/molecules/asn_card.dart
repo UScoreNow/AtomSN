@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Contenedor de superficie con titulo, descripcion, cuerpo y pie. Envuelve
+/// Surface container with title, description, body and footer. Wraps
 /// `ShadCard`.
 class AsnCard extends StatelessWidget {
   const AsnCard({

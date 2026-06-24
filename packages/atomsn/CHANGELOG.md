@@ -1,6 +1,6 @@
 ## 0.0.1
 
-- Estructura inicial: foundations + theme (preset newsprint) + componentes
-  (atoms / molecules / organisms / templates) sobre shadcn_ui.
-- `AsnApp`, `AsnThemeScope` y `AsnTheme.of` para consumo del tema.
-- Galeria de ejemplo con toggle light/dark y tests de widget.
+- Initial structure: foundations + theme (newsprint preset) + components
+  (atoms / molecules / organisms / templates) on top of shadcn_ui.
+- `AsnApp`, `AsnThemeScope`, and `AsnTheme.of` for theme consumption.
+- Example gallery with light/dark toggle and widget tests.

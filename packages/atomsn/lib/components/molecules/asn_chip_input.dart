@@ -3,11 +3,11 @@ import 'package:flutter/widgets.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../atoms/atoms.dart';
 
-/// Entrada de etiquetas (chips) controlada. Widget propio.
+/// Controlled tag (chip) input. Custom widget.
 ///
-/// Muestra los [values] como chips y un campo para anadir nuevos al confirmar
-/// (submit). Reporta la lista completa via [onChanged]. Para eliminar, se pulsa
-/// un chip.
+/// Shows the [values] as chips and a field to add new ones on confirm
+/// (submit). Reports the full list via [onChanged]. To remove, a chip is
+/// tapped.
 class AsnChipInput extends StatefulWidget {
   const AsnChipInput({
     super.key,

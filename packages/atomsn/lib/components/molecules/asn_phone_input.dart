@@ -4,22 +4,22 @@ import '../../foundations/spacing/asn_spacing.dart';
 import '../atoms/atoms.dart';
 import 'asn_select.dart';
 
-/// Prefijo de pais para [AsnPhoneInput].
+/// Country dial code for [AsnPhoneInput].
 @immutable
 class AsnDialCode {
   const AsnDialCode({required this.code, required this.label});
 
-  /// Prefijo internacional, p. ej. "+34".
+  /// International dial code, e.g. "+34".
   final String code;
 
-  /// Etiqueta a mostrar, p. ej. "ES +34".
+  /// Label to display, e.g. "ES +34".
   final String label;
 }
 
-/// Campo de telefono controlado: prefijo de pais + numero. Widget propio.
+/// Controlled phone field: country dial code + number. Own widget.
 ///
-/// El [value] es la cadena completa (prefijo + numero). [onChanged] reporta la
-/// concatenacion del prefijo seleccionado y el numero introducido.
+/// The [value] is the full string (dial code + number). [onChanged] reports the
+/// concatenation of the selected dial code and the entered number.
 class AsnPhoneInput extends StatelessWidget {
   const AsnPhoneInput({
     super.key,
@@ -36,7 +36,7 @@ class AsnPhoneInput extends StatelessWidget {
   final String? placeholder;
   final bool enabled;
 
-  /// Lista estatica minima de prefijos habituales.
+  /// Minimal static list of common dial codes.
   static const List<AsnDialCode> defaultDialCodes = [
     AsnDialCode(code: '+34', label: 'ES +34'),
     AsnDialCode(code: '+1', label: 'US +1'),

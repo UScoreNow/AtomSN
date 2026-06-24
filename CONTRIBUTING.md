@@ -1,47 +1,47 @@
-# Contribuir a AtomSN
+# Contributing to AtomSN
 
-Este es el estandar de trabajo del repo. Todo cambio entra por Pull Request con
-CI en verde; no se hace push directo a `main` ni a `dev`.
+This is the repo's working standard. Every change lands via Pull Request with
+CI green; no direct pushes to `main` or `dev`.
 
-## Modelo de ramas
+## Branch model
 
-| Rama        | Rol                                | Protegida | CI/CD                         |
+| Branch      | Role                               | Protected | CI/CD                         |
 |-------------|------------------------------------|-----------|-------------------------------|
-| `main`      | Estable / produccion               | Si        | Fuente de Releases            |
-| `dev`       | Integracion                        | Si        | Despliega a GitHub Pages      |
-| `feature/*` | Funcionalidad nueva                | No        | PR a `dev`                    |
-| `fix/*`     | Correccion de bug                  | No        | PR a `dev`                    |
-| `refactor/*`| Refactor sin cambio de comportamiento | No     | PR a `dev`                    |
-| `update/*`  | Dependencias, configuracion, chores | No       | PR a `dev`                    |
+| `main`      | Stable / production                | Yes       | Source of Releases            |
+| `dev`       | Integration                        | Yes       | Deploys to GitHub Pages       |
+| `feature/*` | New feature                        | No        | PR to `dev`                   |
+| `fix/*`     | Bug fix                            | No        | PR to `dev`                   |
+| `refactor/*`| Refactor with no behavior change   | No        | PR to `dev`                   |
+| `update/*`  | Dependencies, configuration, chores | No       | PR to `dev`                   |
 
-Las ramas de trabajo se nombran `tipo/nombre-descriptivo`, por ejemplo
-`feature/date-picker` o `fix/newsprint-contrast`.
+Working branches are named `type/descriptive-name`, for example
+`feature/date-picker` or `fix/newsprint-contrast`.
 
-## Ciclo de vida de un cambio
+## Lifecycle of a change
 
-1. Crea tu rama desde `dev`:
+1. Create your branch from `dev`:
    ```bash
    git checkout dev && git pull
-   git checkout -b feature/mi-cambio
+   git checkout -b feature/my-change
    ```
-2. Abre una **PR contra `dev`**. En la UI de GitHub, selecciona `dev` como base
-   (el repo conserva `main` como rama por defecto, asi que la base por defecto
-   propuesta es `main`: cambiala a `dev`).
-3. El CI (`flutter analyze` en `packages/atomsn` y `apps/demo`) debe pasar para
-   poder mergear. Al mergear a `dev` se despliega la demo a GitHub Pages.
+2. Open a **PR against `dev`**. In the GitHub UI, select `dev` as the base
+   (the repo keeps `main` as the default branch, so the proposed default base
+   is `main`: change it to `dev`).
+3. CI (`flutter analyze` on `packages/atomsn` and `apps/demo`) must pass to
+   merge. Merging to `dev` deploys the demo to GitHub Pages.
 
-## Publicar una Release (promocion `dev -> main`)
+## Publishing a Release (promotion `dev -> main`)
 
-1. **Bumpea la version** en `packages/atomsn/pubspec.yaml` (semver). Este es el
-   paso clave: el tag de la Release sale de ahi.
-2. Abre una PR `dev -> main` y mergeala con CI en verde.
-3. `release.yml` crea la Release `v<version>` con notas autogeneradas a partir de
-   las PRs incluidas. Si el tag ya existe (olvidaste bumpear), la Release se
-   omite sin fallar: bumpea en la siguiente promocion.
+1. **Bump the version** in `packages/atomsn/pubspec.yaml` (semver). This is the
+   key step: the Release tag comes from there.
+2. Open a `dev -> main` PR and merge it with CI green.
+3. `release.yml` creates the `v<version>` Release with notes auto-generated from
+   the included PRs. If the tag already exists (you forgot to bump), the Release is
+   skipped without failing: bump on the next promotion.
 
-## Reglas de proteccion (`main` y `dev`)
+## Protection rules (`main` and `dev`)
 
-- Obligatoria una PR antes de mergear (sin aprobaciones requeridas: puedes
-  auto-mergear).
-- El CI debe estar en verde y la rama al dia con su base.
-- Sin push directo, sin force-push, sin borrado de la rama.
+- A PR is required before merging (no required approvals: you can
+  auto-merge).
+- CI must be green and the branch up to date with its base.
+- No direct push, no force-push, no branch deletion.

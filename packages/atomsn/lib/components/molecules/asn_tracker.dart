@@ -4,17 +4,17 @@ import '../../foundations/radius/asn_radius.dart';
 import '../../theme/asn_theme.dart';
 import '../atoms/atoms.dart';
 
-/// Celda de un [AsnTracker]. Modelo propio.
+/// Cell of an [AsnTracker]. Own model.
 @immutable
 class AsnTrackerCell {
   const AsnTrackerCell({this.color, this.tooltip});
 
-  /// Color de relleno; si es null usa el verde de estado del tema.
+  /// Fill color; if null uses the theme's status green.
   final Color? color;
   final String? tooltip;
 }
 
-/// Fila horizontal de celdas de estado (tipo tracker de uptime). Widget propio.
+/// Horizontal row of status cells (uptime-tracker style). Own widget.
 class AsnTracker extends StatelessWidget {
   const AsnTracker({
     super.key,

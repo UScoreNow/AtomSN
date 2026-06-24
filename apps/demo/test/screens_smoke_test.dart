@@ -9,30 +9,30 @@ import 'package:flutter_test/flutter_test.dart';
 Widget _host(Widget child) => AsnApp(home: child);
 
 void main() {
-  testWidgets('OrganismsScreen renderiza sin excepciones', (tester) async {
+  testWidgets('OrganismsScreen renders without exceptions', (tester) async {
     await tester.pumpWidget(_host(const OrganismsScreen()));
     await tester.pump(const Duration(milliseconds: 300));
-    // Los bloques superiores son visibles; el resto se construye al hacer
-    // scroll (ListView lazy). Basta confirmar que la pantalla monta sin error.
+    // The top blocks are visible; the rest is built on scroll (lazy
+    // ListView). It is enough to confirm the screen mounts without error.
     expect(find.text('AsnDialog'), findsOneWidget);
     expect(find.text('AsnSheet'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('AtomsScreen renderiza', (tester) async {
+  testWidgets('AtomsScreen renders', (tester) async {
     await tester.pumpWidget(_host(const AtomsScreen()));
     await tester.pump(const Duration(milliseconds: 300));
     expect(find.textContaining('AsnText'), findsWidgets);
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('MoleculesScreen renderiza', (tester) async {
+  testWidgets('MoleculesScreen renders', (tester) async {
     await tester.pumpWidget(_host(const MoleculesScreen()));
     await tester.pump(const Duration(milliseconds: 300));
     expect(find.text('AsnSelect'), findsOneWidget);
   });
 
-  testWidgets('TemplatesScreen renderiza', (tester) async {
+  testWidgets('TemplatesScreen renders', (tester) async {
     await tester.pumpWidget(_host(const TemplatesScreen()));
     await tester.pump(const Duration(milliseconds: 300));
     expect(find.text('AsnPageScaffold'), findsOneWidget);

@@ -6,7 +6,7 @@ import '../../foundations/typography/asn_type_scale.dart';
 import '../../theme/asn_theme.dart';
 import '../atoms/atoms.dart';
 
-/// Fila de avatares superpuestos con desbordamiento "+N". Widget propio.
+/// Row of overlapping avatars with "+N" overflow. Custom widget.
 class AsnAvatarGroup extends StatelessWidget {
   const AsnAvatarGroup({
     super.key,
@@ -20,7 +20,7 @@ class AsnAvatarGroup extends StatelessWidget {
   final int max;
   final double diameter;
 
-  /// Solapamiento entre avatares en px.
+  /// Overlap between avatars in px.
   final double overlap;
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Columna de [AsnTable].
+/// Column of [AsnTable].
 @immutable
 class AsnTableColumn {
   const AsnTableColumn({required this.header});
@@ -9,16 +9,16 @@ class AsnTableColumn {
   final Widget header;
 }
 
-/// Tabla estatica de solo lectura. Envuelve `ShadTable.list`.
+/// Read-only static table. Wraps `ShadTable.list`.
 ///
-/// Cada fila es una lista de celdas alineada con [columns]. Las celdas
-/// numericas se benefician de cifras tabulares en el tema de texto.
+/// Each row is a list of cells aligned with [columns]. Numeric cells
+/// benefit from tabular figures in the text theme.
 class AsnTable extends StatelessWidget {
   const AsnTable({super.key, required this.columns, required this.rows});
 
   final List<AsnTableColumn> columns;
 
-  /// Filas; cada fila debe tener tantas celdas como [columns].
+  /// Rows; each row must have as many cells as [columns].
   final List<List<Widget>> rows;
 
   @override
