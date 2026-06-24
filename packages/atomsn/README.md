@@ -1,38 +1,38 @@
 # AtomSN
 
-Biblioteca de componentes Flutter brand-neutral y themeable, organizada por
-**atomic design** + **clean architecture**. Envuelve el catalogo de
-[`shadcn_ui`](https://pub.dev/packages/shadcn_ui) e incluye el tema editorial
-**newsprint** como preset por defecto.
+A brand-neutral, themeable Flutter component library, organized by
+**atomic design** + **clean architecture**. It wraps the
+[`shadcn_ui`](https://pub.dev/packages/shadcn_ui) catalog and includes the
+**newsprint** editorial theme as the default preset.
 
-- **Fuente principal:** `shadcn_ui` (unica dependencia de UI).
-- **Gaps:** los componentes que `shadcn_ui` no ofrece se construyen como widgets
-  propios sobre el mismo tema, tomando como referencia el diseno de
-  [`shadcn_flutter`](https://pub.dev/packages/shadcn_flutter) (sin depender de el).
+- **Primary source:** `shadcn_ui` (the only UI dependency).
+- **Gaps:** components that `shadcn_ui` does not offer are built as
+  custom widgets on the same theme, using the design of
+  [`shadcn_flutter`](https://pub.dev/packages/shadcn_flutter) as a reference (without depending on it).
 
-## Arquitectura
+## Architecture
 
-Capas con regla de dependencia hacia dentro (`foundations <- theme <- components`):
+Layers with an inward dependency rule (`foundations <- theme <- components`):
 
 ```
 lib/
-├── foundations/   # capa 0, brand-agnostic: color, tipografia, spacing, radius, border
-├── theme/         # capa 1: ShadThemeData + AsnThemeScope + preset newsprint + AsnApp
-└── components/    # capa 2: atoms / molecules / organisms / templates
+├── foundations/   # layer 0, brand-agnostic: color, typography, spacing, radius, border
+├── theme/         # layer 1: ShadThemeData + AsnThemeScope + newsprint preset + AsnApp
+└── components/    # layer 2: atoms / molecules / organisms / templates
 ```
 
-- Los componentes son **stateless y controlados** (`value` + `onChanged`), sin
-  logica de negocio ni dependencias de state-management.
-- La API publica nunca expone tipos `Shad*`: cada componente define sus propios
-  enums/modelos `Ax*`.
-- `ShadColorScheme` no cubre todos los roles editoriales (warning, link, success,
-  highlightMark, borderSection...); esos viajan por `AsnThemeScope` y se leen con
+- Components are **stateless and controlled** (`value` + `onChanged`), with no
+  business logic or state-management dependencies.
+- The public API never exposes `Shad*` types: each component defines its own
+  `Ax*` enums/models.
+- `ShadColorScheme` does not cover all editorial roles (warning, link, success,
+  highlightMark, borderSection...); those travel via `AsnThemeScope` and are read with
   `AsnTheme.of(context)`.
 
-## Instalacion
+## Installation
 
-Forma parte del monorepo [`UScoreNow/atom-sn`](https://github.com/UScoreNow/atom-sn).
-Dentro del monorepo, las apps la consumen por `path`:
+It is part of the [`UScoreNow/atom-sn`](https://github.com/UScoreNow/atom-sn) monorepo.
+Within the monorepo, apps consume it by `path`:
 
 ```yaml
 dependencies:
@@ -40,7 +40,7 @@ dependencies:
     path: ../../packages/atomsn
 ```
 
-Desde un repo externo, anade la dependencia git apuntando al monorepo:
+From an external repo, add the git dependency pointing to the monorepo:
 
 ```yaml
 dependencies:
@@ -51,7 +51,7 @@ dependencies:
       ref: main
 ```
 
-## Uso
+## Usage
 
 ```dart
 import 'package:atomsn/atomsn.dart';
@@ -59,7 +59,7 @@ import 'package:flutter/material.dart' show ThemeMode;
 
 void main() => runApp(
   AsnApp(
-    themeMode: ThemeMode.system, // por defecto: preset "newsprint" light/dark
+    themeMode: ThemeMode.system, // default: "newsprint" preset light/dark
     home: const Home(),
   ),
 );
@@ -74,20 +74,20 @@ class Home extends StatelessWidget {
       color: colors.bgBase,
       child: AsnButton(
         onPressed: () {},
-        child: const Text('Hola'),
+        child: const Text('Hello'),
       ),
     );
   }
 }
 ```
 
-Para `Router`/`go_router`, usa `ShadApp.router` y envuelve el arbol con
-`AsnThemeScopeBuilder` (publica el `AsnThemeScope` segun el modo activo).
+For `Router`/`go_router`, use `ShadApp.router` and wrap the tree with
+`AsnThemeScopeBuilder` (it publishes the `AsnThemeScope` based on the active mode).
 
-### Tema propio
+### Custom theme
 
-`AsnApp` acepta `lightColors`/`darkColors` (`AsnSemanticColors`). Construye los
-tuyos para re-skinear la biblioteca sin tocar los componentes:
+`AsnApp` accepts `lightColors`/`darkColors` (`AsnSemanticColors`). Build your
+own to re-skin the library without touching the components:
 
 ```dart
 AsnApp(
@@ -96,27 +96,27 @@ AsnApp(
 );
 ```
 
-## Catalogo
+## Catalog
 
 - **Atoms:** Button, IconButton, Badge, Checkbox, Switch, Input, Textarea,
   InputOTP, Slider, Progress, Separator, Avatar, Tooltip + Skeleton, Toggle,
-  StarRating, NumberTicker, CodeSnippet (propios).
+  StarRating, NumberTicker, CodeSnippet (custom).
 - **Molecules:** Select, Alert, Card, Accordion, Tabs, Breadcrumb, DatePicker,
   TimePicker, Popover, FormField + ChipInput, PhoneInput, AvatarGroup,
-  Pagination, Collapsible, ColorPicker, Tracker, HoverCard (propios).
+  Pagination, Collapsible, ColorPicker, Tracker, HoverCard (custom).
 - **Organisms:** Dialog, Sheet, ContextMenu, Menubar, Table, Calendar,
   Resizable, Toast + Stepper, Steps, Timeline, Tree, NavigationMenu, Command,
-  Carousel, DataTable, Drawer (propios).
+  Carousel, DataTable, Drawer (custom).
 - **Templates:** PageScaffold, DashboardLayout, AuthLayout.
 
 ## Demo
 
-La app de demostracion (todos los componentes en vivo, con toggle light/dark)
-vive en este mismo monorepo, en `apps/demo`, y se publica en
+The demo app (all components live, with a light/dark toggle)
+lives in this same monorepo, in `apps/demo`, and is published at
 https://uscorenow.github.io/atom-sn/.
 
-## Notas
+## Notes
 
-- Tipografia de **una sola familia**: `ElmsSans` (variable, minimalista),
-  empaquetada como asset bajo licencia OFL. La jerarquia de titulares se logra
-  con tamano y peso, sin segunda familia ni descargas en runtime.
+- **Single-family** typography: `ElmsSans` (variable, minimalist),
+  bundled as an asset under the OFL license. The heading hierarchy is achieved
+  with size and weight, with no second family or runtime downloads.
