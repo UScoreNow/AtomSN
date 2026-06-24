@@ -5,9 +5,9 @@ on:
     branches: [main, dev]
   pull_request:
 
-# Gate de calidad: resuelve dependencias y corre el analyzer en ambos paquetes.
-# La demo depende de la libreria por path, asi que un cambio en packages/atomsn
-# que rompa la API se detecta aqui antes de desplegar.
+# Quality gate: resolves dependencies and runs the analyzer on both packages.
+# The demo depends on the library by path, so a change in packages/atomsn
+# that breaks the API is caught here before deploying.
 jobs:
   analyze:
     runs-on: ubuntu-latest

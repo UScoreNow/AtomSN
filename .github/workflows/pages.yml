@@ -5,13 +5,13 @@ on:
     branches: [dev]
   workflow_dispatch:
 
-# Permisos minimos para que el deploy use OIDC contra GitHub Pages.
+# Minimal permissions so the deploy uses OIDC against GitHub Pages.
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Un solo despliegue a la vez; cancela builds en cola si llega uno nuevo.
+# One deploy at a time; cancels queued builds if a new one arrives.
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -33,13 +33,13 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
 
-      # Mismos flags validados en el antiguo deploy_web.sh:
-      # --base-href = nombre (slug) del repo de project pages (/atom-sn/),
-      # --pwa-strategy=none (sin service worker, evita pantallas en blanco),
-      # --wasm (dart2wasm + skwasm, con fallback automatico a JS/CanvasKit).
+      # Same flags validated in the old deploy_web.sh:
+      # --base-href = name (slug) of the project pages repo (/atom-sn/),
+      # --pwa-strategy=none (no service worker, avoids blank screens),
+      # --wasm (dart2wasm + skwasm, with automatic fallback to JS/CanvasKit).
       - run: flutter build web --release --base-href "/atom-sn/" --pwa-strategy=none --wasm
 
-      # Sirve los assets tal cual, sin pasar por Jekyll.
+      # Serves the assets as-is, without going through Jekyll.
       - run: touch build/web/.nojekyll
 
       - uses: actions/upload-pages-artifact@v5
