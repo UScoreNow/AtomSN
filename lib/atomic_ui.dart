@@ -12,6 +12,7 @@ export 'foundations/border/ax_borders.dart';
 export 'foundations/color/ax_semantic_colors.dart';
 export 'foundations/radius/ax_radius.dart';
 export 'foundations/spacing/ax_spacing.dart';
+export 'foundations/status/ax_status_variant.dart';
 export 'foundations/typography/ax_type_scale.dart';
 
 // Theme (capa 1).

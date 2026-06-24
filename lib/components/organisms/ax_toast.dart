@@ -1,10 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Variante visual de [AxToast].
-enum AxToastVariant { primary, destructive }
+import '../../foundations/status/ax_status_variant.dart';
+import '../../theme/ax_theme.dart';
+import '../molecules/ax_alert.dart';
+import '../shared/ax_status_style.dart';
 
-/// Avisos transitorios (toasts). Envuelve `ShadToaster` + `ShadToast`.
+/// Avisos transitorios (toasts). Comparte el estilo de [AxAlert]: muestra el
+/// mismo surface flotando sobre la UI con autodescarte y boton de cerrar.
 ///
 /// Requiere un `ShadToaster` ancestro (lo inyecta `ShadApp`).
 abstract final class AxToast {
@@ -14,31 +17,48 @@ abstract final class AxToast {
     required Widget title,
     Widget? description,
     Widget? action,
-    AxToastVariant variant = AxToastVariant.primary,
+    AxStatusVariant variant = AxStatusVariant.normal,
   }) {
-    // Icono de cierre de Hugeicons (libreria unica del sistema) en vez de la X
-    // Lucide por defecto de shadcn. Tinte segun la variante.
-    final scheme = ShadTheme.of(context).colorScheme;
-    HugeIcon closeIcon(Color color) => HugeIcon(
-      icon: HugeIcons.strokeRoundedCancel01,
-      size: 16,
-      strokeWidth: 1.5,
-      color: color,
+    final colors = AxTheme.of(context);
+    final style = AxStatusStyle.resolve(variant, colors);
+
+    final closeButton = ShadIconButton.ghost(
+      icon: HugeIcon(
+        icon: HugeIcons.strokeRoundedCancel01,
+        size: 16,
+        strokeWidth: 1.5,
+        color: style.contentColor,
+      ),
+      width: 20,
+      height: 20,
+      padding: EdgeInsets.zero,
+      foregroundColor: style.contentColor,
+      onPressed: () => ShadToaster.of(context).hide(),
     );
-    final toast = switch (variant) {
-      AxToastVariant.primary => ShadToast(
-        title: title,
-        description: description,
-        action: action,
-        closeIcon: closeIcon(scheme.foreground),
-      ),
-      AxToastVariant.destructive => ShadToast.destructive(
-        title: title,
-        description: description,
-        action: action,
-        closeIcon: closeIcon(scheme.destructiveForeground),
-      ),
-    };
+
+    final surface = AxAlert(
+      variant: variant,
+      title: title,
+      description: description,
+      trailing: closeButton,
+      bottom: action,
+    );
+
+    // Toast "desnudo": sin fondo, borde, sombra, radio ni padding propios. Todo
+    // el aspecto lo aporta el `AxAlert` interior; la X nativa del toast se
+    // neutraliza porque la real va como `trailing` del alert.
+    final toast = ShadToast.raw(
+      variant: ShadToastVariant.primary,
+      title: surface,
+      closeIcon: const SizedBox.shrink(),
+      backgroundColor: const Color(0x00000000),
+      border: ShadBorder.all(width: 0),
+      radius: BorderRadius.zero,
+      shadows: const [],
+      padding: EdgeInsets.zero,
+      mainAxisSize: MainAxisSize.min,
+    );
+
     ShadToaster.of(context).show(toast);
   }
 }
