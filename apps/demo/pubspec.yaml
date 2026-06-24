@@ -1,4 +1,4 @@
-name: atomic_ui_demo
+name: atomsn_demo
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -31,10 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  atomic_ui:
-    git:
-      url: https://github.com/UScoreNow/atomic_ui.git
-      ref: main
+  atomsn:
+    path: ../../packages/atomsn
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -57,7 +55,7 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
-  # Iconografia via Hugeicons (atomic_ui), no Material Icons.
+  # Iconografia via Hugeicons (AtomSN), no Material Icons.
   uses-material-design: false
 
   # To add assets to your application, add an assets section, like this:

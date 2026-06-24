@@ -1,6 +1,6 @@
-name: atomic_ui
+name: atomsn
 description: >-
-  Biblioteca de componentes Flutter brand-neutral y themeable, organizada por
+  AtomSN: biblioteca de componentes Flutter brand-neutral y themeable, organizada por
   atomic design + clean architecture. Envuelve el catalogo de shadcn_ui e incluye
   el tema editorial 'newsprint' como preset por defecto.
 version: 0.0.1

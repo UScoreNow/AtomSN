@@ -1,4 +1,4 @@
-import 'package:atomic_ui/atomic_ui.dart';
+import 'package:atomsn/atomsn.dart';
 import 'package:flutter/widgets.dart';
 
 /// Bloque etiquetado que envuelve la demostracion de un componente.

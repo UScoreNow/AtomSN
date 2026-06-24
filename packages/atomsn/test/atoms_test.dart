@@ -1,7 +1,7 @@
-import 'package:atomic_ui/atomic_ui.dart';
+import 'package:atomsn/atomsn.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-// Prefijo para no chocar con la reexportacion de HugeIcon de atomic_ui.
+// Prefijo para no chocar con la reexportacion de HugeIcon de AtomSN.
 import 'package:shadcn_ui/shadcn_ui.dart' as shad;
 
 Widget _host(Widget child) => AxApp(home: Center(child: child));

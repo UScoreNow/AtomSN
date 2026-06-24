@@ -1,14 +1,14 @@
-# atomic_ui_demo
+# AtomSN — demo
 
-App de demostracion de [`atomic_ui`](https://github.com/UScoreNow/atomic_ui): muestra
-todos los componentes (atoms, molecules, organisms, templates) en vivo, con toggle
-de tema light ("Paper") / dark ("Night Press").
+App de demostracion de [`atomsn`](../../packages/atomsn): muestra todos los
+componentes (atoms, molecules, organisms, templates) en vivo, con toggle de tema
+light ("Paper") / dark ("Night Press").
 
-**Demo en vivo:** https://uscorenow.github.io/atomic_ui_demo_web/
+**Demo en vivo:** https://uscorenow.github.io/AtomSN/
 
-> Este repo es privado. El sitio publicado en GitHub Pages vive en un repo publico
-> aparte que solo contiene el build compilado: `UScoreNow/atomic_ui_demo_web`.
-> Para redesplegar tras cambios: `bash deploy_web.sh`.
+> El sitio se compila y publica automaticamente en GitHub Pages mediante el
+> workflow `.github/workflows/pages.yml` en cada push a `main`. No hay despliegue
+> manual ni repo de salida aparte.
 
 ## Ejecutar
 
@@ -17,9 +17,9 @@ flutter pub get
 flutter run -d chrome   # o -d linux
 ```
 
-La dependencia `atomic_ui` se resuelve via git desde el repo privado
-`UScoreNow/atomic_ui`; necesitas acceso a la organizacion y `gh auth setup-git`
-(o credenciales git) configurado.
+La dependencia `atomsn` se resuelve por `path` desde `packages/atomsn` dentro del
+mismo monorepo: no hay bumps de version git, los cambios en la libreria se ven al
+instante.
 
 ## Estructura
 

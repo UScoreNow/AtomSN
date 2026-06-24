@@ -1,0 +1,17 @@
+# Build / generados
+**/build/
+**/.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+**/.flutter-plugins-dependencies
+
+# La libreria es un paquete: su lockfile no se versiona.
+packages/atomsn/pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store

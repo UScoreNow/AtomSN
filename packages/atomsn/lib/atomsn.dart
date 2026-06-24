@@ -1,4 +1,4 @@
-/// atomic_ui — biblioteca de componentes Flutter (atomic design + clean
+/// AtomSN — biblioteca de componentes Flutter (atomic design + clean
 /// architecture) sobre shadcn_ui, con el tema editorial "newsprint" por defecto.
 library;
 

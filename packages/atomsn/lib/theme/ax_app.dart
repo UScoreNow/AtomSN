@@ -7,7 +7,7 @@ import 'ax_theme.dart';
 import 'ax_theme_extension.dart';
 import 'presets/newsprint_preset.dart';
 
-/// Raiz de aplicacion de `atomic_ui`.
+/// Raiz de aplicacion de `AtomSN`.
 ///
 /// Envuelve `ShadApp` con el tema (por defecto, el preset "newsprint") e inyecta
 /// el [AxThemeScope] con los colores semanticos del modo activo, de modo que

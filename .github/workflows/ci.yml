@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Gate de calidad: resuelve dependencias y corre el analyzer en ambos paquetes.
+# La demo depende de la libreria por path, asi que un cambio en packages/atomsn
+# que rompa la API se detecta aqui antes de desplegar.
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [packages/atomsn, apps/demo]
+    defaults:
+      run:
+        working-directory: ${{ matrix.package }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+      - run: flutter analyze

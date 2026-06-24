@@ -1,8 +1,8 @@
-import 'package:atomic_ui/atomic_ui.dart';
-import 'package:atomic_ui_demo/screens/atoms_screen.dart';
-import 'package:atomic_ui_demo/screens/molecules_screen.dart';
-import 'package:atomic_ui_demo/screens/organisms_screen.dart';
-import 'package:atomic_ui_demo/screens/templates_screen.dart';
+import 'package:atomsn/atomsn.dart';
+import 'package:atomsn_demo/screens/atoms_screen.dart';
+import 'package:atomsn_demo/screens/molecules_screen.dart';
+import 'package:atomsn_demo/screens/organisms_screen.dart';
+import 'package:atomsn_demo/screens/templates_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 

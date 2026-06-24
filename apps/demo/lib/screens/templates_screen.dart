@@ -1,9 +1,9 @@
-import 'package:atomic_ui/atomic_ui.dart';
+import 'package:atomsn/atomsn.dart';
 import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
 
-/// Pantalla de demostracion de los componentes TEMPLATE de atomic_ui.
+/// Pantalla de demostracion de los componentes TEMPLATE de AtomSN.
 class TemplatesScreen extends StatelessWidget {
   const TemplatesScreen({super.key});
 

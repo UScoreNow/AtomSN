@@ -1,9 +1,9 @@
-import 'package:atomic_ui/atomic_ui.dart';
+import 'package:atomsn/atomsn.dart';
 import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
 
-/// Pantalla de demostracion de todas las moleculas del paquete atomic_ui.
+/// Pantalla de demostracion de todas las moleculas del paquete AtomSN.
 class MoleculesScreen extends StatefulWidget {
   const MoleculesScreen({super.key});
 
@@ -101,7 +101,7 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           child: AxAccordion(
             items: [
               AxAccordionItem(
-                title: Text('Que es atomic_ui?'),
+                title: Text('Que es AtomSN?'),
                 content: Text('Una biblioteca de componentes para Flutter.'),
               ),
               AxAccordionItem(

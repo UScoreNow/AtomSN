@@ -9,7 +9,7 @@ import 'package:flutter/widgets.dart';
 /// Los componentes consumen estos roles via `AxTheme.of(context)`, nunca una
 /// rampa de color cruda. El tema de shadcn_ui (`ShadColorScheme`) se deriva de
 /// aqui; los roles que `ShadColorScheme` no cubre (warning, link, highlightMark,
-/// borderSection...) viven aqui y se exponen mediante el scope de `atomic_ui`.
+/// borderSection...) viven aqui y se exponen mediante el scope de `AtomSN`.
 @immutable
 class AxSemanticColors {
   const AxSemanticColors({

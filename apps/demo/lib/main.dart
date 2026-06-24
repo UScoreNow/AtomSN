@@ -1,4 +1,4 @@
-import 'package:atomic_ui/atomic_ui.dart';
+import 'package:atomsn/atomsn.dart';
 import 'package:flutter/material.dart' show ThemeMode;
 import 'package:flutter/widgets.dart';
 
@@ -26,7 +26,7 @@ class _DemoAppState extends State<DemoApp> {
   @override
   Widget build(BuildContext context) {
     return AxApp(
-      title: 'atomic_ui demo',
+      title: 'AtomSN',
       themeMode: _mode,
       home: _DemoHome(mode: _mode, onToggleMode: _toggle),
     );
@@ -73,7 +73,7 @@ class _DemoHomeState extends State<_DemoHome> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'atomic_ui',
+                    'AtomSN',
                     style: TextStyle(
                       fontFamily: AxTextTheme.fontFamily,
                       fontSize: AxFontSize.xl4,

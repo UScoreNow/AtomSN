@@ -3,7 +3,7 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../foundations/typography/ax_type_scale.dart';
 
-/// Construye el [ShadTextTheme] de `atomic_ui`.
+/// Construye el [ShadTextTheme] de `AtomSN`.
 ///
 /// Sistema de **una sola familia**: `ElmsSans` (minimalista, empaquetada como
 /// asset). La jerarquia de titulares se logra con tamano y peso, no con una
@@ -15,7 +15,7 @@ import '../foundations/typography/ax_type_scale.dart';
 abstract final class AxTextTheme {
   /// Unica familia del sistema (empaquetada). El prefijo `packages/` la hace
   /// resoluble dentro del paquete y en las apps consumidoras.
-  static const String fontFamily = 'packages/atomic_ui/ElmsSans';
+  static const String fontFamily = 'packages/atomsn/ElmsSans';
 
   /// Alias historico de [fontFamily].
   static const String sansFamily = fontFamily;

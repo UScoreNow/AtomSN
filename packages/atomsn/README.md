@@ -1,4 +1,4 @@
-# atomic_ui
+# AtomSN
 
 Biblioteca de componentes Flutter brand-neutral y themeable, organizada por
 **atomic design** + **clean architecture**. Envuelve el catalogo de
@@ -31,20 +31,30 @@ lib/
 
 ## Instalacion
 
-Repositorio privado. Anade la dependencia git en el `pubspec.yaml` de tu app:
+Forma parte del monorepo [`UScoreNow/AtomSN`](https://github.com/UScoreNow/AtomSN).
+Dentro del monorepo, las apps la consumen por `path`:
 
 ```yaml
 dependencies:
-  atomic_ui:
+  atomsn:
+    path: ../../packages/atomsn
+```
+
+Desde un repo externo, anade la dependencia git apuntando al monorepo:
+
+```yaml
+dependencies:
+  atomsn:
     git:
-      url: https://github.com/UScoreNow/atomic_ui.git
+      url: https://github.com/UScoreNow/AtomSN.git
+      path: packages/atomsn
       ref: main
 ```
 
 ## Uso
 
 ```dart
-import 'package:atomic_ui/atomic_ui.dart';
+import 'package:atomsn/atomsn.dart';
 import 'package:flutter/material.dart' show ThemeMode;
 
 void main() => runApp(
@@ -102,7 +112,8 @@ AxApp(
 ## Demo
 
 La app de demostracion (todos los componentes en vivo, con toggle light/dark)
-vive en su propio repositorio: **UScoreNow/atomic_ui_demo**.
+vive en este mismo monorepo, en `apps/demo`, y se publica en
+https://uscorenow.github.io/AtomSN/.
 
 ## Notas
 

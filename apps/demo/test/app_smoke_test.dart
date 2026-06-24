@@ -1,4 +1,4 @@
-import 'package:atomic_ui_demo/main.dart';
+import 'package:atomsn_demo/main.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -11,6 +11,6 @@ void main() {
     await tester.pumpWidget(const DemoApp());
     await tester.pump(const Duration(milliseconds: 400));
     expect(tester.takeException(), isNull);
-    expect(find.text('atomic_ui'), findsOneWidget);
+    expect(find.text('AtomSN'), findsOneWidget);
   });
 }

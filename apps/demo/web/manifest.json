@@ -1,6 +1,6 @@
 {
-    "name": "atomic_ui_demo",
-    "short_name": "atomic_ui_demo",
+    "name": "AtomSN",
+    "short_name": "AtomSN",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

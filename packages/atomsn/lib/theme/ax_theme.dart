@@ -7,7 +7,7 @@ import 'ax_color_scheme.dart';
 import 'ax_text_theme.dart';
 import 'ax_theme_extension.dart';
 
-/// Punto de acceso al tema de `atomic_ui`.
+/// Punto de acceso al tema de `AtomSN`.
 ///
 /// - [buildTheme] construye el `ShadThemeData` que consume `ShadApp`.
 /// - [of] devuelve los [AxSemanticColors] activos (roles editoriales completos),

@@ -1,9 +1,9 @@
-import 'package:atomic_ui/atomic_ui.dart';
+import 'package:atomsn/atomsn.dart';
 import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
 
-/// Pantalla que muestra todos los organismos del paquete atomic_ui.
+/// Pantalla que muestra todos los organismos del paquete AtomSN.
 class OrganismsScreen extends StatefulWidget {
   const OrganismsScreen({super.key});
 
