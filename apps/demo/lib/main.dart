@@ -25,7 +25,7 @@ class _DemoAppState extends State<DemoApp> {
 
   @override
   Widget build(BuildContext context) {
-    return AxApp(
+    return AsnApp(
       title: 'AtomSN',
       themeMode: _mode,
       home: _DemoHome(mode: _mode, onToggleMode: _toggle),
@@ -56,7 +56,7 @@ class _DemoHomeState extends State<_DemoHome> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = AxTheme.of(context);
+    final colors = AsnTheme.of(context);
     return Container(
       color: colors.bgBase,
       child: SafeArea(
@@ -64,10 +64,10 @@ class _DemoHomeState extends State<_DemoHome> {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(
-                AxSpacing.x4,
-                AxSpacing.x4,
-                AxSpacing.x4,
-                AxSpacing.x2,
+                AsnSpacing.x4,
+                AsnSpacing.x4,
+                AsnSpacing.x4,
+                AsnSpacing.x2,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,14 +75,14 @@ class _DemoHomeState extends State<_DemoHome> {
                   Text(
                     'AtomSN',
                     style: TextStyle(
-                      fontFamily: AxTextTheme.fontFamily,
-                      fontSize: AxFontSize.xl4,
-                      fontWeight: AxFontWeight.bold,
+                      fontFamily: AsnTextTheme.fontFamily,
+                      fontSize: AsnFontSize.xl4,
+                      fontWeight: AsnFontWeight.bold,
                       color: colors.textPrimary,
                     ),
                   ),
-                  AxButton(
-                    variant: AxButtonVariant.outline,
+                  AsnButton(
+                    variant: AsnButtonVariant.outline,
                     onPressed: widget.onToggleMode,
                     child: Text(
                       widget.mode == ThemeMode.light ? 'Night Press' : 'Paper',
@@ -92,24 +92,24 @@ class _DemoHomeState extends State<_DemoHome> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AxSpacing.x4),
+              padding: const EdgeInsets.symmetric(horizontal: AsnSpacing.x4),
               child: Wrap(
-                spacing: AxSpacing.x2,
-                runSpacing: AxSpacing.x2,
+                spacing: AsnSpacing.x2,
+                runSpacing: AsnSpacing.x2,
                 children: [
                   for (var i = 0; i < _sections.length; i++)
-                    AxButton(
-                      size: AxButtonSize.sm,
+                    AsnButton(
+                      size: AsnButtonSize.sm,
                       variant: i == _index
-                          ? AxButtonVariant.primary
-                          : AxButtonVariant.ghost,
+                          ? AsnButtonVariant.primary
+                          : AsnButtonVariant.ghost,
                       onPressed: () => setState(() => _index = i),
                       child: Text(_sections[i]),
                     ),
                 ],
               ),
             ),
-            const SizedBox(height: AxSpacing.x2),
+            const SizedBox(height: AsnSpacing.x2),
             Expanded(
               child: Align(
                 alignment: Alignment.topCenter,

@@ -1,15 +1,15 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-import '../../foundations/color/ax_semantic_colors.dart';
-import '../ax_theme.dart';
+import '../../foundations/color/asn_semantic_colors.dart';
+import '../asn_theme.dart';
 
 /// Rampa de color cruda del tema editorial "newsprint".
 ///
 /// Base apapelada crema + tinta calida; acentos verde cesped y negro tinta.
 /// `#FFFFFF` y `#000000` puros estan prohibidos: `ink900` (#0E0D0A) es el negro
 /// legal mas oscuro y `paper50` (#FBF8F0) el papel mas claro.
-abstract final class AxNewsprintPalette {
+abstract final class AsnNewsprintPalette {
   // paper
   // Tramo claro: gris calido tipo newsprint (mas gris, con tinte amarillento)
   // en lugar del crema original.
@@ -79,102 +79,102 @@ abstract final class AxNewsprintPalette {
 
 /// Preset por defecto: tema editorial "newsprint" (light "Paper" / dark
 /// "Night Press").
-abstract final class AxNewsprint {
+abstract final class AsnNewsprint {
   /// Roles semanticos del modo claro ("Paper").
-  static const AxSemanticColors light = AxSemanticColors(
+  static const AsnSemanticColors light = AsnSemanticColors(
     brightness: Brightness.light,
-    bgBase: AxNewsprintPalette.paper50,
-    bgSurface: AxNewsprintPalette.paper100,
-    bgRaised: AxNewsprintPalette.paper200,
-    bgSubtle: AxNewsprintPalette.paper100,
-    bgOverlay: AxNewsprintPalette.ink900,
-    bgInverse: AxNewsprintPalette.ink900,
-    textPrimary: AxNewsprintPalette.ink700,
-    textSecondary: AxNewsprintPalette.paper700,
-    textTertiary: AxNewsprintPalette.paper600,
-    textMuted: AxNewsprintPalette.paper500,
-    textDisabled: AxNewsprintPalette.paper400,
-    textInverse: AxNewsprintPalette.paper50,
-    textOnPrimary: AxNewsprintPalette.paper50,
-    link: AxNewsprintPalette.green700,
-    actionPrimary: AxNewsprintPalette.green500,
-    actionHover: AxNewsprintPalette.green600,
-    actionActive: AxNewsprintPalette.green700,
-    actionDisabled: AxNewsprintPalette.paper300,
-    actionSubtle: AxNewsprintPalette.green50,
-    accentInk: AxNewsprintPalette.ink900,
-    borderDefault: AxNewsprintPalette.paper300,
-    borderSubtle: AxNewsprintPalette.paper200,
-    borderStrong: AxNewsprintPalette.paper400,
-    borderActive: AxNewsprintPalette.green500,
-    borderHairline: AxNewsprintPalette.paper300,
-    borderSection: AxNewsprintPalette.ink500,
-    statusLive: AxNewsprintPalette.red500,
-    statusLiveText: AxNewsprintPalette.red700,
-    statusError: AxNewsprintPalette.red500,
-    statusErrorText: AxNewsprintPalette.red700,
-    statusErrorBg: AxNewsprintPalette.red50,
-    statusSuccess: AxNewsprintPalette.green500,
-    statusSuccessText: AxNewsprintPalette.green700,
-    statusSuccessBg: AxNewsprintPalette.green50,
-    statusWarning: AxNewsprintPalette.yellow500,
-    statusWarningText: AxNewsprintPalette.yellow800,
-    statusWarningBg: AxNewsprintPalette.yellow50,
-    statusInfo: AxNewsprintPalette.indigo500,
-    statusInfoText: AxNewsprintPalette.indigo700,
-    statusInfoBg: AxNewsprintPalette.indigo50,
-    highlightMark: AxNewsprintPalette.yellow100,
+    bgBase: AsnNewsprintPalette.paper50,
+    bgSurface: AsnNewsprintPalette.paper100,
+    bgRaised: AsnNewsprintPalette.paper200,
+    bgSubtle: AsnNewsprintPalette.paper100,
+    bgOverlay: AsnNewsprintPalette.ink900,
+    bgInverse: AsnNewsprintPalette.ink900,
+    textPrimary: AsnNewsprintPalette.ink700,
+    textSecondary: AsnNewsprintPalette.paper700,
+    textTertiary: AsnNewsprintPalette.paper600,
+    textMuted: AsnNewsprintPalette.paper500,
+    textDisabled: AsnNewsprintPalette.paper400,
+    textInverse: AsnNewsprintPalette.paper50,
+    textOnPrimary: AsnNewsprintPalette.paper50,
+    link: AsnNewsprintPalette.green700,
+    actionPrimary: AsnNewsprintPalette.green500,
+    actionHover: AsnNewsprintPalette.green600,
+    actionActive: AsnNewsprintPalette.green700,
+    actionDisabled: AsnNewsprintPalette.paper300,
+    actionSubtle: AsnNewsprintPalette.green50,
+    accentInk: AsnNewsprintPalette.ink900,
+    borderDefault: AsnNewsprintPalette.paper300,
+    borderSubtle: AsnNewsprintPalette.paper200,
+    borderStrong: AsnNewsprintPalette.paper400,
+    borderActive: AsnNewsprintPalette.green500,
+    borderHairline: AsnNewsprintPalette.paper300,
+    borderSection: AsnNewsprintPalette.ink500,
+    statusLive: AsnNewsprintPalette.red500,
+    statusLiveText: AsnNewsprintPalette.red700,
+    statusError: AsnNewsprintPalette.red500,
+    statusErrorText: AsnNewsprintPalette.red700,
+    statusErrorBg: AsnNewsprintPalette.red50,
+    statusSuccess: AsnNewsprintPalette.green500,
+    statusSuccessText: AsnNewsprintPalette.green700,
+    statusSuccessBg: AsnNewsprintPalette.green50,
+    statusWarning: AsnNewsprintPalette.yellow500,
+    statusWarningText: AsnNewsprintPalette.yellow800,
+    statusWarningBg: AsnNewsprintPalette.yellow50,
+    statusInfo: AsnNewsprintPalette.indigo500,
+    statusInfoText: AsnNewsprintPalette.indigo700,
+    statusInfoBg: AsnNewsprintPalette.indigo50,
+    highlightMark: AsnNewsprintPalette.yellow100,
   );
 
   /// Roles semanticos del modo oscuro ("Night Press").
-  static const AxSemanticColors dark = AxSemanticColors(
+  static const AsnSemanticColors dark = AsnSemanticColors(
     brightness: Brightness.dark,
-    bgBase: AxNewsprintPalette.inkBg,
-    bgSurface: AxNewsprintPalette.ink300,
-    bgRaised: AxNewsprintPalette.paper800,
-    bgSubtle: AxNewsprintPalette.ink300,
-    bgOverlay: AxNewsprintPalette.ink900,
-    bgInverse: AxNewsprintPalette.paper50,
-    textPrimary: AxNewsprintPalette.paper100,
-    textSecondary: AxNewsprintPalette.paper400,
-    textTertiary: AxNewsprintPalette.paper500,
-    textMuted: AxNewsprintPalette.paper500,
-    textDisabled: AxNewsprintPalette.paper700,
-    textInverse: AxNewsprintPalette.ink900,
-    textOnPrimary: AxNewsprintPalette.ink900,
-    link: AxNewsprintPalette.green300,
-    actionPrimary: AxNewsprintPalette.green300,
-    actionHover: AxNewsprintPalette.green200,
-    actionActive: AxNewsprintPalette.green100,
-    actionDisabled: AxNewsprintPalette.paper700,
-    actionSubtle: AxNewsprintPalette.ink300,
-    accentInk: AxNewsprintPalette.paper100,
-    borderDefault: AxNewsprintPalette.paper700,
-    borderSubtle: AxNewsprintPalette.ink300,
-    borderStrong: AxNewsprintPalette.paper500,
-    borderActive: AxNewsprintPalette.green300,
-    borderHairline: AxNewsprintPalette.paper700,
-    borderSection: AxNewsprintPalette.paper400,
-    statusLive: AxNewsprintPalette.red400,
-    statusLiveText: AxNewsprintPalette.red300,
-    statusError: AxNewsprintPalette.red400,
-    statusErrorText: AxNewsprintPalette.red300,
-    statusErrorBg: AxNewsprintPalette.red900,
-    statusSuccess: AxNewsprintPalette.green300,
-    statusSuccessText: AxNewsprintPalette.green300,
-    statusSuccessBg: AxNewsprintPalette.green900,
-    statusWarning: AxNewsprintPalette.yellow300,
-    statusWarningText: AxNewsprintPalette.yellow300,
-    statusWarningBg: AxNewsprintPalette.yellow900,
-    statusInfo: AxNewsprintPalette.indigo400,
-    statusInfoText: AxNewsprintPalette.indigo400,
-    statusInfoBg: AxNewsprintPalette.indigo900,
-    highlightMark: AxNewsprintPalette.yellow700,
+    bgBase: AsnNewsprintPalette.inkBg,
+    bgSurface: AsnNewsprintPalette.ink300,
+    bgRaised: AsnNewsprintPalette.paper800,
+    bgSubtle: AsnNewsprintPalette.ink300,
+    bgOverlay: AsnNewsprintPalette.ink900,
+    bgInverse: AsnNewsprintPalette.paper50,
+    textPrimary: AsnNewsprintPalette.paper100,
+    textSecondary: AsnNewsprintPalette.paper400,
+    textTertiary: AsnNewsprintPalette.paper500,
+    textMuted: AsnNewsprintPalette.paper500,
+    textDisabled: AsnNewsprintPalette.paper700,
+    textInverse: AsnNewsprintPalette.ink900,
+    textOnPrimary: AsnNewsprintPalette.ink900,
+    link: AsnNewsprintPalette.green300,
+    actionPrimary: AsnNewsprintPalette.green300,
+    actionHover: AsnNewsprintPalette.green200,
+    actionActive: AsnNewsprintPalette.green100,
+    actionDisabled: AsnNewsprintPalette.paper700,
+    actionSubtle: AsnNewsprintPalette.ink300,
+    accentInk: AsnNewsprintPalette.paper100,
+    borderDefault: AsnNewsprintPalette.paper700,
+    borderSubtle: AsnNewsprintPalette.ink300,
+    borderStrong: AsnNewsprintPalette.paper500,
+    borderActive: AsnNewsprintPalette.green300,
+    borderHairline: AsnNewsprintPalette.paper700,
+    borderSection: AsnNewsprintPalette.paper400,
+    statusLive: AsnNewsprintPalette.red400,
+    statusLiveText: AsnNewsprintPalette.red300,
+    statusError: AsnNewsprintPalette.red400,
+    statusErrorText: AsnNewsprintPalette.red300,
+    statusErrorBg: AsnNewsprintPalette.red900,
+    statusSuccess: AsnNewsprintPalette.green300,
+    statusSuccessText: AsnNewsprintPalette.green300,
+    statusSuccessBg: AsnNewsprintPalette.green900,
+    statusWarning: AsnNewsprintPalette.yellow300,
+    statusWarningText: AsnNewsprintPalette.yellow300,
+    statusWarningBg: AsnNewsprintPalette.yellow900,
+    statusInfo: AsnNewsprintPalette.indigo400,
+    statusInfoText: AsnNewsprintPalette.indigo400,
+    statusInfoBg: AsnNewsprintPalette.indigo900,
+    highlightMark: AsnNewsprintPalette.yellow700,
   );
 
   /// `ShadThemeData` del modo claro.
-  static ShadThemeData get lightTheme => AxTheme.buildTheme(light);
+  static ShadThemeData get lightTheme => AsnTheme.buildTheme(light);
 
   /// `ShadThemeData` del modo oscuro.
-  static ShadThemeData get darkTheme => AxTheme.buildTheme(dark);
+  static ShadThemeData get darkTheme => AsnTheme.buildTheme(dark);
 }

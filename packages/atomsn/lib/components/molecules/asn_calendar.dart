@@ -1,0 +1,25 @@
+import 'package:flutter/widgets.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
+
+/// Calendario de seleccion de fecha unica. Envuelve `ShadCalendar`.
+class AsnCalendar extends StatelessWidget {
+  const AsnCalendar({
+    super.key,
+    this.selected,
+    this.onChanged,
+    this.initialMonth,
+  });
+
+  final DateTime? selected;
+  final ValueChanged<DateTime?>? onChanged;
+  final DateTime? initialMonth;
+
+  @override
+  Widget build(BuildContext context) {
+    return ShadCalendar(
+      selected: selected,
+      onChanged: onChanged,
+      initialMonth: initialMonth,
+    );
+  }
+}

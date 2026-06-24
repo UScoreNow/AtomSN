@@ -1,0 +1,60 @@
+import 'package:flutter/widgets.dart';
+
+import '../../foundations/radius/asn_radius.dart';
+import '../../theme/asn_theme.dart';
+import '../atoms/atoms.dart';
+
+/// Celda de un [AsnTracker]. Modelo propio.
+@immutable
+class AsnTrackerCell {
+  const AsnTrackerCell({this.color, this.tooltip});
+
+  /// Color de relleno; si es null usa el verde de estado del tema.
+  final Color? color;
+  final String? tooltip;
+}
+
+/// Fila horizontal de celdas de estado (tipo tracker de uptime). Widget propio.
+class AsnTracker extends StatelessWidget {
+  const AsnTracker({
+    super.key,
+    required this.cells,
+    this.cellWidth = 6,
+    this.cellHeight = 28,
+    this.gap = 2,
+  });
+
+  final List<AsnTrackerCell> cells;
+  final double cellWidth;
+  final double cellHeight;
+  final double gap;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AsnTheme.of(context);
+    final children = <Widget>[];
+    for (var i = 0; i < cells.length; i++) {
+      final cell = cells[i];
+      Widget bar = Container(
+        width: cellWidth,
+        height: cellHeight,
+        decoration: BoxDecoration(
+          color: cell.color ?? colors.statusSuccess,
+          borderRadius: AsnRadius.brXs,
+        ),
+      );
+      if (cell.tooltip != null) {
+        bar = AsnTooltip(message: cell.tooltip!, child: bar);
+      }
+      if (i != 0) {
+        bar = Padding(
+          padding: EdgeInsets.only(left: gap),
+          child: bar,
+        );
+      }
+      children.add(bar);
+    }
+
+    return Row(mainAxisSize: MainAxisSize.min, children: children);
+  }
+}

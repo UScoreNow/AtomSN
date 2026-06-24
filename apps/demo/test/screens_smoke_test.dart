@@ -6,7 +6,7 @@ import 'package:atomsn_demo/screens/templates_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget _host(Widget child) => AxApp(home: child);
+Widget _host(Widget child) => AsnApp(home: child);
 
 void main() {
   testWidgets('OrganismsScreen renderiza sin excepciones', (tester) async {
@@ -14,27 +14,27 @@ void main() {
     await tester.pump(const Duration(milliseconds: 300));
     // Los bloques superiores son visibles; el resto se construye al hacer
     // scroll (ListView lazy). Basta confirmar que la pantalla monta sin error.
-    expect(find.text('AxDialog'), findsOneWidget);
-    expect(find.text('AxSheet'), findsOneWidget);
+    expect(find.text('AsnDialog'), findsOneWidget);
+    expect(find.text('AsnSheet'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
   testWidgets('AtomsScreen renderiza', (tester) async {
     await tester.pumpWidget(_host(const AtomsScreen()));
     await tester.pump(const Duration(milliseconds: 300));
-    expect(find.textContaining('AxText'), findsWidgets);
+    expect(find.textContaining('AsnText'), findsWidgets);
     expect(tester.takeException(), isNull);
   });
 
   testWidgets('MoleculesScreen renderiza', (tester) async {
     await tester.pumpWidget(_host(const MoleculesScreen()));
     await tester.pump(const Duration(milliseconds: 300));
-    expect(find.text('AxSelect'), findsOneWidget);
+    expect(find.text('AsnSelect'), findsOneWidget);
   });
 
   testWidgets('TemplatesScreen renderiza', (tester) async {
     await tester.pumpWidget(_host(const TemplatesScreen()));
     await tester.pump(const Duration(milliseconds: 300));
-    expect(find.text('AxPageScaffold'), findsOneWidget);
+    expect(find.text('AsnPageScaffold'), findsOneWidget);
   });
 }

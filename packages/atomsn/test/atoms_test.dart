@@ -4,24 +4,24 @@ import 'package:flutter_test/flutter_test.dart';
 // Prefijo para no chocar con la reexportacion de HugeIcon de AtomSN.
 import 'package:shadcn_ui/shadcn_ui.dart' as shad;
 
-Widget _host(Widget child) => AxApp(home: Center(child: child));
+Widget _host(Widget child) => AsnApp(home: Center(child: child));
 
 void main() {
 
-  testWidgets('AxButton invoca onPressed', (tester) async {
+  testWidgets('AsnButton invoca onPressed', (tester) async {
     var taps = 0;
     await tester.pumpWidget(
-      _host(AxButton(onPressed: () => taps++, child: const Text('Go'))),
+      _host(AsnButton(onPressed: () => taps++, child: const Text('Go'))),
     );
     await tester.tap(find.text('Go'));
     expect(taps, 1);
   });
 
-  testWidgets('AxButton deshabilitado no invoca onPressed', (tester) async {
+  testWidgets('AsnButton deshabilitado no invoca onPressed', (tester) async {
     var taps = 0;
     await tester.pumpWidget(
       _host(
-        AxButton(
+        AsnButton(
           enabled: false,
           onPressed: () => taps++,
           child: const Text('Nope'),
@@ -32,29 +32,29 @@ void main() {
     expect(taps, 0);
   });
 
-  testWidgets('AxCheckbox reporta el nuevo valor', (tester) async {
+  testWidgets('AsnCheckbox reporta el nuevo valor', (tester) async {
     bool? next;
     await tester.pumpWidget(
-      _host(AxCheckbox(value: false, onChanged: (v) => next = v)),
+      _host(AsnCheckbox(value: false, onChanged: (v) => next = v)),
     );
-    await tester.tap(find.byType(AxCheckbox));
+    await tester.tap(find.byType(AsnCheckbox));
     expect(next, true);
   });
 
-  testWidgets('AxStarRating reporta la estrella pulsada', (tester) async {
+  testWidgets('AsnStarRating reporta la estrella pulsada', (tester) async {
     int? rated;
     await tester.pumpWidget(
-      _host(AxStarRating(value: 0, onChanged: (v) => rated = v)),
+      _host(AsnStarRating(value: 0, onChanged: (v) => rated = v)),
     );
     // Pulsa la tercera estrella (icono Hugeicons).
     await tester.tap(find.byType(HugeIcon).at(2));
     expect(rated, 3);
   });
 
-  testWidgets('AxInputOtp da estilo ElmsSans tabular a cada slot', (
+  testWidgets('AsnInputOtp da estilo ElmsSans tabular a cada slot', (
     tester,
   ) async {
-    await tester.pumpWidget(_host(const AxInputOtp(length: 4)));
+    await tester.pumpWidget(_host(const AsnInputOtp(length: 4)));
     final slots = tester.widgetList<shad.ShadInputOTPSlot>(
       find.byType(shad.ShadInputOTPSlot),
     );
@@ -63,22 +63,22 @@ void main() {
       final style = slot.style;
       expect(style, isNotNull);
       // ElmsSans (familia unica), no el GeistMono por defecto de shadcn.
-      expect(style!.fontFamily, AxTextTheme.fontFamily);
+      expect(style!.fontFamily, AsnTextTheme.fontFamily);
       // Cifras tabulares para alinear los digitos.
       expect(style.fontFeatures, contains(const FontFeature.tabularFigures()));
     }
   });
 
-  testWidgets('AxText aplica rol, color y mayusculas de overline', (
+  testWidgets('AsnText aplica rol, color y mayusculas de overline', (
     tester,
   ) async {
     await tester.pumpWidget(
       _host(
         const Column(
           children: [
-            AxText.h1('Titular'),
-            AxText.body('Cuerpo'),
-            AxText.overline('grupo a'),
+            AsnText.h1('Titular'),
+            AsnText.body('Cuerpo'),
+            AsnText.overline('grupo a'),
           ],
         ),
       ),
@@ -92,13 +92,13 @@ void main() {
     final body = tester.widget<Text>(find.text('Cuerpo'));
     // El titular es mayor que el cuerpo y ambos llevan color del tema.
     expect(h1.style!.fontSize! > body.style!.fontSize!, isTrue);
-    expect(h1.style!.color, AxNewsprint.light.textPrimary);
+    expect(h1.style!.color, AsnNewsprint.light.textPrimary);
   });
 
-  testWidgets('AxText.link invoca onTap', (tester) async {
+  testWidgets('AsnText.link invoca onTap', (tester) async {
     var taps = 0;
     await tester.pumpWidget(
-      _host(AxText.link('Abrir', onTap: () => taps++)),
+      _host(AsnText.link('Abrir', onTap: () => taps++)),
     );
     await tester.tap(find.text('Abrir'));
     expect(taps, 1);

@@ -10,15 +10,15 @@ class DemoBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = AxTheme.of(context);
+    final colors = AsnTheme.of(context);
     return Container(
-      margin: const EdgeInsets.only(bottom: AxSpacing.x4),
-      padding: const EdgeInsets.all(AxSpacing.x4),
+      margin: const EdgeInsets.only(bottom: AsnSpacing.x4),
+      padding: const EdgeInsets.all(AsnSpacing.x4),
       decoration: BoxDecoration(
         color: colors.bgSurface,
         // Esquinas concentricas: el hijo estandar (radio md) inset por el
         // padding x4 -> el contenedor usa md + x4 para que las curvas casen.
-        borderRadius: AxRadius.brConcentric(AxRadius.md, AxSpacing.x4),
+        borderRadius: AsnRadius.brConcentric(AsnRadius.md, AsnSpacing.x4),
         border: Border.all(color: colors.borderDefault),
       ),
       child: Column(
@@ -27,14 +27,14 @@ class DemoBlock extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontFamily: AxTextTheme.sansFamily,
-              fontSize: AxFontSize.sm,
-              fontWeight: AxFontWeight.semibold,
+              fontFamily: AsnTextTheme.sansFamily,
+              fontSize: AsnFontSize.sm,
+              fontWeight: AsnFontWeight.semibold,
               letterSpacing: 0.6,
               color: colors.textMuted,
             ),
           ),
-          const AxRoundedDivider(space: AxSpacing.x5),
+          const AsnRoundedDivider(space: AsnSpacing.x5),
           DefaultTextStyle.merge(
             style: TextStyle(color: colors.textPrimary),
             child: child,
@@ -54,7 +54,7 @@ class DemoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.all(AxSpacing.x4),
+      padding: const EdgeInsets.all(AsnSpacing.x4),
       children: blocks,
     );
   }

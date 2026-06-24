@@ -7,40 +7,40 @@ void main() {
   test('newsprint preset respeta las reglas duras del sistema', () {
     // Sin negro ni blanco puros.
     const forbidden = [Color(0xFF000000), Color(0xFFFFFFFF)];
-    for (final c in [AxNewsprint.light, AxNewsprint.dark]) {
+    for (final c in [AsnNewsprint.light, AsnNewsprint.dark]) {
       expect(forbidden.contains(c.bgBase), isFalse);
       expect(forbidden.contains(c.textPrimary), isFalse);
     }
     // Brillos correctos.
-    expect(AxNewsprint.light.brightness, Brightness.light);
-    expect(AxNewsprint.dark.brightness, Brightness.dark);
+    expect(AsnNewsprint.light.brightness, Brightness.light);
+    expect(AsnNewsprint.dark.brightness, Brightness.dark);
   });
 
-  test('AxColorScheme deriva ShadColorScheme desde los roles semanticos', () {
-    final scheme = AxColorScheme.fromSemantic(AxNewsprint.light);
-    expect(scheme.background, AxNewsprint.light.bgBase);
-    expect(scheme.primary, AxNewsprint.light.actionPrimary);
+  test('AsnColorScheme deriva ShadColorScheme desde los roles semanticos', () {
+    final scheme = AsnColorScheme.fromSemantic(AsnNewsprint.light);
+    expect(scheme.background, AsnNewsprint.light.bgBase);
+    expect(scheme.primary, AsnNewsprint.light.actionPrimary);
     // Roles editoriales extra viajan en el mapa custom.
-    expect(scheme.custom['link'], AxNewsprint.light.link);
-    expect(scheme.custom['warning'], AxNewsprint.light.statusWarning);
+    expect(scheme.custom['link'], AsnNewsprint.light.link);
+    expect(scheme.custom['warning'], AsnNewsprint.light.statusWarning);
   });
 
-  testWidgets('AxTheme.of devuelve los colores del modo activo bajo AxApp', (
+  testWidgets('AsnTheme.of devuelve los colores del modo activo bajo AsnApp', (
     tester,
   ) async {
-    late AxSemanticColors seen;
+    late AsnSemanticColors seen;
     await tester.pumpWidget(
-      AxApp(
+      AsnApp(
         home: Builder(
           builder: (context) {
-            seen = AxTheme.of(context);
+            seen = AsnTheme.of(context);
             return const SizedBox.shrink();
           },
         ),
       ),
     );
     expect(seen.brightness, Brightness.light);
-    expect(seen.bgBase, AxNewsprint.light.bgBase);
+    expect(seen.bgBase, AsnNewsprint.light.bgBase);
   });
 
   testWidgets('El texto plano hereda la familia ElmsSans del tema', (
@@ -48,7 +48,7 @@ void main() {
   ) async {
     late TextStyle defaultStyle;
     await tester.pumpWidget(
-      AxApp(
+      AsnApp(
         home: Builder(
           builder: (context) {
             defaultStyle = DefaultTextStyle.of(context).style;
@@ -59,6 +59,6 @@ void main() {
     );
     // Sin la familia en el textStyle raiz del app, un Text plano caia en la
     // fuente del sistema (Roboto) en vez de ElmsSans.
-    expect(defaultStyle.fontFamily, AxTextTheme.fontFamily);
+    expect(defaultStyle.fontFamily, AsnTextTheme.fontFamily);
   });
 }

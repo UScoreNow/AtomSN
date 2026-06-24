@@ -17,7 +17,7 @@ Capas con regla de dependencia hacia dentro (`foundations <- theme <- components
 ```
 lib/
 ├── foundations/   # capa 0, brand-agnostic: color, tipografia, spacing, radius, border
-├── theme/         # capa 1: ShadThemeData + AxThemeScope + preset newsprint + AxApp
+├── theme/         # capa 1: ShadThemeData + AsnThemeScope + preset newsprint + AsnApp
 └── components/    # capa 2: atoms / molecules / organisms / templates
 ```
 
@@ -26,8 +26,8 @@ lib/
 - La API publica nunca expone tipos `Shad*`: cada componente define sus propios
   enums/modelos `Ax*`.
 - `ShadColorScheme` no cubre todos los roles editoriales (warning, link, success,
-  highlightMark, borderSection...); esos viajan por `AxThemeScope` y se leen con
-  `AxTheme.of(context)`.
+  highlightMark, borderSection...); esos viajan por `AsnThemeScope` y se leen con
+  `AsnTheme.of(context)`.
 
 ## Instalacion
 
@@ -58,7 +58,7 @@ import 'package:atomsn/atomsn.dart';
 import 'package:flutter/material.dart' show ThemeMode;
 
 void main() => runApp(
-  AxApp(
+  AsnApp(
     themeMode: ThemeMode.system, // por defecto: preset "newsprint" light/dark
     home: const Home(),
   ),
@@ -69,10 +69,10 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = AxTheme.of(context);
+    final colors = AsnTheme.of(context);
     return Container(
       color: colors.bgBase,
-      child: AxButton(
+      child: AsnButton(
         onPressed: () {},
         child: const Text('Hola'),
       ),
@@ -82,16 +82,16 @@ class Home extends StatelessWidget {
 ```
 
 Para `Router`/`go_router`, usa `ShadApp.router` y envuelve el arbol con
-`AxThemeScopeBuilder` (publica el `AxThemeScope` segun el modo activo).
+`AsnThemeScopeBuilder` (publica el `AsnThemeScope` segun el modo activo).
 
 ### Tema propio
 
-`AxApp` acepta `lightColors`/`darkColors` (`AxSemanticColors`). Construye los
+`AsnApp` acepta `lightColors`/`darkColors` (`AsnSemanticColors`). Construye los
 tuyos para re-skinear la biblioteca sin tocar los componentes:
 
 ```dart
-AxApp(
-  lightColors: AxNewsprint.light.copyWith(actionPrimary: const Color(0xFF1E66F5)),
+AsnApp(
+  lightColors: AsnNewsprint.light.copyWith(actionPrimary: const Color(0xFF1E66F5)),
   home: const Home(),
 );
 ```

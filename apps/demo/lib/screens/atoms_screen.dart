@@ -36,92 +36,92 @@ class _AtomsScreenState extends State<AtomsScreen> {
     return DemoScreen(
       blocks: [
         const DemoBlock(
-          title: 'AxText — tipografía',
+          title: 'AsnText — tipografía',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AxText.masthead('Masthead'),
-              SizedBox(height: AxSpacing.x2),
-              AxText.h1('Titular H1'),
-              AxText.h2('Titular H2'),
-              AxText.h3('Título H3'),
-              AxText.h4('Título H4'),
-              SizedBox(height: AxSpacing.x2),
-              AxText.lead('Entradilla (lead): resumen introductorio del bloque.'),
-              SizedBox(height: AxSpacing.x2),
-              AxText.bodyLarge('Cuerpo grande para destacar un párrafo.'),
-              AxText.body('Cuerpo estándar, el texto más frecuente del sistema.'),
-              AxText.bodySmall('Cuerpo pequeño para notas secundarias.'),
-              SizedBox(height: AxSpacing.x2),
-              AxText.label('Label de formulario'),
-              AxText.caption('Caption / pie de apoyo'),
-              AxText.overline('grupo a'),
-              SizedBox(height: AxSpacing.x2),
-              AxText.blockquote('"Una cita editorial en cursiva."'),
-              AxText.listItem('Elemento de lista'),
-              SizedBox(height: AxSpacing.x3),
+              AsnText.masthead('Masthead'),
+              SizedBox(height: AsnSpacing.x2),
+              AsnText.h1('Titular H1'),
+              AsnText.h2('Titular H2'),
+              AsnText.h3('Título H3'),
+              AsnText.h4('Título H4'),
+              SizedBox(height: AsnSpacing.x2),
+              AsnText.lead('Entradilla (lead): resumen introductorio del bloque.'),
+              SizedBox(height: AsnSpacing.x2),
+              AsnText.bodyLarge('Cuerpo grande para destacar un párrafo.'),
+              AsnText.body('Cuerpo estándar, el texto más frecuente del sistema.'),
+              AsnText.bodySmall('Cuerpo pequeño para notas secundarias.'),
+              SizedBox(height: AsnSpacing.x2),
+              AsnText.label('Label de formulario'),
+              AsnText.caption('Caption / pie de apoyo'),
+              AsnText.overline('grupo a'),
+              SizedBox(height: AsnSpacing.x2),
+              AsnText.blockquote('"Una cita editorial en cursiva."'),
+              AsnText.listItem('Elemento de lista'),
+              SizedBox(height: AsnSpacing.x3),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 textBaseline: TextBaseline.alphabetic,
                 children: [
-                  AxText.display('3'),
-                  AxText.h2('  -  '),
-                  AxText.display('1'),
-                  SizedBox(width: AxSpacing.x4),
-                  AxText.stat('+12'),
+                  AsnText.display('3'),
+                  AsnText.h2('  -  '),
+                  AsnText.display('1'),
+                  SizedBox(width: AsnSpacing.x4),
+                  AsnText.stat('+12'),
                 ],
               ),
-              SizedBox(height: AxSpacing.x3),
-              AxText.link('Enlace de ejemplo'),
+              SizedBox(height: AsnSpacing.x3),
+              AsnText.link('Enlace de ejemplo'),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AxText — color semántico',
+          title: 'AsnText — color semántico',
           child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AxText.body('primary', color: AxTextColor.primary),
-              AxText.body('secondary', color: AxTextColor.secondary),
-              AxText.body('muted', color: AxTextColor.muted),
-              AxText.body('link', color: AxTextColor.link),
-              AxText.body('success', color: AxTextColor.success),
-              AxText.body('error', color: AxTextColor.error),
-              AxText.body('warning', color: AxTextColor.warning),
+              AsnText.body('primary', color: AsnTextColor.primary),
+              AsnText.body('secondary', color: AsnTextColor.secondary),
+              AsnText.body('muted', color: AsnTextColor.muted),
+              AsnText.body('link', color: AsnTextColor.link),
+              AsnText.body('success', color: AsnTextColor.success),
+              AsnText.body('error', color: AsnTextColor.error),
+              AsnText.body('warning', color: AsnTextColor.warning),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AxButton — variantes',
+          title: 'AsnButton — variantes',
           child: Wrap(
-            spacing: AxSpacing.x2,
-            runSpacing: AxSpacing.x2,
+            spacing: AsnSpacing.x2,
+            runSpacing: AsnSpacing.x2,
             children: [
-              for (final v in AxButtonVariant.values)
-                AxButton(
+              for (final v in AsnButtonVariant.values)
+                AsnButton(
                   variant: v,
                   onPressed: () {},
                   child: Text(_buttonVariantLabel(v)),
                 ),
-              const AxButton(enabled: false, child: Text('Disabled')),
+              const AsnButton(enabled: false, child: Text('Disabled')),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AxButton — tamaños',
+          title: 'AsnButton — tamaños',
           child: Wrap(
-            spacing: AxSpacing.x2,
-            runSpacing: AxSpacing.x2,
+            spacing: AsnSpacing.x2,
+            runSpacing: AsnSpacing.x2,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              AxButton(
-                size: AxButtonSize.sm,
+              AsnButton(
+                size: AsnButtonSize.sm,
                 onPressed: () {},
                 child: const Text('Small'),
               ),
-              AxButton(onPressed: () {}, child: const Text('Regular')),
-              AxButton(
-                size: AxButtonSize.lg,
+              AsnButton(onPressed: () {}, child: const Text('Regular')),
+              AsnButton(
+                size: AsnButtonSize.lg,
                 onPressed: () {},
                 child: const Text('Large'),
               ),
@@ -129,20 +129,20 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxButton — icono izquierda / derecha (contenido centrado)',
+          title: 'AsnButton — icono izquierda / derecha (contenido centrado)',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              AxButton(
+              AsnButton(
                 expanded: true,
                 leading: const HugeIcon(icon: HugeIcons.strokeRoundedAdd01),
                 onPressed: () {},
                 child: const Text('Icono a la izquierda'),
               ),
-              const SizedBox(height: AxSpacing.x2),
-              AxButton(
+              const SizedBox(height: AsnSpacing.x2),
+              AsnButton(
                 expanded: true,
-                variant: AxButtonVariant.outline,
+                variant: AsnButtonVariant.outline,
                 trailing: const HugeIcon(
                   icon: HugeIcons.strokeRoundedArrowRight01,
                 ),
@@ -153,33 +153,33 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxIconButton — variantes',
+          title: 'AsnIconButton — variantes',
           child: Wrap(
-            spacing: AxSpacing.x5,
-            runSpacing: AxSpacing.x3,
+            spacing: AsnSpacing.x5,
+            runSpacing: AsnSpacing.x3,
             children: [
               _iconButtonDemo(
-                AxIconButtonVariant.primary,
+                AsnIconButtonVariant.primary,
                 HugeIcons.strokeRoundedFavourite,
                 'primary',
               ),
               _iconButtonDemo(
-                AxIconButtonVariant.secondary,
+                AsnIconButtonVariant.secondary,
                 HugeIcons.strokeRoundedShare08,
                 'secondary',
               ),
               _iconButtonDemo(
-                AxIconButtonVariant.destructive,
+                AsnIconButtonVariant.destructive,
                 HugeIcons.strokeRoundedDelete02,
                 'destructive',
               ),
               _iconButtonDemo(
-                AxIconButtonVariant.outline,
+                AsnIconButtonVariant.outline,
                 HugeIcons.strokeRoundedEdit02,
                 'outline',
               ),
               _iconButtonDemo(
-                AxIconButtonVariant.ghost,
+                AsnIconButtonVariant.ghost,
                 HugeIcons.strokeRoundedMoreHorizontal,
                 'ghost',
               ),
@@ -187,27 +187,27 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxBadge',
+          title: 'AsnBadge',
           child: Wrap(
-            spacing: AxSpacing.x2,
-            runSpacing: AxSpacing.x2,
+            spacing: AsnSpacing.x2,
+            runSpacing: AsnSpacing.x2,
             children: const [
-              AxBadge(child: Text('Primary')),
-              AxBadge(
-                variant: AxBadgeVariant.secondary,
+              AsnBadge(child: Text('Primary')),
+              AsnBadge(
+                variant: AsnBadgeVariant.secondary,
                 child: Text('Secondary'),
               ),
-              AxBadge(variant: AxBadgeVariant.outline, child: Text('Outline')),
-              AxBadge(
-                variant: AxBadgeVariant.destructive,
+              AsnBadge(variant: AsnBadgeVariant.outline, child: Text('Outline')),
+              AsnBadge(
+                variant: AsnBadgeVariant.destructive,
                 child: Text('Destructive'),
               ),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AxCheckbox',
-          child: AxCheckbox(
+          title: 'AsnCheckbox',
+          child: AsnCheckbox(
             value: _checkboxValue,
             onChanged: (v) => setState(() => _checkboxValue = v),
             label: const Text('Acepto los terminos'),
@@ -215,8 +215,8 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxSwitch',
-          child: AxSwitch(
+          title: 'AsnSwitch',
+          child: AsnSwitch(
             value: _switchValue,
             onChanged: (v) => setState(() => _switchValue = v),
             label: const Text('Notificaciones'),
@@ -224,8 +224,8 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxInput',
-          child: AxInput(
+          title: 'AsnInput',
+          child: AsnInput(
             controller: _inputController,
             placeholder: 'Escribe tu nombre',
             leading: const HugeIcon(
@@ -236,52 +236,52 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxTextarea',
-          child: AxTextarea(
+          title: 'AsnTextarea',
+          child: AsnTextarea(
             controller: _textareaController,
             placeholder: 'Cuentanos mas...',
             onChanged: (_) => setState(() {}),
           ),
         ),
         DemoBlock(
-          title: 'AxInputOtp',
+          title: 'AsnInputOtp',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AxInputOtp(
+              AsnInputOtp(
                 length: 6,
                 onChanged: (v) => setState(() => _otpValue = v),
               ),
-              const SizedBox(height: AxSpacing.x2),
+              const SizedBox(height: AsnSpacing.x2),
               Text('Codigo: $_otpValue'),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AxSlider',
+          title: 'AsnSlider',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AxSlider(
+              AsnSlider(
                 value: _sliderValue,
                 onChanged: (v) => setState(() => _sliderValue = v),
               ),
-              const SizedBox(height: AxSpacing.x2),
+              const SizedBox(height: AsnSpacing.x2),
               Text('Valor: ${_sliderValue.toStringAsFixed(2)}'),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AxProgress',
+          title: 'AsnProgress',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AxProgress(value: _progressValue),
-              const SizedBox(height: AxSpacing.x3),
-              const AxProgress(),
-              const SizedBox(height: AxSpacing.x3),
-              AxButton(
-                size: AxButtonSize.sm,
+              AsnProgress(value: _progressValue),
+              const SizedBox(height: AsnSpacing.x3),
+              const AsnProgress(),
+              const SizedBox(height: AsnSpacing.x3),
+              AsnButton(
+                size: AsnButtonSize.sm,
                 onPressed: () => setState(() => _counter++),
                 child: const Text('Avanzar'),
               ),
@@ -289,20 +289,20 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxRoundedDivider',
+          title: 'AsnRoundedDivider',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text('Arriba'),
-              const AxRoundedDivider(space: AxSpacing.x6),
+              const AsnRoundedDivider(space: AsnSpacing.x6),
               const Text('Abajo'),
-              const SizedBox(height: AxSpacing.x3),
+              const SizedBox(height: AsnSpacing.x3),
               SizedBox(
                 height: 32,
                 child: Row(
                   children: const [
                     Text('Izquierda'),
-                    AxRoundedVerticalDivider(space: AxSpacing.x6),
+                    AsnRoundedVerticalDivider(space: AsnSpacing.x6),
                     Text('Derecha'),
                   ],
                 ),
@@ -311,13 +311,13 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxAvatar',
+          title: 'AsnAvatar',
           child: Wrap(
-            spacing: AxSpacing.x3,
-            runSpacing: AxSpacing.x3,
+            spacing: AsnSpacing.x3,
+            runSpacing: AsnSpacing.x3,
             children: const [
-              AxAvatar(fallback: Text('AB')),
-              AxAvatar(
+              AsnAvatar(fallback: Text('AB')),
+              AsnAvatar(
                 src: 'https://avatars.githubusercontent.com/u/1?v=4',
                 fallback: Text('GH'),
                 size: Size(48, 48),
@@ -326,59 +326,59 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxTooltip',
-          child: const AxTooltip(
+          title: 'AsnTooltip',
+          child: const AsnTooltip(
             message: 'Texto de ayuda',
-            child: AxBadge(child: Text('Pasa el raton')),
+            child: AsnBadge(child: Text('Pasa el raton')),
           ),
         ),
         DemoBlock(
-          title: 'AxSkeleton',
+          title: 'AsnSkeleton',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
-              AxSkeleton(width: 200, height: 16),
-              SizedBox(height: AxSpacing.x2),
-              AxSkeleton(width: 140, height: 16),
-              SizedBox(height: AxSpacing.x2),
-              AxSkeleton(width: 80, height: 80),
+              AsnSkeleton(width: 200, height: 16),
+              SizedBox(height: AsnSpacing.x2),
+              AsnSkeleton(width: 140, height: 16),
+              SizedBox(height: AsnSpacing.x2),
+              AsnSkeleton(width: 80, height: 80),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AxToggle',
-          child: AxToggle(
+          title: 'AsnToggle',
+          child: AsnToggle(
             value: _toggleValue,
             onChanged: (v) => setState(() => _toggleValue = v),
             child: const Text('Negrita'),
           ),
         ),
         DemoBlock(
-          title: 'AxStarRating',
+          title: 'AsnStarRating',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AxStarRating(
+              AsnStarRating(
                 value: _starValue,
                 onChanged: (v) => setState(() => _starValue = v),
               ),
-              const SizedBox(height: AxSpacing.x2),
+              const SizedBox(height: AsnSpacing.x2),
               Text('Puntuacion: $_starValue / 5'),
             ],
           ),
         ),
         DemoBlock(
-          title: 'AxNumberTicker',
+          title: 'AsnNumberTicker',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AxNumberTicker(
+              AsnNumberTicker(
                 value: _counter.toDouble(),
                 style: const TextStyle(fontSize: 32),
               ),
-              const SizedBox(height: AxSpacing.x2),
-              AxButton(
-                size: AxButtonSize.sm,
+              const SizedBox(height: AsnSpacing.x2),
+              AsnButton(
+                size: AsnButtonSize.sm,
                 onPressed: () => setState(() => _counter += 7),
                 child: const Text('Sumar 7'),
               ),
@@ -386,8 +386,8 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxCodeSnippet',
-          child: const AxCodeSnippet(
+          title: 'AsnCodeSnippet',
+          child: const AsnCodeSnippet(
             code: "void main() => runApp(const MyApp());",
           ),
         ),
@@ -396,30 +396,30 @@ class _AtomsScreenState extends State<AtomsScreen> {
   }
 }
 
-String _buttonVariantLabel(AxButtonVariant v) => switch (v) {
-  AxButtonVariant.primary => 'Primary',
-  AxButtonVariant.secondary => 'Secondary',
-  AxButtonVariant.destructive => 'Destructive',
-  AxButtonVariant.outline => 'Outline',
-  AxButtonVariant.ghost => 'Ghost',
-  AxButtonVariant.link => 'Link',
+String _buttonVariantLabel(AsnButtonVariant v) => switch (v) {
+  AsnButtonVariant.primary => 'Primary',
+  AsnButtonVariant.secondary => 'Secondary',
+  AsnButtonVariant.destructive => 'Destructive',
+  AsnButtonVariant.outline => 'Outline',
+  AsnButtonVariant.ghost => 'Ghost',
+  AsnButtonVariant.link => 'Link',
 };
 
 /// Boton de icono con su etiqueta de variante debajo.
 Widget _iconButtonDemo(
-  AxIconButtonVariant variant,
+  AsnIconButtonVariant variant,
   List<List<dynamic>> icon,
   String label,
 ) {
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
-      AxIconButton(
+      AsnIconButton(
         variant: variant,
         icon: HugeIcon(icon: icon),
         onPressed: () {},
       ),
-      const SizedBox(height: AxSpacing.x1),
+      const SizedBox(height: AsnSpacing.x1),
       Text(label, style: const TextStyle(fontSize: 11)),
     ],
   );

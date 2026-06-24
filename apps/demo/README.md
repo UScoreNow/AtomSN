@@ -23,6 +23,6 @@ instante.
 
 ## Estructura
 
-- `lib/main.dart`: `AxApp` + navegacion por secciones + toggle de tema.
+- `lib/main.dart`: `AsnApp` + navegacion por secciones + toggle de tema.
 - `lib/screens/`: una pantalla por capa de atomic design.
 - `lib/widgets/demo_block.dart`: helpers de presentacion (`DemoBlock`, `DemoScreen`).
