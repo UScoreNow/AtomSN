@@ -289,12 +289,12 @@ class _AtomsScreenState extends State<AtomsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AsnRoundedDivider',
+          title: 'AsnSeparator',
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text('Arriba'),
-              const AsnRoundedDivider(space: AsnSpacing.x6),
+              const AsnSeparator(space: AsnSpacing.x6),
               const Text('Abajo'),
               const SizedBox(height: AsnSpacing.x3),
               SizedBox(
@@ -302,7 +302,7 @@ class _AtomsScreenState extends State<AtomsScreen> {
                 child: Row(
                   children: const [
                     Text('Izquierda'),
-                    AsnRoundedVerticalDivider(space: AsnSpacing.x6),
+                    AsnVerticalSeparator(space: AsnSpacing.x6),
                     Text('Derecha'),
                   ],
                 ),

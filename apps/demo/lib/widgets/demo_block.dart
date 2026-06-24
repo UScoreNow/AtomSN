@@ -34,7 +34,7 @@ class DemoBlock extends StatelessWidget {
               color: colors.textMuted,
             ),
           ),
-          const AsnRoundedDivider(space: AsnSpacing.x5),
+          const AsnSeparator(space: AsnSpacing.x5),
           DefaultTextStyle.merge(
             style: TextStyle(color: colors.textPrimary),
             child: child,

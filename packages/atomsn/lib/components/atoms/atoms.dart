@@ -8,7 +8,7 @@ export 'asn_input.dart';
 export 'asn_input_otp.dart';
 export 'asn_number_ticker.dart';
 export 'asn_progress.dart';
-export 'asn_rounded_divider.dart';
+export 'asn_separator.dart';
 export 'asn_skeleton.dart';
 export 'asn_slider.dart';
 export 'asn_star_rating.dart';

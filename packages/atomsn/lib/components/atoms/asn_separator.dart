@@ -1,22 +1,21 @@
 import 'package:flutter/widgets.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../foundations/border/asn_borders.dart';
 import '../../foundations/radius/asn_radius.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Regla horizontal con extremos redondeados.
+/// Regla horizontal con extremos redondeados. Envuelve `ShadSeparator`.
 ///
-/// Equivalente editorial a un divider: ocupa un alto total [space] con la linea
-/// de grosor [thickness] centrada y sangrias [indent]/[endIndent]. A diferencia
-/// de una regla recta, la linea se dibuja como un contenedor con [BorderRadius],
-/// de modo que sus extremos quedan redondeados (por defecto stadium,
-/// `AsnRadius.full`).
+/// Reserva un alto total [space] con la linea de grosor [thickness] centrada y
+/// sangrias [indent]/[endIndent]. Los extremos se redondean con [radius] (por
+/// defecto stadium, `AsnRadius.full`).
 ///
 /// Por defecto el color sale de `borderHairline` del tema y el grosor de
 /// `AsnBorders.hairline`.
-class AsnRoundedDivider extends StatelessWidget {
-  const AsnRoundedDivider({
+class AsnSeparator extends StatelessWidget {
+  const AsnSeparator({
     super.key,
     this.space = AsnSpacing.x4,
     this.thickness = AsnBorders.hairline,
@@ -46,30 +45,28 @@ class AsnRoundedDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lineColor = color ?? AsnTheme.of(context).borderHairline;
-    return SizedBox(
-      height: space,
-      child: Center(
-        child: Container(
-          height: thickness,
-          margin: EdgeInsetsDirectional.only(start: indent, end: endIndent),
-          decoration: BoxDecoration(
-            color: lineColor,
-            borderRadius: BorderRadius.circular(radius),
-          ),
-        ),
+    final gutter = (space - thickness) / 2;
+    return ShadSeparator.horizontal(
+      thickness: thickness,
+      color: color ?? AsnTheme.of(context).borderHairline,
+      radius: BorderRadius.circular(radius),
+      margin: EdgeInsetsDirectional.only(
+        start: indent,
+        end: endIndent,
+        top: gutter,
+        bottom: gutter,
       ),
     );
   }
 }
 
-/// Regla vertical con extremos redondeados.
+/// Regla vertical con extremos redondeados. Envuelve `ShadSeparator`.
 ///
-/// Variante vertical de [AsnRoundedDivider]: ocupa un ancho total [space] con la
+/// Variante vertical de [AsnSeparator]: reserva un ancho total [space] con la
 /// linea de grosor [thickness] centrada y sangrias [indent]/[endIndent]
 /// (arriba/abajo).
-class AsnRoundedVerticalDivider extends StatelessWidget {
-  const AsnRoundedVerticalDivider({
+class AsnVerticalSeparator extends StatelessWidget {
+  const AsnVerticalSeparator({
     super.key,
     this.space = AsnSpacing.x4,
     this.thickness = AsnBorders.hairline,
@@ -99,18 +96,16 @@ class AsnRoundedVerticalDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lineColor = color ?? AsnTheme.of(context).borderHairline;
-    return SizedBox(
-      width: space,
-      child: Center(
-        child: Container(
-          width: thickness,
-          margin: EdgeInsetsDirectional.only(top: indent, bottom: endIndent),
-          decoration: BoxDecoration(
-            color: lineColor,
-            borderRadius: BorderRadius.circular(radius),
-          ),
-        ),
+    final gutter = (space - thickness) / 2;
+    return ShadSeparator.vertical(
+      thickness: thickness,
+      color: color ?? AsnTheme.of(context).borderHairline,
+      radius: BorderRadius.circular(radius),
+      margin: EdgeInsetsDirectional.only(
+        top: indent,
+        bottom: endIndent,
+        start: gutter,
+        end: gutter,
       ),
     );
   }
