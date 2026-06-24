@@ -15,7 +15,12 @@ dependencies:
   flutter:
     sdk: flutter
   hugeicons: ^1.1.7
-  shadcn_ui: ^0.54.0
+  shadcn_ui:
+    git:
+      url: https://github.com/UScoreNow/flutter-shadcn-ui.git
+      # Commit inmutable de la rama usn/0.54.0-elms-huge (reproducibilidad y
+      # auditoria: el branch puede moverse, el SHA no).
+      ref: f5615319b2b793c7bf226748af49c3cac5fe05c7
 
 dev_dependencies:
   flutter_test:

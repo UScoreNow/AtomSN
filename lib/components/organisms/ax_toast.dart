@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:hugeicons/hugeicons.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 /// Variante visual de [AxToast].

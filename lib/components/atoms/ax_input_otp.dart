@@ -16,13 +16,24 @@ class AxInputOtp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = ShadTheme.of(context);
+    // ElmsSans (familia unica del sistema) en lugar del mono GeistMono que
+    // shadcn usa por defecto en el OTP. Cifras tabulares para que los digitos
+    // alineen dentro de cada celda.
+    final slotStyle = theme.textTheme.muted.copyWith(
+      color: theme.colorScheme.foreground,
+      fontFeatures: const [FontFeature.tabularFigures()],
+    );
     return ShadInputOTP(
       maxLength: length,
       onChanged: onChanged,
       keyboardType: keyboardType,
       children: [
         ShadInputOTPGroup(
-          children: List.generate(length, (_) => const ShadInputOTPSlot()),
+          children: List.generate(
+            length,
+            (_) => ShadInputOTPSlot(style: slotStyle),
+          ),
         ),
       ],
     );
