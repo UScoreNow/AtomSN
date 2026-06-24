@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
 
-/// Pantalla de demostracion de los componentes TEMPLATE de AtomSN.
+/// Demo screen for AtomSN's TEMPLATE components.
 class TemplatesScreen extends StatelessWidget {
   const TemplatesScreen({super.key});
 
@@ -15,7 +15,7 @@ class TemplatesScreen extends StatelessWidget {
           title: 'AsnPageScaffold',
           child: _Frame(
             child: AsnPageScaffold(
-              title: const Text('Panel de control'),
+              title: const Text('Dashboard'),
               actions: [
                 AsnButton(
                   variant: AsnButtonVariant.outline,
@@ -25,7 +25,7 @@ class TemplatesScreen extends StatelessWidget {
                     size: 16,
                   ),
                   onPressed: () {},
-                  child: const Text('Refrescar'),
+                  child: const Text('Refresh'),
                 ),
                 AsnButton(
                   size: AsnButtonSize.sm,
@@ -34,23 +34,23 @@ class TemplatesScreen extends StatelessWidget {
                     size: 16,
                   ),
                   onPressed: () {},
-                  child: const Text('Nuevo'),
+                  child: const Text('New'),
                 ),
               ],
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   AsnCard(
-                    title: const Text('Resumen'),
-                    description: const Text('Actividad de los ultimos 7 dias'),
+                    title: const Text('Summary'),
+                    description: const Text('Activity over the last 7 days'),
                     child: const Text(
-                      'Las metricas estan al dia y dentro de lo esperado.',
+                      'The metrics are up to date and within expectations.',
                     ),
                   ),
                   const SizedBox(height: AsnSpacing.x3),
                   AsnButton(
                     onPressed: () {},
-                    child: const Text('Ver detalles'),
+                    child: const Text('View details'),
                   ),
                 ],
               ),
@@ -76,7 +76,7 @@ class TemplatesScreen extends StatelessWidget {
                         size: 16,
                       ),
                       onPressed: () {},
-                      child: const Text('Inicio'),
+                      child: const Text('Home'),
                     ),
                     const SizedBox(height: AsnSpacing.x2),
                     AsnButton(
@@ -87,7 +87,7 @@ class TemplatesScreen extends StatelessWidget {
                         size: 16,
                       ),
                       onPressed: () {},
-                      child: const Text('Informes'),
+                      child: const Text('Reports'),
                     ),
                     const SizedBox(height: AsnSpacing.x2),
                     AsnButton(
@@ -98,7 +98,7 @@ class TemplatesScreen extends StatelessWidget {
                         size: 16,
                       ),
                       onPressed: () {},
-                      child: const Text('Ajustes'),
+                      child: const Text('Settings'),
                     ),
                   ],
                 ),
@@ -109,15 +109,15 @@ class TemplatesScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     AsnCard(
-                      title: const Text('Ingresos'),
-                      description: const Text('Mes en curso'),
+                      title: const Text('Revenue'),
+                      description: const Text('Current month'),
                       child: const Text('24.580 EUR'),
                     ),
                     const SizedBox(height: AsnSpacing.x3),
                     AsnCard(
-                      title: const Text('Clientes'),
-                      description: const Text('Nuevos este mes'),
-                      child: const Text('128 altas'),
+                      title: const Text('Customers'),
+                      description: const Text('New this month'),
+                      child: const Text('128 sign-ups'),
                     ),
                   ],
                 ),
@@ -129,24 +129,24 @@ class TemplatesScreen extends StatelessWidget {
           title: 'AsnAuthLayout',
           child: _Frame(
             child: AsnAuthLayout(
-              title: const Text('Iniciar sesion'),
-              footer: const Text('No tienes cuenta? Registrate'),
+              title: const Text('Sign in'),
+              footer: const Text("Don't have an account? Sign up"),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const AsnInput(
-                    placeholder: 'Correo electronico',
+                    placeholder: 'Email',
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: AsnSpacing.x3),
                   const AsnInput(
-                    placeholder: 'Contrasena',
+                    placeholder: 'Password',
                     obscureText: true,
                   ),
                   const SizedBox(height: AsnSpacing.x5),
                   AsnButton(
                     onPressed: () {},
-                    child: const Text('Entrar'),
+                    child: const Text('Enter'),
                   ),
                 ],
               ),
@@ -158,7 +158,7 @@ class TemplatesScreen extends StatelessWidget {
   }
 }
 
-/// Marco de altura fija que enmarca una plantilla como vista previa.
+/// Fixed-height frame that wraps a template as a preview.
 class _Frame extends StatelessWidget {
   const _Frame({required this.child});
 

@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 import '../widgets/demo_block.dart';
 
-/// Pantalla de demostracion de todas las moleculas del paquete AtomSN.
+/// Demo screen for all of the AtomSN package's molecules.
 class MoleculesScreen extends StatefulWidget {
   const MoleculesScreen({super.key});
 
@@ -15,18 +15,18 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
   String? _selectedTeam;
   DateTime? _selectedDate;
   AsnTime? _selectedTime;
-  List<String> _chips = const ['diseno', 'frontend'];
+  List<String> _chips = const ['design', 'frontend'];
   String _phone = '+34';
   int _page = 1;
   bool _collapsed = false;
   Color? _color = const Color(0xFF6366F1);
-  String _tab = 'resumen';
+  String _tab = 'overview';
   bool _popoverVisible = false;
 
   static const List<AsnSelectOption<String>> _teamOptions = [
-    AsnSelectOption(value: 'avengers', label: 'Los Vengadores'),
-    AsnSelectOption(value: 'liga', label: 'Liga de la Justicia'),
-    AsnSelectOption(value: 'guardianes', label: 'Guardianes de la Galaxia'),
+    AsnSelectOption(value: 'avengers', label: 'The Avengers'),
+    AsnSelectOption(value: 'liga', label: 'Justice League'),
+    AsnSelectOption(value: 'guardianes', label: 'Guardians of the Galaxy'),
   ];
 
   static const List<Color> _swatches = [
@@ -46,7 +46,7 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           title: 'AsnSelect',
           child: AsnSelect<String>(
             value: _selectedTeam,
-            placeholder: 'Selecciona un equipo',
+            placeholder: 'Select a team',
             options: _teamOptions,
             onChanged: (value) => setState(() => _selectedTeam = value),
           ),
@@ -58,31 +58,31 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
             children: const [
               AsnAlert(
                 title: Text('Normal'),
-                description: Text('Mensaje neutro sin tinte ni icono.'),
+                description: Text('Neutral message with no tint or icon.'),
               ),
               SizedBox(height: AsnSpacing.x3),
               AsnAlert(
                 variant: AsnStatusVariant.info,
-                title: Text('Informacion'),
-                description: Text('Tu sesion se cerrara en 5 minutos.'),
+                title: Text('Information'),
+                description: Text('Your session will end in 5 minutes.'),
               ),
               SizedBox(height: AsnSpacing.x3),
               AsnAlert(
                 variant: AsnStatusVariant.warning,
-                title: Text('Advertencia'),
-                description: Text('Tienes cambios sin guardar.'),
+                title: Text('Warning'),
+                description: Text('You have unsaved changes.'),
               ),
               SizedBox(height: AsnSpacing.x3),
               AsnAlert(
                 variant: AsnStatusVariant.error,
                 title: Text('Error'),
-                description: Text('No se pudo guardar el documento.'),
+                description: Text('The document could not be saved.'),
               ),
               SizedBox(height: AsnSpacing.x3),
               AsnAlert(
                 variant: AsnStatusVariant.success,
-                title: Text('Hecho'),
-                description: Text('El documento se guardo correctamente.'),
+                title: Text('Done'),
+                description: Text('The document was saved successfully.'),
               ),
             ],
           ),
@@ -90,10 +90,10 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
         const DemoBlock(
           title: 'AsnCard',
           child: AsnCard(
-            title: Text('Plan Pro'),
-            description: Text('Facturacion mensual'),
-            footer: Text('29 EUR / mes'),
-            child: Text('Incluye soporte prioritario y usuarios ilimitados.'),
+            title: Text('Pro Plan'),
+            description: Text('Monthly billing'),
+            footer: Text('29 EUR / month'),
+            child: Text('Includes priority support and unlimited users.'),
           ),
         ),
         const DemoBlock(
@@ -101,12 +101,12 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           child: AsnAccordion(
             items: [
               AsnAccordionItem(
-                title: Text('Que es AtomSN?'),
-                content: Text('Una biblioteca de componentes para Flutter.'),
+                title: Text('What is AtomSN?'),
+                content: Text('A component library for Flutter.'),
               ),
               AsnAccordionItem(
-                title: Text('Es de codigo abierto?'),
-                content: Text('Si, se distribuye con licencia permisiva.'),
+                title: Text('Is it open source?'),
+                content: Text('Yes, it ships under a permissive license.'),
               ),
             ],
           ),
@@ -118,19 +118,19 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
             onChanged: (value) => setState(() => _tab = value),
             tabs: const [
               AsnTabItem(
-                value: 'resumen',
-                label: Text('Resumen'),
-                content: Text('Vista general del proyecto.'),
+                value: 'overview',
+                label: Text('Overview'),
+                content: Text('General view of the project.'),
               ),
               AsnTabItem(
-                value: 'actividad',
-                label: Text('Actividad'),
-                content: Text('Ultimos cambios del equipo.'),
+                value: 'activity',
+                label: Text('Activity'),
+                content: Text("The team's latest changes."),
               ),
               AsnTabItem(
-                value: 'ajustes',
-                label: Text('Ajustes'),
-                content: Text('Preferencias y permisos.'),
+                value: 'settings',
+                label: Text('Settings'),
+                content: Text('Preferences and permissions.'),
               ),
             ],
           ),
@@ -139,9 +139,9 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           title: 'AsnBreadcrumb',
           child: AsnBreadcrumb(
             items: [
-              AsnBreadcrumbItem(label: const Text('Inicio'), onTap: () {}),
-              AsnBreadcrumbItem(label: const Text('Proyectos'), onTap: () {}),
-              const AsnBreadcrumbItem(label: Text('Detalle')),
+              AsnBreadcrumbItem(label: const Text('Home'), onTap: () {}),
+              AsnBreadcrumbItem(label: const Text('Projects'), onTap: () {}),
+              const AsnBreadcrumbItem(label: Text('Detail')),
             ],
           ),
         ),
@@ -170,24 +170,24 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
                 setState(() => _popoverVisible = visible),
             popover: const SizedBox(
               width: 200,
-              child: Text('Contenido del popover anclado al boton.'),
+              child: Text('Popover content anchored to the button.'),
             ),
             child: AsnButton(
               variant: AsnButtonVariant.outline,
               size: AsnButtonSize.sm,
               onPressed: () =>
                   setState(() => _popoverVisible = !_popoverVisible),
-              child: const Text('Abrir popover'),
+              child: const Text('Open popover'),
             ),
           ),
         ),
         DemoBlock(
           title: 'AsnFormField',
           child: AsnFormField(
-            label: 'Correo electronico',
-            description: 'Usaremos esta direccion para notificaciones.',
+            label: 'Email',
+            description: 'We will use this address for notifications.',
             child: AsnInput(
-              placeholder: 'tu@empresa.com',
+              placeholder: 'you@company.com',
               keyboardType: TextInputType.emailAddress,
             ),
           ),
@@ -196,7 +196,7 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           title: 'AsnChipInput',
           child: AsnChipInput(
             values: _chips,
-            placeholder: 'Escribe y pulsa Enter',
+            placeholder: 'Type and press Enter',
             onChanged: (values) => setState(() => _chips = values),
           ),
         ),
@@ -204,7 +204,7 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           title: 'AsnPhoneInput',
           child: AsnPhoneInput(
             value: _phone,
-            placeholder: 'Numero de telefono',
+            placeholder: 'Phone number',
             onChanged: (value) => setState(() => _phone = value),
           ),
         ),
@@ -234,9 +234,9 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           child: AsnCollapsible(
             expanded: !_collapsed,
             onChanged: (expanded) => setState(() => _collapsed = !expanded),
-            header: const Text('Detalles avanzados'),
+            header: const Text('Advanced details'),
             child: const Text(
-              'Configuracion opcional que se muestra al expandir la seccion.',
+              'Optional configuration shown when you expand the section.',
             ),
           ),
         ),
@@ -252,19 +252,19 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           title: 'AsnTracker',
           child: AsnTracker(
             cells: [
-              AsnTrackerCell(tooltip: 'Operativo'),
-              AsnTrackerCell(tooltip: 'Operativo'),
+              AsnTrackerCell(tooltip: 'Operational'),
+              AsnTrackerCell(tooltip: 'Operational'),
               AsnTrackerCell(
                 color: Color(0xFFF59E0B),
-                tooltip: 'Degradado',
+                tooltip: 'Degraded',
               ),
-              AsnTrackerCell(tooltip: 'Operativo'),
+              AsnTrackerCell(tooltip: 'Operational'),
               AsnTrackerCell(
                 color: Color(0xFFEF4444),
-                tooltip: 'Caida',
+                tooltip: 'Outage',
               ),
-              AsnTrackerCell(tooltip: 'Operativo'),
-              AsnTrackerCell(tooltip: 'Operativo'),
+              AsnTrackerCell(tooltip: 'Operational'),
+              AsnTrackerCell(tooltip: 'Operational'),
             ],
           ),
         ),
@@ -272,9 +272,9 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           title: 'AsnHoverCard',
           child: AsnHoverCard(
             card: Text(
-              'Tarjeta flotante que aparece al pasar el cursor por encima.',
+              'Floating card that appears when you hover over it.',
             ),
-            child: Text('Pasa el cursor por aqui'),
+            child: Text('Hover the cursor here'),
           ),
         ),
       ],
