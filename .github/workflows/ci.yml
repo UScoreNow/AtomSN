@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
 
 # Gate de calidad: resuelve dependencias y corre el analyzer en ambos paquetes.
