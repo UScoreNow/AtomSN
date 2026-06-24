@@ -69,6 +69,7 @@ class AxAlert extends StatelessWidget {
       // El merge de `ShadBorder` no preserva radius/padding del default cuando
       // el borde entrante los trae en null, asi que se re-especifican.
       decoration: ShadDecoration(
+        color: style.backgroundColor,
         border: ShadBorder.all(
           color: style.borderColor,
           radius: theme.radius,
