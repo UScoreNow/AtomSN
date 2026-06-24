@@ -226,7 +226,9 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
         ),
         DemoBlock(
           title: 'AxToast',
-          child: Row(
+          child: Wrap(
+            spacing: AxSpacing.x3,
+            runSpacing: AxSpacing.x3,
             children: [
               AxButton(
                 onPressed: () => AxToast.show(
@@ -234,18 +236,44 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
                   title: const Text('Guardado'),
                   description: const Text('El borrador se guardo.'),
                 ),
-                child: const Text('Toast'),
+                child: const Text('Normal'),
               ),
-              const SizedBox(width: AxSpacing.x3),
+              AxButton(
+                onPressed: () => AxToast.show(
+                  context,
+                  title: const Text('Informacion'),
+                  description: const Text('Hay una actualizacion disponible.'),
+                  variant: AxStatusVariant.info,
+                ),
+                child: const Text('Info'),
+              ),
+              AxButton(
+                onPressed: () => AxToast.show(
+                  context,
+                  title: const Text('Advertencia'),
+                  description: const Text('Tu sesion caduca pronto.'),
+                  variant: AxStatusVariant.warning,
+                ),
+                child: const Text('Warning'),
+              ),
               AxButton(
                 variant: AxButtonVariant.destructive,
                 onPressed: () => AxToast.show(
                   context,
                   title: const Text('Error'),
                   description: const Text('No se pudo conectar.'),
-                  variant: AxToastVariant.destructive,
+                  variant: AxStatusVariant.error,
                 ),
-                child: const Text('Toast error'),
+                child: const Text('Error'),
+              ),
+              AxButton(
+                onPressed: () => AxToast.show(
+                  context,
+                  title: const Text('Hecho'),
+                  description: const Text('Los cambios se publicaron.'),
+                  variant: AxStatusVariant.success,
+                ),
+                child: const Text('Success'),
               ),
             ],
           ),

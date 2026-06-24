@@ -57,16 +57,32 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: const [
               AxAlert(
-                icon: HugeIcon(icon: HugeIcons.strokeRoundedInformationCircle),
+                title: Text('Normal'),
+                description: Text('Mensaje neutro sin tinte ni icono.'),
+              ),
+              SizedBox(height: AxSpacing.x3),
+              AxAlert(
+                variant: AxStatusVariant.info,
                 title: Text('Informacion'),
                 description: Text('Tu sesion se cerrara en 5 minutos.'),
               ),
               SizedBox(height: AxSpacing.x3),
               AxAlert(
-                variant: AxAlertVariant.destructive,
-                icon: HugeIcon(icon: HugeIcons.strokeRoundedAlertCircle),
+                variant: AxStatusVariant.warning,
+                title: Text('Advertencia'),
+                description: Text('Tienes cambios sin guardar.'),
+              ),
+              SizedBox(height: AxSpacing.x3),
+              AxAlert(
+                variant: AxStatusVariant.error,
                 title: Text('Error'),
                 description: Text('No se pudo guardar el documento.'),
+              ),
+              SizedBox(height: AxSpacing.x3),
+              AxAlert(
+                variant: AxStatusVariant.success,
+                title: Text('Hecho'),
+                description: Text('El documento se guardo correctamente.'),
               ),
             ],
           ),
