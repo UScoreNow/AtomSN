@@ -43,3 +43,7 @@ green. The branch model is detailed in [CONTRIBUTING.md](CONTRIBUTING.md):
 Each push to `dev` triggers `.github/workflows/pages.yml`, which builds `apps/demo`
 to web and publishes it to GitHub Pages. Each merge to `main` triggers `release.yml`,
 which creates the Release from the version in `packages/atomsn/pubspec.yaml`.
+
+## Contributing
+
+This repository follows the [UScoreNow contribution guidelines](https://github.com/UScoreNow/.github/blob/main/CONTRIBUTING.md): branching model, Conventional Commits, pull requests and releases.
