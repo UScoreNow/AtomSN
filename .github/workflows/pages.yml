@@ -34,10 +34,10 @@ jobs:
       - run: flutter analyze
 
       # Mismos flags validados en el antiguo deploy_web.sh:
-      # --base-href = nombre del repo de project pages (/AtomSN/),
+      # --base-href = nombre (slug) del repo de project pages (/atom-sn/),
       # --pwa-strategy=none (sin service worker, evita pantallas en blanco),
       # --wasm (dart2wasm + skwasm, con fallback automatico a JS/CanvasKit).
-      - run: flutter build web --release --base-href "/AtomSN/" --pwa-strategy=none --wasm
+      - run: flutter build web --release --base-href "/atom-sn/" --pwa-strategy=none --wasm
 
       # Sirve los assets tal cual, sin pasar por Jekyll.
       - run: touch build/web/.nojekyll
