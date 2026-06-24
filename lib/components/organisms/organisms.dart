@@ -1,8 +1,8 @@
-export 'ax_calendar.dart';
 export 'ax_carousel.dart';
 export 'ax_command.dart';
 export 'ax_context_menu.dart';
 export 'ax_data_table.dart';
+export 'ax_date_picker.dart';
 export 'ax_dialog.dart';
 export 'ax_drawer.dart';
 export 'ax_menubar.dart';
