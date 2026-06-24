@@ -22,7 +22,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "9cdd26b447f0f94cf0947e49ea9e55f0eb2308d7"
+      resolved-ref: "9818f4db75f4f91c4a0219011e3f0764a0efff7c"
       url: "https://github.com/UScoreNow/atomic_ui.git"
     source: git
     version: "0.0.1"
@@ -437,8 +437,8 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: "23de3c394da5e8c227166845c98a383e45fab3d9"
-      resolved-ref: "23de3c394da5e8c227166845c98a383e45fab3d9"
+      ref: "6545af94b03a8828f79a13446d98abaff549e53b"
+      resolved-ref: "6545af94b03a8828f79a13446d98abaff549e53b"
       url: "https://github.com/UScoreNow/flutter-shadcn-ui.git"
     source: git
     version: "0.54.0"

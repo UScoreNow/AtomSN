@@ -202,13 +202,10 @@ class _OrganismsScreenState extends State<OrganismsScreen> {
           ),
         ),
         DemoBlock(
-          title: 'AxCalendar',
-          child: SizedBox(
-            height: 360,
-            child: AxCalendar(
-              selected: _selectedDate,
-              onChanged: (date) => setState(() => _selectedDate = date),
-            ),
+          title: 'AxDatePicker',
+          child: AxDatePicker(
+            selected: _selectedDate,
+            onChanged: (date) => setState(() => _selectedDate = date),
           ),
         ),
         DemoBlock(
