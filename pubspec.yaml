@@ -20,7 +20,7 @@ dependencies:
       url: https://github.com/UScoreNow/flutter-shadcn-ui.git
       # Commit inmutable de la rama usn/0.54.0-elms-huge (reproducibilidad y
       # auditoria: el branch puede moverse, el SHA no).
-      ref: 09b3b74cd5fb976eaf19616cbf5422bb59e9164e
+      ref: e1a6193fdcc0be7244e0b89b6adf05cdc5dee837
 
 dev_dependencies:
   flutter_test:
