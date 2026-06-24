@@ -34,10 +34,12 @@ jobs:
       - run: flutter analyze
 
       # Same flags validated in the old deploy_web.sh:
-      # --base-href = name (slug) of the project pages repo (/atom-sn/),
+      # --base-href = URL path GitHub Pages serves from, which is the repo slug.
+      #   Derived from github.event.repository.name so renaming the repo never
+      #   breaks Pages again (no hardcoded slug to keep in sync).
       # --pwa-strategy=none (no service worker, avoids blank screens),
       # --wasm (dart2wasm + skwasm, with automatic fallback to JS/CanvasKit).
-      - run: flutter build web --release --base-href "/atom-sn/" --pwa-strategy=none --wasm
+      - run: flutter build web --release --base-href "/${{ github.event.repository.name }}/" --pwa-strategy=none --wasm
 
       # Serves the assets as-is, without going through Jekyll.
       - run: touch build/web/.nojekyll
