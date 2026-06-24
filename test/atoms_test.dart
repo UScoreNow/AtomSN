@@ -1,6 +1,8 @@
 import 'package:atomic_ui/atomic_ui.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+// Prefijo para no chocar con la reexportacion de HugeIcon de atomic_ui.
+import 'package:shadcn_ui/shadcn_ui.dart' as shad;
 
 Widget _host(Widget child) => AxApp(home: Center(child: child));
 
@@ -47,6 +49,24 @@ void main() {
     // Pulsa la tercera estrella (icono Hugeicons).
     await tester.tap(find.byType(HugeIcon).at(2));
     expect(rated, 3);
+  });
+
+  testWidgets('AxInputOtp da estilo ElmsSans tabular a cada slot', (
+    tester,
+  ) async {
+    await tester.pumpWidget(_host(const AxInputOtp(length: 4)));
+    final slots = tester.widgetList<shad.ShadInputOTPSlot>(
+      find.byType(shad.ShadInputOTPSlot),
+    );
+    expect(slots.length, 4);
+    for (final slot in slots) {
+      final style = slot.style;
+      expect(style, isNotNull);
+      // ElmsSans (familia unica), no el GeistMono por defecto de shadcn.
+      expect(style!.fontFamily, AxTextTheme.fontFamily);
+      // Cifras tabulares para alinear los digitos.
+      expect(style.fontFeatures, contains(const FontFeature.tabularFigures()));
+    }
   });
 
   testWidgets('AxText aplica rol, color y mayusculas de overline', (
