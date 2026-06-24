@@ -23,7 +23,7 @@ jobs:
       run:
         working-directory: apps/demo
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: subosito/flutter-action@v2
         with:
@@ -42,7 +42,7 @@ jobs:
       # Sirve los assets tal cual, sin pasar por Jekyll.
       - run: touch build/web/.nojekyll
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: apps/demo/build/web
 
@@ -54,4 +54,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
