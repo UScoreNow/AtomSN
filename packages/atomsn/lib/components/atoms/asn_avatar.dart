@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Avatar de imagen con fallback. Envuelve `ShadAvatar`.
+/// Image avatar with fallback. Wraps `ShadAvatar`.
 ///
-/// [src] acepta una URL de red o ruta de asset. [fallback] se muestra mientras
-/// carga o si la imagen falla (p. ej. iniciales).
+/// [src] accepts a network URL or an asset path. [fallback] is shown while
+/// loading or if the image fails (e.g. initials).
 class AsnAvatar extends StatelessWidget {
   const AsnAvatar({
     super.key,

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Item de un [AsnBreadcrumb]. Modelo propio (no filtra tipos `Shad*`).
+/// Item of an [AsnBreadcrumb]. Custom model (does not leak `Shad*` types).
 @immutable
 class AsnBreadcrumbItem {
   const AsnBreadcrumbItem({required this.label, this.onTap});
@@ -10,7 +10,7 @@ class AsnBreadcrumbItem {
   final VoidCallback? onTap;
 }
 
-/// Ruta de navegacion jerarquica. Envuelve `ShadBreadcrumb`.
+/// Hierarchical navigation path. Wraps `ShadBreadcrumb`.
 class AsnBreadcrumb extends StatelessWidget {
   const AsnBreadcrumb({super.key, required this.items, this.separator});
 

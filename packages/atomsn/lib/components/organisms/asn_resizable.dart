@@ -1,12 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Eje de un [AsnResizable].
+/// Axis of an [AsnResizable].
 enum AsnResizableAxis { horizontal, vertical }
 
-/// Grupo de paneles redimensionables. Envuelve `ShadResizablePanelGroup`.
+/// Group of resizable panels. Wraps `ShadResizablePanelGroup`.
 ///
-/// Reparte el espacio a partes iguales entre [panels] por defecto.
+/// Distributes the space in equal parts among [panels] by default.
 class AsnResizable extends StatelessWidget {
   const AsnResizable({
     super.key,
@@ -18,7 +18,7 @@ class AsnResizable extends StatelessWidget {
   final List<Widget> panels;
   final AsnResizableAxis axis;
 
-  /// Tamano minimo de cada panel como fraccion del total (0..1).
+  /// Minimum size of each panel as a fraction of the total (0..1).
   final double minSize;
 
   @override

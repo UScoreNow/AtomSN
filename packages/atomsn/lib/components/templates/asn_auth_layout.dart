@@ -4,10 +4,10 @@ import '../../foundations/radius/asn_radius.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Disposicion centrada para formularios de autenticacion. Plantilla propia.
+/// Centered layout for authentication forms. Own template.
 ///
-/// Tarjeta centrada con [title], el formulario [child] y un [footer] opcional,
-/// con el estilo de card del tema.
+/// Centered card with [title], the [child] form and an optional [footer],
+/// with the theme's card style.
 class AsnAuthLayout extends StatelessWidget {
   const AsnAuthLayout({
     super.key,

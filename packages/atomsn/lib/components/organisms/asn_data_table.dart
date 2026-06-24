@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Columna de [AsnDataTable]. Si [onSort] no es null, la cabecera es pulsable.
+/// Column of [AsnDataTable]. If [onSort] is not null, the header is tappable.
 @immutable
 class AsnDataColumn {
   const AsnDataColumn({required this.label, this.onSort});
@@ -12,16 +12,16 @@ class AsnDataColumn {
   final VoidCallback? onSort;
 }
 
-/// Tabla de datos de nivel superior con cabecera ordenable. Widget propio.
+/// Top-level data table with a sortable header. Custom widget.
 ///
-/// Dibuja reglas con `borderHairline` y la cabecera sobre `bgSubtle`. Las
-/// columnas se reparten a partes iguales.
+/// Draws rules with `borderHairline` and the header over `bgSubtle`. The
+/// columns are distributed in equal parts.
 class AsnDataTable extends StatelessWidget {
   const AsnDataTable({super.key, required this.columns, required this.rows});
 
   final List<AsnDataColumn> columns;
 
-  /// Filas; cada fila debe tener tantas celdas como [columns].
+  /// Rows; each row must have as many cells as [columns].
   final List<List<Widget>> rows;
 
   @override

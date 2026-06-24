@@ -1,7 +1,7 @@
-/// Grosores de regla/borde.
+/// Rule/border thicknesses.
 ///
-/// Capa fundacional brand-agnostic. `hairline` (1px) para reglas finas;
-/// `section` (2px) para reglas de seccion.
+/// Brand-agnostic foundational layer. `hairline` (1px) for thin rules;
+/// `section` (2px) for section rules.
 abstract final class AsnBorders {
   static const double hairline = 1;
   static const double section = 2;

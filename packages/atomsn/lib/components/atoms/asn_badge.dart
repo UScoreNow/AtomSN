@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Variantes visuales de [AsnBadge].
+/// Visual variants of [AsnBadge].
 enum AsnBadgeVariant { primary, secondary, outline, destructive }
 
-/// Etiqueta breve de estado o categoria. Envuelve `ShadBadge`.
+/// Short status or category label. Wraps `ShadBadge`.
 class AsnBadge extends StatelessWidget {
   const AsnBadge({
     super.key,

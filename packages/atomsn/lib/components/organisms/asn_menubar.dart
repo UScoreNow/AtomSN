@@ -3,7 +3,7 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 
 import 'asn_context_menu.dart';
 
-/// Menu de nivel superior dentro de un [AsnMenubar].
+/// Top-level menu inside an [AsnMenubar].
 @immutable
 class AsnMenu {
   const AsnMenu({required this.label, required this.items});
@@ -12,7 +12,7 @@ class AsnMenu {
   final List<AsnMenuItem> items;
 }
 
-/// Barra de menus horizontal. Envuelve `ShadMenubar` con modelo propio.
+/// Horizontal menu bar. Wraps `ShadMenubar` with its own model.
 class AsnMenubar extends StatelessWidget {
   const AsnMenubar({super.key, required this.menus});
 

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Campo de codigo OTP de [length] digitos. Envuelve `ShadInputOTP`.
+/// OTP code field of [length] digits. Wraps `ShadInputOTP`.
 class AsnInputOtp extends StatelessWidget {
   const AsnInputOtp({
     super.key,
@@ -17,9 +17,9 @@ class AsnInputOtp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = ShadTheme.of(context);
-    // ElmsSans (familia unica del sistema) en lugar del mono GeistMono que
-    // shadcn usa por defecto en el OTP. Cifras tabulares para que los digitos
-    // alineen dentro de cada celda.
+    // ElmsSans (the system's single family) instead of the GeistMono mono that
+    // shadcn uses by default in the OTP. Tabular figures so the digits align
+    // within each cell.
     final slotStyle = theme.textTheme.muted.copyWith(
       color: theme.colorScheme.foreground,
       fontFeatures: const [FontFeature.tabularFigures()],

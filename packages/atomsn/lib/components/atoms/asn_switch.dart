@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Interruptor on/off controlado. Envuelve `ShadSwitch`.
+/// Controlled on/off switch. Wraps `ShadSwitch`.
 class AsnSwitch extends StatelessWidget {
   const AsnSwitch({
     super.key,

@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Modo de expansion de [AsnAccordion].
+/// Expansion mode of [AsnAccordion].
 enum AsnAccordionType { single, multiple }
 
-/// Item de un [AsnAccordion]. Modelo propio (no filtra tipos `Shad*`).
+/// Item of an [AsnAccordion]. Custom model (does not leak `Shad*` types).
 @immutable
 class AsnAccordionItem {
   const AsnAccordionItem({required this.title, required this.content});
@@ -13,9 +13,9 @@ class AsnAccordionItem {
   final Widget content;
 }
 
-/// Lista de secciones plegables. Envuelve `ShadAccordion`.
+/// List of collapsible sections. Wraps `ShadAccordion`.
 ///
-/// Cada item se identifica internamente por su indice en [items].
+/// Each item is internally identified by its index in [items].
 class AsnAccordion extends StatelessWidget {
   const AsnAccordion({
     super.key,
@@ -27,8 +27,8 @@ class AsnAccordion extends StatelessWidget {
   final AsnAccordionType type;
 
   List<Widget> _buildItems(BuildContext context) {
-    // Chevron de Hugeicons (libreria unica del sistema) en vez del chevronDown
-    // Lucide por defecto de shadcn. shadcn rota el icono al expandir.
+    // Hugeicons chevron (the system's single library) instead of shadcn's
+    // default Lucide chevronDown. shadcn rotates the icon when expanding.
     final iconColor = ShadTheme.of(context).colorScheme.foreground;
     final children = <Widget>[];
     for (var i = 0; i < items.length; i++) {

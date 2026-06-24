@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Variantes visuales de [AsnIconButton].
+/// Visual variants of [AsnIconButton].
 enum AsnIconButtonVariant { primary, secondary, destructive, outline, ghost }
 
-/// Boton de solo icono. Envuelve `ShadIconButton`.
+/// Icon-only button. Wraps `ShadIconButton`.
 class AsnIconButton extends StatelessWidget {
   const AsnIconButton({
     super.key,
@@ -19,7 +19,7 @@ class AsnIconButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final AsnIconButtonVariant variant;
 
-  /// Tamano del icono. `ShadIconButton` lo aplica via `IconTheme`.
+  /// Icon size. `ShadIconButton` applies it via `IconTheme`.
   final double iconSize;
   final bool enabled;
 

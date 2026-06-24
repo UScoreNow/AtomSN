@@ -3,21 +3,21 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../foundations/typography/asn_type_scale.dart';
 
-/// Construye el [ShadTextTheme] de `AtomSN`.
+/// Builds the [ShadTextTheme] of `AtomSN`.
 ///
-/// Sistema de **una sola familia**: `ElmsSans` (minimalista, empaquetada como
-/// asset). La jerarquia de titulares se logra con tamano y peso, no con una
-/// segunda familia. No hay descargas en runtime ni dependencia de google_fonts.
+/// **Single-family** system: `ElmsSans` (minimalist, bundled as an
+/// asset). The heading hierarchy is achieved with size and weight, not with a
+/// second family. There are no runtime downloads nor a google_fonts dependency.
 ///
-/// Las composiciones que no encajan en los slots estandar de `ShadTextTheme`
-/// (masthead, overline, caption, label, stats) se publican en el mapa `custom`
-/// y se exponen tipadas en [AsnTextStyles].
+/// Compositions that do not fit the standard `ShadTextTheme` slots
+/// (masthead, overline, caption, label, stats) are published in the `custom` map
+/// and exposed typed in [AsnTextStyles].
 abstract final class AsnTextTheme {
-  /// Unica familia del sistema (empaquetada). El prefijo `packages/` la hace
-  /// resoluble dentro del paquete y en las apps consumidoras.
+  /// The system's single family (bundled). The `packages/` prefix makes it
+  /// resolvable within the package and in consuming apps.
   static const String fontFamily = 'packages/atomsn/ElmsSans';
 
-  /// Alias historico de [fontFamily].
+  /// Historical alias of [fontFamily].
   static const String sansFamily = fontFamily;
 
   static TextStyle _sans(
@@ -37,7 +37,7 @@ abstract final class AsnTextTheme {
     );
   }
 
-  /// Estilos extra publicados en `ShadTextTheme.custom`.
+  /// Extra styles published in `ShadTextTheme.custom`.
   static Map<String, TextStyle> customStyles() => {
     AsnTextStyles.masthead: _sans(
       AsnFontSize.xl6,
@@ -79,11 +79,11 @@ abstract final class AsnTextTheme {
     AsnTextStyles.caption: _sans(AsnFontSize.sm, AsnFontWeight.regular),
   };
 
-  /// Construye el [ShadTextTheme] completo.
+  /// Builds the full [ShadTextTheme].
   static ShadTextTheme build() {
     return ShadTextTheme.custom(
       family: fontFamily,
-      // Titulares: misma familia, jerarquia por tamano + peso.
+      // Headings: same family, hierarchy by size + weight.
       h1Large: _sans(
         AsnFontSize.xl6,
         AsnFontWeight.extrabold,
@@ -100,7 +100,7 @@ abstract final class AsnTextTheme {
       h3: _sans(AsnFontSize.xl2, AsnFontWeight.semibold, height: AsnLineHeight.snug),
       h4: _sans(AsnFontSize.xl, AsnFontWeight.medium),
       lead: _sans(AsnFontSize.lg, AsnFontWeight.regular),
-      // Cuerpo y UI.
+      // Body and UI.
       p: _sans(AsnFontSize.md, AsnFontWeight.regular),
       blockquote: _sans(
         AsnFontSize.md,
@@ -120,7 +120,7 @@ abstract final class AsnTextTheme {
   }
 }
 
-/// Claves de los estilos extra en `ShadTextTheme.custom`.
+/// Keys of the extra styles in `ShadTextTheme.custom`.
 abstract final class AsnTextStyles {
   static const String masthead = 'masthead';
   static const String displayScore = 'displayScore';

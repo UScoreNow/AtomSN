@@ -4,11 +4,11 @@ import 'package:hugeicons/hugeicons.dart';
 import '../../foundations/color/asn_semantic_colors.dart';
 import '../../foundations/status/asn_status_variant.dart';
 
-/// Estilo resuelto de una [AsnStatusVariant] contra unos [AsnSemanticColors].
+/// Resolved style of an [AsnStatusVariant] against some [AsnSemanticColors].
 ///
-/// Fuente unica de verdad del aspecto de los componentes de feedback
-/// ([AsnAlert] y, por reuso, [AsnToast]): borde, color de contenido (icono +
-/// titulo), color de descripcion y el icono por defecto de la variante.
+/// Single source of truth for the appearance of the feedback components
+/// ([AsnAlert] and, by reuse, [AsnToast]): border, content color (icon +
+/// title), description color and the variant's default icon.
 @immutable
 class AsnStatusStyle {
   const AsnStatusStyle({
@@ -19,27 +19,27 @@ class AsnStatusStyle {
     required this.defaultIcon,
   });
 
-  /// Color del borde (trazo de senal cromatica).
+  /// Border color (chromatic signal stroke).
   final Color borderColor;
 
-  /// Color del icono y del titulo.
+  /// Color of the icon and the title.
   final Color contentColor;
 
-  /// Color de la descripcion (tinta neutra, legible).
+  /// Description color (neutral, legible ink).
   final Color descriptionColor;
 
-  /// Relleno de fondo: tinte muy claro de la gama de la variante.
+  /// Background fill: very light tint of the variant's range.
   final Color backgroundColor;
 
-  /// Icono por defecto de la variante (formato de datos de `HugeIcon`).
-  /// `null` para [AsnStatusVariant.normal].
+  /// Variant's default icon (`HugeIcon` data format).
+  /// `null` for [AsnStatusVariant.normal].
   final List<List<dynamic>>? defaultIcon;
 
-  /// Resuelve el estilo de [variant] usando los roles semanticos en [colors].
+  /// Resolves the style of [variant] using the semantic roles in [colors].
   ///
-  /// Borde = color saturado (`statusX`); contenido = variante legible
-  /// (`statusXText`); descripcion = `textSecondary`; fondo = color plano y claro
-  /// de la gama (`statusXBg`).
+  /// Border = saturated color (`statusX`); content = legible variant
+  /// (`statusXText`); description = `textSecondary`; background = flat, light
+  /// color of the range (`statusXBg`).
   static AsnStatusStyle resolve(
     AsnStatusVariant variant,
     AsnSemanticColors colors,

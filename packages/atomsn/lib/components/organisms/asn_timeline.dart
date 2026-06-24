@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Entrada de un [AsnTimeline].
+/// Entry of an [AsnTimeline].
 @immutable
 class AsnTimelineEntry {
   const AsnTimelineEntry({required this.title, this.time, this.child});
@@ -13,9 +13,9 @@ class AsnTimelineEntry {
   final Widget? child;
 }
 
-/// Linea de tiempo vertical. Widget propio.
+/// Vertical timeline. Own widget.
 ///
-/// Dibuja el rail con `borderSection` y los nodos con `borderStrong`.
+/// Draws the rail with `borderSection` and the nodes with `borderStrong`.
 class AsnTimeline extends StatelessWidget {
   const AsnTimeline({super.key, required this.entries});
 

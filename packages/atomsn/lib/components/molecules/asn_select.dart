@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Opcion de un [AsnSelect]. Modelo propio (no filtra tipos `Shad*`).
+/// Option of an [AsnSelect]. Own model (does not leak `Shad*` types).
 @immutable
 class AsnSelectOption<T> {
   const AsnSelectOption({required this.value, required this.label});
@@ -10,7 +10,7 @@ class AsnSelectOption<T> {
   final String label;
 }
 
-/// Selector desplegable controlado de un solo valor. Envuelve `ShadSelect`.
+/// Controlled single-value dropdown selector. Wraps `ShadSelect`.
 class AsnSelect<T> extends StatelessWidget {
   const AsnSelect({
     super.key,
@@ -34,8 +34,8 @@ class AsnSelect<T> extends StatelessWidget {
       initialValue: value,
       placeholder: placeholder == null ? null : Text(placeholder!),
       onChanged: onChanged,
-      // Chevron de Hugeicons (libreria unica del sistema) en vez del chevronDown
-      // Lucide por defecto de shadcn. Tinte atenuado como el trailing por defecto.
+      // Hugeicons chevron (the system's single icon library) instead of shadcn's
+      // default Lucide chevronDown. Dimmed tint like the default trailing.
       trailing: HugeIcon(
         icon: HugeIcons.strokeRoundedArrowDown01,
         size: 16,

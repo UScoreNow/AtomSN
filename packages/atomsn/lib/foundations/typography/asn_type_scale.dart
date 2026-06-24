@@ -1,9 +1,9 @@
 import 'package:flutter/painting.dart';
 
-/// Escala tipografica base (tamanos, pesos, interlineado, tracking).
+/// Base typographic scale (sizes, weights, line height, tracking).
 ///
-/// Capa fundacional brand-agnostic. Las familias concretas y la construccion
-/// de `TextStyle` (familia unica ElmsSans, empaquetada) viven en
+/// Brand-agnostic foundational layer. The concrete families and the construction
+/// of `TextStyle` (single family ElmsSans, bundled) live in
 /// `theme/asn_text_theme.dart`.
 abstract final class AsnFontSize {
   static const double sm = 12;
@@ -34,18 +34,18 @@ abstract final class AsnLineHeight {
   static const double relaxed = 1.65;
 }
 
-/// Tracking expresado como `letterSpacing` en px para `fontSize` de 14px de
-/// referencia (em * fontSize). Para tracking proporcional, multiplicar el valor
-/// `em` por el tamano real al componer estilos.
+/// Tracking expressed as `letterSpacing` in px for a reference `fontSize` of
+/// 14px (em * fontSize). For proportional tracking, multiply the `em` value
+/// by the actual size when composing styles.
 abstract final class AsnTracking {
   static const double tightEm = -0.02;
   static const double normalEm = 0;
   static const double wideEm = 0.02;
   static const double xwideEm = 0.06;
 
-  /// Overline / kicker en mayusculas.
+  /// Overline / kicker in uppercase.
   static const double kickerEm = 0.08;
 
-  /// Convierte tracking en `em` a `letterSpacing` absoluto para un [fontSize].
+  /// Converts tracking in `em` to absolute `letterSpacing` for a [fontSize].
   static double toLetterSpacing(double em, double fontSize) => em * fontSize;
 }

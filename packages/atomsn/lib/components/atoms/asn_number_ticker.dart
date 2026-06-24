@@ -2,10 +2,10 @@ import 'package:flutter/widgets.dart';
 
 import '../../theme/asn_theme.dart';
 
-/// Numero que anima la transicion al cambiar de valor. Widget propio (gap de
-/// shadcn_ui), inspirado en el Number Ticker de shadcn_flutter.
+/// Number that animates the transition when its value changes. Own widget
+/// (shadcn_ui gap), inspired by the Number Ticker from shadcn_flutter.
 ///
-/// Usa cifras tabulares para evitar saltos de ancho.
+/// Uses tabular figures to avoid width jumps.
 class AsnNumberTicker extends StatelessWidget {
   const AsnNumberTicker({
     super.key,

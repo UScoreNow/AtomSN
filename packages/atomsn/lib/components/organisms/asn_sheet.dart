@@ -1,12 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Lado desde el que aparece un [AsnSheet].
+/// Side from which an [AsnSheet] appears.
 enum AsnSheetSide { left, right, top, bottom }
 
-/// Panel deslizante (sheet) modal. Envuelve `showShadSheet` + `ShadSheet`.
+/// Modal sliding panel (sheet). Wraps `showShadSheet` + `ShadSheet`.
 abstract final class AsnSheet {
-  /// Muestra un sheet anclado a [side] y resuelve con su valor al cerrarse.
+  /// Shows a sheet anchored to [side] and resolves with its value on close.
   static Future<T?> show<T>(
     BuildContext context, {
     required Widget child,

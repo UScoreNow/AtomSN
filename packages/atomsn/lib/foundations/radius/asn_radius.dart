@@ -1,10 +1,10 @@
 import 'package:flutter/painting.dart';
 
-/// Escala de radios de borde.
+/// Border radius scale.
 ///
-/// Capa fundacional brand-agnostic. `none` (0px) para reglas, tablas y sellos
-/// de corte editorial; `md` (12px) es el estandar de cards; `full` para
-/// avatares, dots y pills.
+/// Brand-agnostic foundational layer. `none` (0px) for rules, tables and stamps
+/// with an editorial cut; `md` (12px) is the card standard; `full` for
+/// avatars, dots and pills.
 abstract final class AsnRadius {
   static const double none = 0;
   static const double xs = 4;
@@ -24,16 +24,16 @@ abstract final class AsnRadius {
   static const BorderRadius brXl2 = BorderRadius.all(Radius.circular(xl2));
   static const BorderRadius brFull = BorderRadius.all(Radius.circular(full));
 
-  /// Radio concentrico para esquinas anidadas pixel-perfect.
+  /// Concentric radius for pixel-perfect nested corners.
   ///
-  /// Cuando un contenedor con esquinas redondeadas envuelve a un hijo tambien
-  /// redondeado separado por un [gap] (el padding entre ambos), el radio del
-  /// padre debe ser el del hijo mas ese hueco para que las curvas sean
-  /// concentricas: `R_padre = R_hijo + gap`.
+  /// When a container with rounded corners wraps a child that is also
+  /// rounded, separated by a [gap] (the padding between the two), the parent's
+  /// radius must be the child's plus that gap so the curves are
+  /// concentric: `R_parent = R_child + gap`.
   static double concentric(double childRadius, double gap) => childRadius + gap;
 
-  /// Igual que [concentric] pero devuelve un [BorderRadius] listo para usar en
-  /// el contenedor padre.
+  /// Same as [concentric] but returns a [BorderRadius] ready to use on
+  /// the parent container.
   static BorderRadius brConcentric(double childRadius, double gap) =>
       BorderRadius.all(Radius.circular(childRadius + gap));
 }

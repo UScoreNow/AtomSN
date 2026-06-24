@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-/// Barra de progreso. Envuelve `ShadProgress`.
+/// Progress bar. Wraps `ShadProgress`.
 ///
-/// Si [value] es null, muestra progreso indeterminado.
+/// If [value] is null, shows indeterminate progress.
 class AsnProgress extends StatelessWidget {
   const AsnProgress({super.key, this.value, this.minHeight});
 

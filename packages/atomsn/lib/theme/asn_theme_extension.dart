@@ -2,17 +2,17 @@ import 'package:flutter/widgets.dart';
 
 import '../foundations/color/asn_semantic_colors.dart';
 
-/// InheritedWidget que transporta los [AsnSemanticColors] activos por el arbol.
+/// InheritedWidget that carries the active [AsnSemanticColors] through the tree.
 ///
-/// `ShadColorScheme` de shadcn_ui no cubre todos los roles editoriales
+/// shadcn_ui's `ShadColorScheme` does not cover all editorial roles
 /// (warning, link, success, highlightMark, borderSection, bgRaised,
-/// textSecondary...). Este scope los hace accesibles a los componentes via
-/// [AsnTheme.of]. Lo inyecta [AsnApp]; tambien puede colocarse manualmente bajo
-/// cualquier `ShadApp` con [AsnThemeScope].
+/// textSecondary...). This scope makes them accessible to components via
+/// [AsnTheme.of]. Injected by [AsnApp]; it can also be placed manually under
+/// any `ShadApp` with [AsnThemeScope].
 class AsnThemeScope extends InheritedWidget {
   const AsnThemeScope({super.key, required this.colors, required super.child});
 
-  /// Roles semanticos resueltos para el modo (light/dark) activo.
+  /// Semantic roles resolved for the active (light/dark) mode.
   final AsnSemanticColors colors;
 
   static AsnSemanticColors? maybeOf(BuildContext context) {

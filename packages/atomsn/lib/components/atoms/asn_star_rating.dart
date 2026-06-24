@@ -4,12 +4,12 @@ import 'package:hugeicons/hugeicons.dart';
 import '../../foundations/spacing/asn_spacing.dart';
 import '../../theme/asn_theme.dart';
 
-/// Valoracion por estrellas controlada. Widget propio (gap de shadcn_ui),
-/// inspirado en el StarRating de shadcn_flutter.
+/// Controlled star rating. Custom widget (shadcn_ui gap),
+/// inspired by shadcn_flutter's StarRating.
 ///
-/// Usa el icono `star` de Hugeicons (estilo strokeRounded, libreria unica del
-/// sistema). El estado lleno/vacio se diferencia por COLOR, no por estilo
-/// (regla del design system): relleno = `statusWarning`, vacio = `borderStrong`.
+/// Uses the `star` icon from Hugeicons (strokeRounded style, the system's single
+/// library). The filled/empty state is differentiated by COLOR, not by style
+/// (design system rule): filled = `statusWarning`, empty = `borderStrong`.
 class AsnStarRating extends StatelessWidget {
   const AsnStarRating({
     super.key,
@@ -19,7 +19,7 @@ class AsnStarRating extends StatelessWidget {
     this.size = 24,
   });
 
-  /// Numero de estrellas llenas (0..[count]).
+  /// Number of filled stars (0..[count]).
   final int value;
   final int count;
   final ValueChanged<int>? onChanged;

@@ -1,8 +1,8 @@
 name: atomsn
 description: >-
-  AtomSN: biblioteca de componentes Flutter brand-neutral y themeable, organizada por
-  atomic design + clean architecture. Envuelve el catalogo de shadcn_ui e incluye
-  el tema editorial 'newsprint' como preset por defecto.
+  AtomSN: brand-neutral, themeable Flutter component library organized by
+  atomic design + clean architecture. Wraps the shadcn_ui catalog and ships
+  the 'newsprint' editorial theme as the default preset.
 version: 0.0.1
 publish_to: none
 homepage:
@@ -18,8 +18,8 @@ dependencies:
   shadcn_ui:
     git:
       url: https://github.com/UScoreNow/atom-sn-shadcn-fork.git
-      # Commit inmutable de la rama usn/0.54.0-elms-huge (reproducibilidad y
-      # auditoria: el branch puede moverse, el SHA no).
+      # Immutable commit from branch usn/0.54.0-elms-huge (reproducibility and
+      # auditability: the branch can move, the SHA cannot).
       ref: ef0dba55754e7a542f350776a331346c712508e2
 
 dev_dependencies:

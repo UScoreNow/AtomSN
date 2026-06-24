@@ -1,7 +1,7 @@
-/// Escala de espaciado base 4px (padding, gap, margenes).
+/// Base 4px spacing scale (padding, gap, margins).
 ///
-/// Capa fundacional brand-agnostic. Usar siempre estos tokens en lugar de
-/// numeros magicos.
+/// Brand-agnostic foundational layer. Always use these tokens instead of
+/// magic numbers.
 abstract final class AsnSpacing {
   /// 4px
   static const double x1 = 4;
@@ -12,13 +12,13 @@ abstract final class AsnSpacing {
   /// 12px
   static const double x3 = 12;
 
-  /// 16px (padding base de componentes)
+  /// 16px (base component padding)
   static const double x4 = 16;
 
   /// 20px
   static const double x5 = 20;
 
-  /// 24px (separacion entre secciones)
+  /// 24px (spacing between sections)
   static const double x6 = 24;
 
   /// 32px
