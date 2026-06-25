@@ -12,6 +12,17 @@ class AsnTime {
   final int second;
 }
 
+ShadTimeOfDay? _toShadTime(AsnTime? time) => time == null
+    ? null
+    : ShadTimeOfDay(
+        hour: time.hour,
+        minute: time.minute,
+        second: time.second,
+      );
+
+AsnTime _fromShadTime(ShadTimeOfDay time) =>
+    AsnTime(hour: time.hour, minute: time.minute, second: time.second);
+
 /// Controlled time picker. Wraps `ShadTimePicker`.
 class AsnTimePicker extends StatelessWidget {
   const AsnTimePicker({super.key, this.value, this.onChanged});
@@ -21,20 +32,40 @@ class AsnTimePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final initial = value;
     return ShadTimePicker(
-      initialValue: initial == null
-          ? null
-          : ShadTimeOfDay(
-              hour: initial.hour,
-              minute: initial.minute,
-              second: initial.second,
-            ),
+      initialValue: _toShadTime(value),
       onChanged: onChanged == null
           ? null
-          : (time) => onChanged!(
-              AsnTime(hour: time.hour, minute: time.minute, second: time.second),
-            ),
+          : (time) => onChanged!(_fromShadTime(time)),
+    );
+  }
+}
+
+/// Inline, single-segment time text field. Wraps `ShadTimePickerField`.
+///
+/// Unlike [AsnTimePicker] this is a single text input (one segment); its
+/// [onChanged] reports the raw segment text.
+class AsnTimePickerField extends StatelessWidget {
+  const AsnTimePickerField({
+    super.key,
+    this.label,
+    this.placeholder,
+    this.onChanged,
+    this.enabled = true,
+  });
+
+  final Widget? label;
+  final Widget? placeholder;
+  final ValueChanged<String>? onChanged;
+  final bool enabled;
+
+  @override
+  Widget build(BuildContext context) {
+    return ShadTimePickerField(
+      label: label,
+      placeholder: placeholder,
+      enabled: enabled,
+      onChanged: onChanged,
     );
   }
 }

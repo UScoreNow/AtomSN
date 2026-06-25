@@ -103,4 +103,40 @@ void main() {
     await tester.tap(find.text('Open'));
     expect(taps, 1);
   });
+
+  testWidgets('AsnRadioGroup reports the selected value', (tester) async {
+    String? selected;
+    await tester.pumpWidget(
+      _host(
+        AsnRadioGroup<String>(
+          onChanged: (v) => selected = v,
+          options: const [
+            AsnRadioOption(value: 'a', label: Text('A')),
+            AsnRadioOption(value: 'b', label: Text('B')),
+          ],
+        ),
+      ),
+    );
+    await tester.tap(find.text('B'));
+    expect(selected, 'b');
+  });
+
+  testWidgets('AsnProgress factories pick determinate vs indeterminate', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        const Column(
+          children: [
+            AsnProgress.determinate(0.5),
+            AsnProgress.indeterminate(),
+          ],
+        ),
+      ),
+    );
+    final bars = tester.widgetList<shad.ShadProgress>(
+      find.byType(shad.ShadProgress),
+    );
+    expect(bars.map((b) => b.value), [0.5, null]);
+  });
 }
