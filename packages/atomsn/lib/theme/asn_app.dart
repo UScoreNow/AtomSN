@@ -5,11 +5,11 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 import '../foundations/color/asn_semantic_colors.dart';
 import 'asn_theme.dart';
 import 'asn_theme_extension.dart';
-import 'presets/newsprint_preset.dart';
+import 'presets/atomsn_preset.dart';
 
 /// Application root of `AtomSN`.
 ///
-/// Wraps `ShadApp` with the theme (by default, the "newsprint" preset) and injects
+/// Wraps `ShadApp` with the theme (by default, the AtomSN preset) and injects
 /// the [AsnThemeScope] with the semantic colors of the active mode, so that
 /// `AsnTheme.of(context)` works across the whole tree.
 ///
@@ -27,8 +27,8 @@ class AsnApp extends StatelessWidget {
     this.title = '',
     this.themeMode,
     this.debugShowCheckedModeBanner = false,
-    this.lightColors = AsnNewsprint.light,
-    this.darkColors = AsnNewsprint.dark,
+    this.lightColors = AsnColors.light,
+    this.darkColors = AsnColors.dark,
   });
 
   final Widget? home;
@@ -41,10 +41,10 @@ class AsnApp extends StatelessWidget {
   final ThemeMode? themeMode;
   final bool debugShowCheckedModeBanner;
 
-  /// Light mode colors. By default, "newsprint" Paper.
+  /// Light mode colors. By default, AtomSN Light.
   final AsnSemanticColors lightColors;
 
-  /// Dark mode colors. By default, "newsprint" Night Press.
+  /// Dark mode colors. By default, AtomSN Dark.
   final AsnSemanticColors darkColors;
 
   @override
@@ -76,8 +76,8 @@ class AsnThemeScopeBuilder extends StatelessWidget {
   const AsnThemeScopeBuilder({
     super.key,
     required this.child,
-    this.lightColors = AsnNewsprint.light,
-    this.darkColors = AsnNewsprint.dark,
+    this.lightColors = AsnColors.light,
+    this.darkColors = AsnColors.dark,
   });
 
   final Widget child;

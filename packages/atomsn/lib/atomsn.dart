@@ -1,5 +1,5 @@
 /// AtomSN — Flutter component library (atomic design + clean
-/// architecture) on top of shadcn_ui, with the "newsprint" editorial theme by default.
+/// architecture) on top of shadcn_ui, with the AtomSN theme by default.
 library;
 
 // Iconography: Hugeicons is the system's single icon library (strokeRounded
@@ -21,7 +21,7 @@ export 'theme/asn_color_scheme.dart';
 export 'theme/asn_text_theme.dart';
 export 'theme/asn_theme.dart';
 export 'theme/asn_theme_extension.dart';
-export 'theme/presets/newsprint_preset.dart';
+export 'theme/presets/atomsn_preset.dart';
 
 // Components (layer 2).
 export 'components/atoms/atoms.dart';

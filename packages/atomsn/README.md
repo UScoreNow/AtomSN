@@ -3,7 +3,7 @@
 A brand-neutral, themeable Flutter component library, organized by
 **atomic design** + **clean architecture**. It wraps the
 [`shadcn_ui`](https://pub.dev/packages/shadcn_ui) catalog and includes the
-**newsprint** editorial theme as the default preset.
+**AtomSN** editorial theme as the default preset.
 
 - **Primary source:** `shadcn_ui` (the only UI dependency).
 - **Gaps:** components that `shadcn_ui` does not offer are built as
@@ -17,7 +17,7 @@ Layers with an inward dependency rule (`foundations <- theme <- components`):
 ```
 lib/
 ├── foundations/   # layer 0, brand-agnostic: color, typography, spacing, radius, border
-├── theme/         # layer 1: ShadThemeData + AsnThemeScope + newsprint preset + AsnApp
+├── theme/         # layer 1: ShadThemeData + AsnThemeScope + AtomSN preset + AsnApp
 └── components/    # layer 2: atoms / molecules / organisms / templates
 ```
 
@@ -59,7 +59,7 @@ import 'package:flutter/material.dart' show ThemeMode;
 
 void main() => runApp(
   AsnApp(
-    themeMode: ThemeMode.system, // default: "newsprint" preset light/dark
+    themeMode: ThemeMode.system, // default: AtomSN preset light/dark
     home: const Home(),
   ),
 );
@@ -91,7 +91,7 @@ own to re-skin the library without touching the components:
 
 ```dart
 AsnApp(
-  lightColors: AsnNewsprint.light.copyWith(actionPrimary: const Color(0xFF1E66F5)),
+  lightColors: AsnColors.light.copyWith(actionPrimary: const Color(0xFF1E66F5)),
   home: const Home(),
 );
 ```
