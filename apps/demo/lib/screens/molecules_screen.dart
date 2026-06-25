@@ -17,6 +17,7 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
   List<String> _selectedTeams = const [];
   DateTime? _selectedDate;
   AsnTime? _selectedTime;
+  AsnTime? _selectedTimePeriod;
   List<String> _chips = const ['design', 'frontend'];
   String _phone = '+34';
   int _page = 1;
@@ -205,11 +206,11 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
             onChanged: (time) => setState(() => _selectedTime = time),
           ),
         ),
-        const DemoBlock(
-          title: 'AsnTimePickerField',
-          child: AsnTimePickerField(
-            label: Text('Start'),
-            placeholder: Text('HH'),
+        DemoBlock(
+          title: 'AsnTimePicker.period',
+          child: AsnTimePicker.period(
+            value: _selectedTimePeriod,
+            onChanged: (time) => setState(() => _selectedTimePeriod = time),
           ),
         ),
         DemoBlock(
