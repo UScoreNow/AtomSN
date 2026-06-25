@@ -191,8 +191,7 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           child: AsnBreadcrumb(
             items: [
               AsnBreadcrumbItem(label: const Text('Home'), onTap: () {}),
-              AsnBreadcrumbItem.dropdown(
-                trigger: const Text('…'),
+              AsnBreadcrumbItem.ellipsis(
                 menuItems: [
                   AsnBreadcrumbMenuItem(
                     label: const Text('Documentation'),
