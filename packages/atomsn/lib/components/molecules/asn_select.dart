@@ -19,11 +19,47 @@ Widget asnSelectTrailing(BuildContext context) => HugeIcon(
   color: ShadTheme.of(context).colorScheme.foreground.withValues(alpha: .5),
 );
 
+/// Builds the popover option widgets for a select.
+///
+/// Mirrors shadcn's search pattern: every option stays mounted and the ones
+/// that do not match [query] are hidden with [Offstage] (keeps focus stable as
+/// results change). When [searchable] is false [query] is ignored and the raw
+/// options are returned. A "no results" row is appended when nothing matches.
+List<Widget> _optionWidgets<T>(
+  List<AsnSelectOption<T>> options,
+  String query, {
+  required bool searchable,
+}) {
+  ShadOption<T> option(AsnSelectOption<T> o) =>
+      ShadOption<T>(value: o.value, child: Text(o.label));
+
+  if (!searchable) return [for (final o in options) option(o)];
+
+  final normalized = query.trim().toLowerCase();
+  final widgets = <Widget>[];
+  var anyVisible = false;
+  for (final o in options) {
+    final matches = o.label.toLowerCase().contains(normalized);
+    anyVisible |= matches;
+    widgets.add(Offstage(offstage: !matches, child: option(o)));
+  }
+  if (!anyVisible) {
+    widgets.add(
+      const Padding(
+        padding: EdgeInsets.symmetric(vertical: 16),
+        child: Text('No results', textAlign: TextAlign.center),
+      ),
+    );
+  }
+  return widgets;
+}
+
 /// Controlled single-value dropdown selector. Wraps `ShadSelect`.
 ///
-/// Use [AsnSelect.withSearch] to add a search field that reports its query
-/// through [onSearchChanged]; for multi-value selection see [AsnMultiSelect].
-class AsnSelect<T> extends StatelessWidget {
+/// Use [AsnSelect.withSearch] to add a search field that filters the options by
+/// their label as the user types (and also reports the query through
+/// [onSearchChanged]); for multi-value selection see [AsnMultiSelect].
+class AsnSelect<T> extends StatefulWidget {
   const AsnSelect({
     super.key,
     required this.options,
@@ -31,11 +67,12 @@ class AsnSelect<T> extends StatelessWidget {
     this.placeholder,
     this.onChanged,
     this.enabled = true,
-  }) : _searchable = false,
+  }) : searchable = false,
        onSearchChanged = null,
        searchPlaceholder = null;
 
-  /// Single-value selector with a search field at the top of the popover.
+  /// Single-value selector with a search field at the top of the popover that
+  /// filters the options by their label.
   const AsnSelect.withSearch({
     super.key,
     required this.options,
@@ -45,7 +82,7 @@ class AsnSelect<T> extends StatelessWidget {
     this.enabled = true,
     this.onSearchChanged,
     this.searchPlaceholder,
-  }) : _searchable = true;
+  }) : searchable = true;
 
   final List<AsnSelectOption<T>> options;
   final T? value;
@@ -54,17 +91,26 @@ class AsnSelect<T> extends StatelessWidget {
   final bool enabled;
 
   /// Called with the search query as the user types (only with [withSearch]).
+  /// The options are filtered internally regardless of this callback.
   final ValueChanged<String>? onSearchChanged;
   final String? searchPlaceholder;
 
-  final bool _searchable;
+  final bool searchable;
 
-  List<ShadOption<T>> _options() => options
-      .map((o) => ShadOption<T>(value: o.value, child: Text(o.label)))
-      .toList();
+  @override
+  State<AsnSelect<T>> createState() => _AsnSelectState<T>();
+}
+
+class _AsnSelectState<T> extends State<AsnSelect<T>> {
+  String _query = '';
+
+  void _onSearchChanged(String value) {
+    setState(() => _query = value);
+    widget.onSearchChanged?.call(value);
+  }
 
   Widget _selected(BuildContext context, T selected) {
-    for (final option in options) {
+    for (final option in widget.options) {
       if (option.value == selected) return Text(option.label);
     }
     return const SizedBox.shrink();
@@ -72,28 +118,36 @@ class AsnSelect<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (_searchable) {
+    final placeholder = widget.placeholder;
+    final options = _optionWidgets(
+      widget.options,
+      _query,
+      searchable: widget.searchable,
+    );
+
+    if (widget.searchable) {
+      final searchPlaceholder = widget.searchPlaceholder;
       return ShadSelect<T>.withSearch(
-        enabled: enabled,
-        initialValue: value,
-        placeholder: placeholder == null ? null : Text(placeholder!),
+        enabled: widget.enabled,
+        initialValue: widget.value,
+        placeholder: placeholder == null ? null : Text(placeholder),
         searchPlaceholder: searchPlaceholder == null
             ? null
-            : Text(searchPlaceholder!),
-        onChanged: onChanged,
-        onSearchChanged: onSearchChanged ?? (_) {},
+            : Text(searchPlaceholder),
+        onChanged: widget.onChanged,
+        onSearchChanged: _onSearchChanged,
         trailing: asnSelectTrailing(context),
-        options: _options(),
+        options: options,
         selectedOptionBuilder: _selected,
       );
     }
     return ShadSelect<T>(
-      enabled: enabled,
-      initialValue: value,
-      placeholder: placeholder == null ? null : Text(placeholder!),
-      onChanged: onChanged,
+      enabled: widget.enabled,
+      initialValue: widget.value,
+      placeholder: placeholder == null ? null : Text(placeholder),
+      onChanged: widget.onChanged,
       trailing: asnSelectTrailing(context),
-      options: _options(),
+      options: options,
       selectedOptionBuilder: _selected,
     );
   }
@@ -101,9 +155,10 @@ class AsnSelect<T> extends StatelessWidget {
 
 /// Controlled multi-value dropdown selector. Wraps `ShadSelect.multiple`.
 ///
-/// Use [AsnMultiSelect.withSearch] to add a search field reported through
-/// [onSearchChanged].
-class AsnMultiSelect<T> extends StatelessWidget {
+/// The popover stays open while picking (shadcn's multi-select behaviour). Use
+/// [AsnMultiSelect.withSearch] to add a search field that filters the options
+/// by their label (and reports the query through [onSearchChanged]).
+class AsnMultiSelect<T> extends StatefulWidget {
   const AsnMultiSelect({
     super.key,
     required this.options,
@@ -111,11 +166,12 @@ class AsnMultiSelect<T> extends StatelessWidget {
     this.placeholder,
     this.onChanged,
     this.enabled = true,
-  }) : _searchable = false,
+  }) : searchable = false,
        onSearchChanged = null,
        searchPlaceholder = null;
 
-  /// Multi-value selector with a search field at the top of the popover.
+  /// Multi-value selector with a search field at the top of the popover that
+  /// filters the options by their label.
   const AsnMultiSelect.withSearch({
     super.key,
     required this.options,
@@ -125,7 +181,7 @@ class AsnMultiSelect<T> extends StatelessWidget {
     this.enabled = true,
     this.onSearchChanged,
     this.searchPlaceholder,
-  }) : _searchable = true;
+  }) : searchable = true;
 
   final List<AsnSelectOption<T>> options;
   final List<T> values;
@@ -134,50 +190,70 @@ class AsnMultiSelect<T> extends StatelessWidget {
   final bool enabled;
 
   /// Called with the search query as the user types (only with [withSearch]).
+  /// The options are filtered internally regardless of this callback.
   final ValueChanged<String>? onSearchChanged;
   final String? searchPlaceholder;
 
-  final bool _searchable;
+  final bool searchable;
 
-  List<ShadOption<T>> _options() => options
-      .map((o) => ShadOption<T>(value: o.value, child: Text(o.label)))
-      .toList();
+  @override
+  State<AsnMultiSelect<T>> createState() => _AsnMultiSelectState<T>();
+}
+
+class _AsnMultiSelectState<T> extends State<AsnMultiSelect<T>> {
+  String _query = '';
+
+  void _onSearchChanged(String value) {
+    setState(() => _query = value);
+    widget.onSearchChanged?.call(value);
+  }
+
+  void Function(Set<T>)? get _onChanged => widget.onChanged == null
+      ? null
+      : (set) => widget.onChanged!(set.toList());
 
   Widget _selected(BuildContext context, List<T> selected) {
     final labels = <String>[];
-    for (final option in options) {
+    for (final option in widget.options) {
       if (selected.contains(option.value)) labels.add(option.label);
     }
     return Text(labels.join(', '));
   }
 
-  void Function(Set<T>)? get _onChanged =>
-      onChanged == null ? null : (set) => onChanged!(set.toList());
-
   @override
   Widget build(BuildContext context) {
-    if (_searchable) {
+    final placeholder = widget.placeholder;
+    final options = _optionWidgets(
+      widget.options,
+      _query,
+      searchable: widget.searchable,
+    );
+
+    if (widget.searchable) {
+      final searchPlaceholder = widget.searchPlaceholder;
       return ShadSelect<T>.multipleWithSearch(
-        enabled: enabled,
-        initialValues: values.toSet(),
-        placeholder: placeholder == null ? null : Text(placeholder!),
+        enabled: widget.enabled,
+        closeOnSelect: false,
+        initialValues: widget.values.toSet(),
+        placeholder: placeholder == null ? null : Text(placeholder),
         searchPlaceholder: searchPlaceholder == null
             ? null
-            : Text(searchPlaceholder!),
+            : Text(searchPlaceholder),
         onChanged: _onChanged,
-        onSearchChanged: onSearchChanged ?? (_) {},
+        onSearchChanged: _onSearchChanged,
         trailing: asnSelectTrailing(context),
-        options: _options(),
+        options: options,
         selectedOptionsBuilder: _selected,
       );
     }
     return ShadSelect<T>.multiple(
-      enabled: enabled,
-      initialValues: values.toSet(),
-      placeholder: placeholder == null ? null : Text(placeholder!),
+      enabled: widget.enabled,
+      closeOnSelect: false,
+      initialValues: widget.values.toSet(),
+      placeholder: placeholder == null ? null : Text(placeholder),
       onChanged: _onChanged,
       trailing: asnSelectTrailing(context),
-      options: _options(),
+      options: options,
       selectedOptionsBuilder: _selected,
     );
   }
