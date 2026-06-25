@@ -44,7 +44,7 @@ void main() {
     expect(find.text('/'), findsNWidgets(2));
   });
 
-  testWidgets('AsnBreadcrumb.dropdown renders a dropdown trigger', (
+  testWidgets('AsnBreadcrumb.dropdown shows a labelled trigger with a chevron', (
     tester,
   ) async {
     await tester.pumpWidget(
@@ -53,7 +53,7 @@ void main() {
           items: [
             AsnBreadcrumbItem(label: const Text('Home'), onTap: () {}),
             AsnBreadcrumbItem.dropdown(
-              trigger: const Text('…'),
+              trigger: const Text('Components'),
               menuItems: [
                 AsnBreadcrumbMenuItem(label: const Text('Themes'), onTap: () {}),
               ],
@@ -65,6 +65,38 @@ void main() {
     );
 
     expect(find.byType(shad.ShadBreadcrumbDropdown), findsOneWidget);
-    expect(find.text('…'), findsOneWidget);
+    expect(find.text('Components'), findsOneWidget);
+    expect(_chevron(), findsOneWidget);
+  });
+
+  testWidgets('AsnBreadcrumb.ellipsis with a menu hides the dropdown chevron', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        AsnBreadcrumb(
+          items: [
+            AsnBreadcrumbItem(label: const Text('Home'), onTap: () {}),
+            AsnBreadcrumbItem.ellipsis(
+              menuItems: [
+                AsnBreadcrumbMenuItem(label: const Text('Themes'), onTap: () {}),
+              ],
+            ),
+            const AsnBreadcrumbItem(label: Text('Breadcrumb')),
+          ],
+        ),
+      ),
+    );
+
+    // It opens a dropdown built around the ellipsis indicator, but the "…"
+    // must stand alone without the dropdown chevron next to it.
+    expect(find.byType(shad.ShadBreadcrumbDropdown), findsOneWidget);
+    expect(find.byType(shad.ShadBreadcrumbEllipsis), findsOneWidget);
+    expect(_chevron(), findsNothing);
   });
 }
+
+/// The dropdown chevron icon used by `ShadBreadcrumbDropdown`.
+Finder _chevron() => find.byWidgetPredicate(
+  (w) => w is HugeIcon && w.icon == HugeIcons.strokeRoundedArrowDown01,
+);
