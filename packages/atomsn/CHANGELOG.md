@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.0](https://github.com/UScoreNow/atom-sn-flutter/compare/0.1.0...1.0.0) (2026-06-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* the public class `AsnNewsprint` is renamed to `AsnColors` and `AsnNewsprintPalette` to `AsnPalette`; the preset file `theme/presets/newsprint_preset.dart` is renamed to `atomsn_preset.dart`. Update imports and references accordingly.
+
+### Features
+
+* cobertura completa del fork shadcn en atomsn ([bc4405c](https://github.com/UScoreNow/atom-sn-flutter/commit/bc4405c049ad7924afba8e88394696d546f0a18f))
+* **components:** wrap remaining shadcn fork widgets ([e70c71b](https://github.com/UScoreNow/atom-sn-flutter/commit/e70c71b8073a6e41891a208e173035d8add0482b))
+* **demo:** showcase and test the new shadcn wrappers ([958415b](https://github.com/UScoreNow/atom-sn-flutter/commit/958415bcb79815310651bb9c0086c3ae79e761cd))
+
+
+### Code Refactoring
+
+* rename editorial theme "newsprint" to AtomSN ([69d1a11](https://github.com/UScoreNow/atom-sn-flutter/commit/69d1a11b87f1fa862f7074dfb62f15692096f402))
+
 ## [0.1.0](https://github.com/UScoreNow/atom-sn/compare/0.0.1...0.1.0) (2026-06-24)
 
 
