@@ -13,6 +13,7 @@ class MoleculesScreen extends StatefulWidget {
 
 class _MoleculesScreenState extends State<MoleculesScreen> {
   String? _selectedTeam;
+  String? _searchedTeam;
   List<String> _selectedTeams = const [];
   DateTime? _selectedDate;
   AsnTime? _selectedTime;
@@ -55,11 +56,11 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
         DemoBlock(
           title: 'AsnSelect.withSearch',
           child: AsnSelect<String>.withSearch(
-            value: _selectedTeam,
+            value: _searchedTeam,
             placeholder: 'Search a team',
             searchPlaceholder: 'Type to filter...',
             options: _teamOptions,
-            onChanged: (value) => setState(() => _selectedTeam = value),
+            onChanged: (value) => setState(() => _searchedTeam = value),
           ),
         ),
         DemoBlock(
