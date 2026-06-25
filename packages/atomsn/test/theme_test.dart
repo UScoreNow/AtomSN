@@ -4,25 +4,25 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
 
-  test('newsprint preset respects the system hard rules', () {
+  test('AtomSN preset respects the system hard rules', () {
     // No pure black or white.
     const forbidden = [Color(0xFF000000), Color(0xFFFFFFFF)];
-    for (final c in [AsnNewsprint.light, AsnNewsprint.dark]) {
+    for (final c in [AsnColors.light, AsnColors.dark]) {
       expect(forbidden.contains(c.bgBase), isFalse);
       expect(forbidden.contains(c.textPrimary), isFalse);
     }
     // Correct brightnesses.
-    expect(AsnNewsprint.light.brightness, Brightness.light);
-    expect(AsnNewsprint.dark.brightness, Brightness.dark);
+    expect(AsnColors.light.brightness, Brightness.light);
+    expect(AsnColors.dark.brightness, Brightness.dark);
   });
 
   test('AsnColorScheme derives ShadColorScheme from the semantic roles', () {
-    final scheme = AsnColorScheme.fromSemantic(AsnNewsprint.light);
-    expect(scheme.background, AsnNewsprint.light.bgBase);
-    expect(scheme.primary, AsnNewsprint.light.actionPrimary);
+    final scheme = AsnColorScheme.fromSemantic(AsnColors.light);
+    expect(scheme.background, AsnColors.light.bgBase);
+    expect(scheme.primary, AsnColors.light.actionPrimary);
     // Extra editorial roles travel in the custom map.
-    expect(scheme.custom['link'], AsnNewsprint.light.link);
-    expect(scheme.custom['warning'], AsnNewsprint.light.statusWarning);
+    expect(scheme.custom['link'], AsnColors.light.link);
+    expect(scheme.custom['warning'], AsnColors.light.statusWarning);
   });
 
   testWidgets('AsnTheme.of returns the active mode colors under AsnApp', (
@@ -40,7 +40,7 @@ void main() {
       ),
     );
     expect(seen.brightness, Brightness.light);
-    expect(seen.bgBase, AsnNewsprint.light.bgBase);
+    expect(seen.bgBase, AsnColors.light.bgBase);
   });
 
   testWidgets('Plain text inherits the ElmsSans family from the theme', (

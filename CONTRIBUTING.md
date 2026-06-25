@@ -15,7 +15,7 @@ CI green; no direct pushes to `main` or `dev`.
 | `update/*`  | Dependencies, configuration, chores | No       | PR to `dev`                   |
 
 Working branches are named `type/descriptive-name`, for example
-`feature/date-picker` or `fix/newsprint-contrast`.
+`feature/date-picker` or `fix/contrast-ratio`.
 
 ## Lifecycle of a change
 

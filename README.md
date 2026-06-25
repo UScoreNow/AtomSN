@@ -2,7 +2,7 @@
 
 A brand-neutral, themeable Flutter design system, organized by **atomic
 design** + **clean architecture** on top of [`shadcn_ui`](https://pub.dev/packages/shadcn_ui),
-with the **newsprint** editorial theme by default.
+with the **AtomSN** theme by default.
 
 **Live demo:** https://uscorenow.github.io/atom-sn/
 

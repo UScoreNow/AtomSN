@@ -92,7 +92,7 @@ void main() {
     final body = tester.widget<Text>(find.text('Body'));
     // The headline is larger than the body and both carry the theme color.
     expect(h1.style!.fontSize! > body.style!.fontSize!, isTrue);
-    expect(h1.style!.color, AsnNewsprint.light.textPrimary);
+    expect(h1.style!.color, AsnColors.light.textPrimary);
   });
 
   testWidgets('AsnText.link invokes onTap', (tester) async {
@@ -102,5 +102,41 @@ void main() {
     );
     await tester.tap(find.text('Open'));
     expect(taps, 1);
+  });
+
+  testWidgets('AsnRadioGroup reports the selected value', (tester) async {
+    String? selected;
+    await tester.pumpWidget(
+      _host(
+        AsnRadioGroup<String>(
+          onChanged: (v) => selected = v,
+          options: const [
+            AsnRadioOption(value: 'a', label: Text('A')),
+            AsnRadioOption(value: 'b', label: Text('B')),
+          ],
+        ),
+      ),
+    );
+    await tester.tap(find.text('B'));
+    expect(selected, 'b');
+  });
+
+  testWidgets('AsnProgress factories pick determinate vs indeterminate', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        const Column(
+          children: [
+            AsnProgress.determinate(0.5),
+            AsnProgress.indeterminate(),
+          ],
+        ),
+      ),
+    );
+    final bars = tester.widgetList<shad.ShadProgress>(
+      find.byType(shad.ShadProgress),
+    );
+    expect(bars.map((b) => b.value), [0.5, null]);
   });
 }

@@ -2,7 +2,7 @@
 
 Demo app for [`atomsn`](../../packages/atomsn): shows all
 components (atoms, molecules, organisms, templates) live, with a theme toggle
-light ("Paper") / dark ("Night Press").
+light ("AtomSN Light") / dark ("AtomSN Dark").
 
 **Live demo:** https://uscorenow.github.io/atom-sn/
 
