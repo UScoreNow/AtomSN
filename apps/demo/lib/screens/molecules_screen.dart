@@ -161,30 +161,62 @@ class _MoleculesScreenState extends State<MoleculesScreen> {
           child: AsnBreadcrumb(
             items: [
               AsnBreadcrumbItem(label: const Text('Home'), onTap: () {}),
-              AsnBreadcrumbItem(label: const Text('Projects'), onTap: () {}),
-              const AsnBreadcrumbItem(label: Text('Detail')),
-            ],
-          ),
-        ),
-        DemoBlock(
-          title: 'AsnBreadcrumb — collapsed',
-          child: AsnBreadcrumb(
-            items: [
-              AsnBreadcrumbItem(label: const Text('Home'), onTap: () {}),
               AsnBreadcrumbItem.dropdown(
                 trigger: const Text('…'),
                 menuItems: [
                   AsnBreadcrumbMenuItem(
-                    label: const Text('Workspace'),
+                    label: const Text('Documentation'),
                     onTap: () {},
                   ),
                   AsnBreadcrumbMenuItem(
-                    label: const Text('Projects'),
+                    label: const Text('Themes'),
+                    onTap: () {},
+                  ),
+                  AsnBreadcrumbMenuItem(
+                    label: const Text('GitHub'),
                     onTap: () {},
                   ),
                 ],
               ),
-              const AsnBreadcrumbItem(label: Text('Detail')),
+              AsnBreadcrumbItem(label: const Text('Components'), onTap: () {}),
+              const AsnBreadcrumbItem(label: Text('Breadcrumb')),
+            ],
+          ),
+        ),
+        DemoBlock(
+          title: 'AsnBreadcrumb — custom separator',
+          child: AsnBreadcrumb(
+            separator: const Text('/'),
+            items: [
+              AsnBreadcrumbItem(label: const Text('Home'), onTap: () {}),
+              AsnBreadcrumbItem(label: const Text('Components'), onTap: () {}),
+              const AsnBreadcrumbItem(label: Text('Breadcrumb')),
+            ],
+          ),
+        ),
+        DemoBlock(
+          title: 'AsnBreadcrumb — dropdown',
+          child: AsnBreadcrumb(
+            items: [
+              AsnBreadcrumbItem(label: const Text('Home'), onTap: () {}),
+              AsnBreadcrumbItem.dropdown(
+                trigger: const Text('Components'),
+                menuItems: [
+                  AsnBreadcrumbMenuItem(
+                    label: const Text('Documentation'),
+                    onTap: () {},
+                  ),
+                  AsnBreadcrumbMenuItem(
+                    label: const Text('Themes'),
+                    onTap: () {},
+                  ),
+                  AsnBreadcrumbMenuItem(
+                    label: const Text('GitHub'),
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              const AsnBreadcrumbItem(label: Text('Breadcrumb')),
             ],
           ),
         ),
