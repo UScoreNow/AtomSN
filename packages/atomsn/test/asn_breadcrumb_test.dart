@@ -94,9 +94,51 @@ void main() {
     expect(find.byType(shad.ShadBreadcrumbEllipsis), findsOneWidget);
     expect(_chevron(), findsNothing);
   });
+
+  testWidgets('dropdown menu items nest with a concentric sm radius', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        AsnBreadcrumb(
+          items: [
+            AsnBreadcrumbItem(label: const Text('Home'), onTap: () {}),
+            AsnBreadcrumbItem.dropdown(
+              trigger: const Text('Components'),
+              menuItems: [
+                AsnBreadcrumbMenuItem(label: const Text('Docs'), onTap: () {}),
+                AsnBreadcrumbMenuItem(label: const Text('Themes'), onTap: () {}),
+              ],
+            ),
+            const AsnBreadcrumbItem(label: Text('End')),
+          ],
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('Components'));
+    await tester.pumpAndSettle();
+
+    // Items must round to sm (8), not the md (12) of the menu they sit in.
+    expect(_highlightRadius(tester, 'Docs'), AsnRadius.brSm);
+    expect(_highlightRadius(tester, 'Themes'), AsnRadius.brSm);
+  });
 }
 
 /// The dropdown chevron icon used by `ShadBreadcrumbDropdown`.
 Finder _chevron() => find.byWidgetPredicate(
   (w) => w is HugeIcon && w.icon == HugeIcons.strokeRoundedArrowDown01,
 );
+
+/// Closest rounded `DecoratedBox` ancestor radius of the widget showing [label].
+BorderRadius? _highlightRadius(WidgetTester tester, String label) {
+  for (final box in tester.widgetList<DecoratedBox>(
+    find.ancestor(of: find.text(label), matching: find.byType(DecoratedBox)),
+  )) {
+    final decoration = box.decoration;
+    if (decoration is BoxDecoration && decoration.borderRadius != null) {
+      return decoration.borderRadius as BorderRadius?;
+    }
+  }
+  return null;
+}

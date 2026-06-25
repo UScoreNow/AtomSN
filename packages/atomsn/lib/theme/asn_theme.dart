@@ -62,11 +62,9 @@ abstract final class AsnTheme {
       // options padding, so their own radius must drop to sm (12 - 4 = 8) to
       // stay concentric; otherwise the square-ish corners poke out.
       optionTheme: const ShadOptionTheme(radius: AsnRadius.brSm),
-      // The dropdown/context menu ships with vertical-only padding, so items
-      // touched the rounded sides. Add 4px all around and the matching sm
-      // radius so the item highlight nests concentrically in the menu.
+      // Items defaulted their highlight radius to the menu radius (md, 12), so
+      // their corners poked out. Drop them to sm (8) to nest inside the menu.
       contextMenuTheme: ShadContextMenuTheme(
-        padding: const EdgeInsets.all(4),
         itemDecoration: ShadDecoration(
           border: ShadBorder.all(radius: AsnRadius.brSm, width: 0),
         ),
