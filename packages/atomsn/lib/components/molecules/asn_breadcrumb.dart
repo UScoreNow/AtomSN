@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../foundations/radius/asn_radius.dart';
+
 /// Entry of an [AsnBreadcrumb] dropdown menu. Own model (no `Shad*` leak).
 @immutable
 class AsnBreadcrumbMenuItem {
@@ -95,9 +97,25 @@ class AsnBreadcrumb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShadBreadcrumb(
-      separator: separator,
-      children: items.map((item) => item._build()).toList(),
+    final theme = ShadTheme.of(context);
+    final ghost = theme.ghostButtonTheme;
+    // The dropdown menu items are ghost ShadButtons whose corner radius (and
+    // there is no breadcrumb-theme hook for it) defaults to the menu radius
+    // (md), so they did not nest in the rounded menu. Drop the ghost radius to
+    // sm just for this subtree (and its popover); links have no fill, so they
+    // are unaffected.
+    return ShadTheme(
+      data: theme.copyWith(
+        ghostButtonTheme: ghost.copyWith(
+          decoration: (ghost.decoration ?? const ShadDecoration()).merge(
+            ShadDecoration(border: ShadBorder.all(radius: AsnRadius.brSm, width: 0)),
+          ),
+        ),
+      ),
+      child: ShadBreadcrumb(
+        separator: separator,
+        children: items.map((item) => item._build()).toList(),
+      ),
     );
   }
 }
