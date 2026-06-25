@@ -25,6 +25,15 @@ void main() {
     expect(scheme.custom['warning'], AsnColors.light.statusWarning);
   });
 
+  test('Dropdown menu items nest with a concentric sm radius', () {
+    final theme = AsnTheme.buildTheme(AsnColors.light);
+    // Options inside a md (12) popover with 4px padding need an sm (8) radius.
+    expect(theme.optionTheme.radius, AsnRadius.brSm);
+    // The context menu gains all-around padding plus the matching sm radius.
+    expect(theme.contextMenuTheme.padding, const EdgeInsets.all(4));
+    expect(theme.contextMenuTheme.itemDecoration?.border?.radius, AsnRadius.brSm);
+  });
+
   testWidgets('AsnTheme.of returns the active mode colors under AsnApp', (
     tester,
   ) async {
