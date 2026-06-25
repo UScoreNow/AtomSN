@@ -85,7 +85,7 @@ class _DemoHomeState extends State<_DemoHome> {
                     variant: AsnButtonVariant.outline,
                     onPressed: widget.onToggleMode,
                     child: Text(
-                      widget.mode == ThemeMode.light ? 'Night Press' : 'Paper',
+                      widget.mode == ThemeMode.light ? 'AtomSN Dark' : 'AtomSN Light',
                     ),
                   ),
                 ],

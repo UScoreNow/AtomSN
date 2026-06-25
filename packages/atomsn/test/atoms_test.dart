@@ -92,7 +92,7 @@ void main() {
     final body = tester.widget<Text>(find.text('Body'));
     // The headline is larger than the body and both carry the theme color.
     expect(h1.style!.fontSize! > body.style!.fontSize!, isTrue);
-    expect(h1.style!.color, AsnNewsprint.light.textPrimary);
+    expect(h1.style!.color, AsnColors.light.textPrimary);
   });
 
   testWidgets('AsnText.link invokes onTap', (tester) async {

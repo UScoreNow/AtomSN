@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 /// Semantic color roles resolved per mode (light / dark).
 ///
 /// Brand-agnostic foundational layer: defines the *shape* of the color system,
-/// not concrete values. Each theme/preset (e.g. `newsprint`) provides an
+/// not concrete values. Each theme/preset (e.g. `AtomSN`) provides an
 /// instance for light and another for dark.
 ///
 /// Components consume these roles via `AsnTheme.of(context)`, never a raw
